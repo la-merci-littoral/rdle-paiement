@@ -1,6 +1,6 @@
 <?php
 
-
+    include('./paiement-process.php');
     
 ?>
 
