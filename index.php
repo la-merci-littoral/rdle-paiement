@@ -1,6 +1,7 @@
 <?php
 
     include('./paiement-process.php');
+    // echo "Hello";
     
 ?>
 
@@ -18,6 +19,8 @@
 
     <link rel="stylesheet" href="style.css">
     <script src="app.js"></script>
+    <script src="checkout.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
 
     <link rel="shortcut icon" href="../../main/img/LRDE-logo.png" type="image/x-icon"> <!-- To change href when merging -->
 
@@ -25,6 +28,20 @@
 </head>
 <body>
 
+    <form action="" id="payment-form">
+
+        <div id="link-authentication-element"></div>
+        <div id="payment-element"></div>
+
+        <button id="submit">
+            <div class="spinner hidden" id="spinner"></div>
+            <span id="button-text">Pay now</span>
+        </button>
+
+        <div id="payment-message" class="hidden"></div>
+
+
+    </form>
 
     
 </body>
