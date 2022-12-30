@@ -25,7 +25,7 @@
             'clientSecret' => $paymentIntent->client_secret,
         ];
 
-        // echo json_encode($output);
+        echo json_encode($output);
 
     } catch (Error $e) {
         http_response_code(500);
