@@ -15,7 +15,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
-    <script src=""></script>
+    <script src="app.js"></script>
+
+    <link rel="shortcut icon" href="../../main/img/LRDE-logo.png" type="image/x-icon"> <!-- To change href when merging -->
 
     <title>La Ronde de l'Espoir</title>
 </head>
