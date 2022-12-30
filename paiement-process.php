@@ -1,6 +1,6 @@
 <?php
 
-    require 'vendor/autoload.php';
+    require('vendor/autoload.php');
 
     // This is your test secret API key.
     \Stripe\Stripe::setApiKey('sk_test_51MKmfEHCHeIMvgvqTXYVUyZtuajFO0A5lBUjiULs41kScCE0yu9KVfMsBoCRYsCXiDWJKJvEAMNTj7LACNMrfyPG00ltgg5Vqo');

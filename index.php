@@ -1,6 +1,5 @@
 <?php
 
-    include('./paiement-process.php');
     // echo "Hello";
     
 ?>
