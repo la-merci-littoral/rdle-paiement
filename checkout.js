@@ -5,17 +5,21 @@ let elements;
 initialize();
 checkStatus();
 
-document.querySelector("#payment-form").addEventListener("submit", handleSubmit);
+document
+    .querySelector("#payment-form")
+    .addEventListener("submit", handleSubmit);
 
 
 var emailAddress = '';
 // Fetches a payment intent and captures the client secret
 async function initialize() {
-    const { clientSecret } = await fetch("/create.php", {
+    const { clientSecret } = await fetch("./paiement-process.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items }),
+        // body: JSON.stringify({ items }),
     }).then((r) => r.json());
+
+    console.log(clientSecret);
   
     elements = stripe.elements({ clientSecret });
   
@@ -39,7 +43,7 @@ async function handleSubmit(e) {
         elements,
         confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "./success.html",
+        return_url: "http://localhost/paiement/success.html",
         receipt_email: emailAddress,
         },
     });
@@ -78,5 +82,33 @@ async function checkStatus() {
         default:
             showMessage("Something went wrong.");
             break;
+    }
+}
+
+
+
+function showMessage(messageText) {
+    const messageContainer = document.querySelector("#payment-message");
+
+    messageContainer.classList.remove("hidden");
+    messageContainer.textContent = messageText;
+
+    setTimeout(function () {
+        messageContainer.classList.add("hidden");
+        messageText.textContent = "";
+    }, 4000);
+}
+
+// Show a spinner on payment submission
+function setLoading(isLoading) {
+    if (isLoading) {
+        // Disable the button and show a spinner
+        document.querySelector("#submit").disabled = true;
+        document.querySelector("#spinner").classList.remove("hidden");
+        document.querySelector("#button-text").classList.add("hidden");
+    } else {
+        document.querySelector("#submit").disabled = false;
+        document.querySelector("#spinner").classList.add("hidden");
+        document.querySelector("#button-text").classList.remove("hidden");
     }
 }
