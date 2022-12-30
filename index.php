@@ -17,9 +17,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
-    <script src="app.js"></script>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="checkout.js"></script>
+    <script defer src="app.js"></script>
+    <script defer src="https://js.stripe.com/v3/"></script>
+    <script defer src="checkout.js"></script>
 
     <link rel="shortcut icon" href="../../main/img/LRDE-logo.png" type="image/x-icon"> <!-- To change href when merging -->
 
@@ -27,7 +27,7 @@
 </head>
 <body>
 
-    <form action="" id="payment-form">
+    <form id="payment-form">
 
         <div id="link-authentication-element"></div>
         <div id="payment-element"></div>
