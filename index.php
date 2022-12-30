@@ -1,5 +1,5 @@
 <?php
-    echo "hello";
+    
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@
 </head>
 <body>
 
-    
+
     
 </body>
 </html>
