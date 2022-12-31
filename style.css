@@ -7,6 +7,12 @@
 } */
 
 /* Variables */
+
+:root {
+    --soft-white: #E5E9EC;
+    --LM-color: #0099D7;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -15,6 +21,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
+    background-color: var(--soft-white);
     display: flex;
     justify-content: center;
     align-content: center;

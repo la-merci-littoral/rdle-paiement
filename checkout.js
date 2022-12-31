@@ -19,7 +19,7 @@ async function initialize() {
         // body: JSON.stringify({ items }),
     }).then((r) => r.json());
 
-    console.log(clientSecret);
+    // console.log(clientSecret);
   
     elements = stripe.elements({ clientSecret });
   
@@ -43,7 +43,7 @@ async function handleSubmit(e) {
         elements,
         confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost/paiement/success.html",
+        return_url: "http://localhost/main/success",
         receipt_email: emailAddress,
         },
     });
