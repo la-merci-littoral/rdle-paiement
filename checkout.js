@@ -14,14 +14,16 @@ document
 var emailAddress = '';
 // Fetches a payment intent and captures the client secret
 async function initialize() {
-    const { clientSecret } = await fetch("./paiement-process.php", {
+    console.log("Initializing...");
+    
+    const { clientSecret } = await fetch("paiement-process.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         // body: JSON.stringify({ items }),
     }).then((r) => r.json());
-
-    console.log("Initializing...");
-  
+    
+    console.log("Working...");
+    
     elements = stripe.elements({ clientSecret });
   
     const linkAuthenticationElement = elements.create("linkAuthentication");
