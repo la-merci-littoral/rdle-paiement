@@ -2,6 +2,7 @@ const stripe = Stripe("pk_test_51MKmfEHCHeIMvgvqmuHVGLTmz16ZSgGZqVTqkZFVFULWIZfA
 
 let elements;
 
+
 initialize();
 checkStatus();
 
@@ -19,7 +20,7 @@ async function initialize() {
         // body: JSON.stringify({ items }),
     }).then((r) => r.json());
 
-    // console.log(clientSecret);
+    console.log("Initializing...");
   
     elements = stripe.elements({ clientSecret });
   
@@ -32,6 +33,7 @@ async function initialize() {
   
     const paymentElement = elements.create("payment", paymentElementOptions);
     paymentElement.mount("#payment-element");
+    console.log("Did it though ?");
 }
 
 async function handleSubmit(e) {
@@ -43,7 +45,7 @@ async function handleSubmit(e) {
         elements,
         confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost/main/success",
+        return_url: "https://ronde-de-l-espoir.fr/main",
         receipt_email: emailAddress,
         },
     });
