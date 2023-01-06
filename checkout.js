@@ -14,15 +14,12 @@ document
 var emailAddress = '';
 // Fetches a payment intent and captures the client secret
 async function initialize() {
-    console.log("Initializing...");
     
     const { clientSecret } = await fetch("paiement-process.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         // body: JSON.stringify({ items }),
     }).then((r) => r.json());
-    
-    console.log("Working...");
     
     elements = stripe.elements({ clientSecret });
   
@@ -35,7 +32,6 @@ async function initialize() {
   
     const paymentElement = elements.create("payment", paymentElementOptions);
     paymentElement.mount("#payment-element");
-    console.log("Did it though ?");
 }
 
 async function handleSubmit(e) {

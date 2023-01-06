@@ -12,8 +12,6 @@
     header('Content-Type: application/json');
 
     try {
-        // $jsonStr = file_get_contents('php://input');
-        // $jsonObj = json_decode($jsonStr);
 
         // Create a PaymentIntent with amount and currency
         $paymentIntent = \Stripe\PaymentIntent::create([
@@ -32,7 +30,7 @@
 
     } catch (Error $e) {
         http_response_code(500);
-        echo json_encode(['error' => $e->getMessage()]);
+        echo json_encode($e->getMessage());
     }
 
 ?>
