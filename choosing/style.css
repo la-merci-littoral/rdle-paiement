@@ -42,6 +42,12 @@ main .material-symbols-outlined {
   'opsz' 48;
   color: darkgray;
   margin: 40px;
+  transition: 150ms ease-out;
+}
+
+main .material-symbols-outlined:hover {
+    transform: translateX(10px);
+    transition: 150ms ease-out;
 }
 
 ul {
