@@ -18,9 +18,26 @@
 <body>
 
     <?php
-    $page = "choosing";
-    require('../modules/nav.php');
+        $page = "choosing";
+        require('../modules/nav.php');
     ?>
+
+    <main>
+        <ul>
+            <li id="individual">
+                <p> Je participe <span class="highlight">maintenant</span>!</p>
+                <div><a class="material-symbols-outlined" href="#">arrow_forward_ios </a></div>
+            </li>
+            <li id="individual anonymous">
+                <p> Je souhaite participer <span class="highlight">anonymement</span>.</p>
+                <div><a class="material-symbols-outlined" href="#">arrow_forward_ios </a></div>
+            </li>
+            <li id="company">
+                <p> Participer en tant qu'<span class="highlight">entreprise</span>.</p>
+                <div><a class="material-symbols-outlined" href="#">arrow_forward_ios </a></div>
+            </li>
+        </ul>
+    </main>
 
 
 </body>
