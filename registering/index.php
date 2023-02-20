@@ -33,7 +33,9 @@
     </header>
     
     <main>
-        
+
+        <form action="index.php" method="POST"></form>
+
     </main>
     
 </body>
