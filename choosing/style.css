@@ -72,3 +72,10 @@ li p {
     padding: 40px;
     font-size: 1.3rem;
 }
+
+.highlight {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: 'Space Mono', monospace;
+}
