@@ -40,7 +40,53 @@
     
     <main>
 
-        <form action="../index.php" method="POST"></form>
+        <form action="../index.php" method="POST">
+
+            <div class="column-wrapper">
+
+                <div class="column">
+
+                    <div class="field">
+                        <label for="fname" id="firstLabel">Nom :</label>
+                        <input type="text" name="lname" placeholder="Entrez votre prénom ici">
+                    </div>
+                    
+                    <div class="field">
+                        <label for="lname">Prénom :</label>
+                        <input type="text" name="fname" placeholder="Entrez votre prénom ici">
+                    </div>
+                    
+                    <div class="field">
+                        <label for="fname">Code Postal :</label>
+                        <input type="number" name="code_postal" placeholder="30000" min="1" max="99999">
+                    </div>
+                    
+                    <div class="field">
+                        <label for="city">Ville :</label>
+                        <input type="text" name="city" placeholder="Entrez le nom de votre ville ici">
+                    </div>
+                    
+                    <div class="field">
+                        <label for="email">Email :</label>
+                        <input type="email" name="email" placeholder="Rentrez votre email ici">
+                    </div>
+
+                </div>
+
+                <div class="separator"></div>
+                <div class="column">
+
+                    <input type="submit" name="anonymous" value="Continuer anonymement" class="anonyme-button">
+                    <input type="submit" name="submit" value="Continuer" class="submit-button">
+                </div>
+            </div>
+
+            <!-- <div class="submit-wrapper">
+                <input type="submit" name="anonymous" value="Continuer anonymement" class="anonyme-button">
+                <input type="submit" name="submit" value="Continuer" class="submit-button">
+            </div> -->
+            
+        </form>
 
     </main>
     
