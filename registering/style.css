@@ -130,6 +130,10 @@ input:focus {
     transition: 300ms ease-in-out;
 }
 
+.submit-column {
+    justify-content: end;
+}
+
 .submit-button {
     font-size: 1.5rem;
     background-color: #0099D7;

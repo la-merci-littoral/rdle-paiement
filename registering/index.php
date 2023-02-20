@@ -80,11 +80,10 @@
                 
                 <div class="separator"></div>
                 
-                <div class="column">
+                <div class="column submit-column">
                     
-                    <div class="submit-field">
-                        <input type="submit" name="submit" value="Continuer" class="submit-button">
-                    </div>
+                    <!-- <button class="border-button">Retour</button> -->
+                    <input type="submit" name="submit" value="Continuer" class="submit-button">
 
                 </div>
             </div>
