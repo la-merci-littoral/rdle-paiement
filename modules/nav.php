@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="nav-style.css">
+<link rel="stylesheet" href="../modules/nav-style.css">
 <header>
     <div class="header-wrapper">
         
