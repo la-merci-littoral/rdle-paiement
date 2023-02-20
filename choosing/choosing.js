@@ -47,14 +47,9 @@ document.querySelectorAll('.highlight').forEach(element => {
                 })
                 .join("");
 
-                const colorId = Math.floor(Math.random() * 30);
-                console.log(colorId);
-                const color = colors[colorId];
-                event.target.style.color = color;
-
                 if (iterations >= event.target.dataset.value.length) clearInterval(interval);
 
-                iterations += 1;
+                iterations += 1/3;
         }, 30)
     }
 })
