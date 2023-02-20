@@ -1,6 +1,8 @@
 <?php
 
-    // echo "Hello";
+    if (isset($_POST['submit'])) {
+        echo "Well hello there";
+    }
     
 ?>
 
