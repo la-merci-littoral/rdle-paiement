@@ -47,7 +47,7 @@
                 <div class="column">
 
                     <div class="field">
-                        <label for="fname" id="firstLabel">Nom :</label>
+                        <label for="fname">Nom :</label>
                         <input type="text" name="lname" placeholder="Entrez votre prénom ici">
                     </div>
                     
@@ -68,27 +68,16 @@
                     
                     <div class="field">
                         <label for="email">Email :</label>
-                        <input type="email" name="email" placeholder="Rentrez votre email ici">
+                        <input type="email" name="email" placeholder="Entrez votre email ici">
                     </div>
-
-                </div>
-
-                <div class="separator"></div>
-
-                <div class="column">
-
-                    <div class="submit-field">
-                        <input type="submit" name="anonymous" value="Continuer anonymement" class="anonyme-button">
-                        <input type="submit" name="submit" value="Continuer" class="submit-button">
+                    
+                    <div class="field">
+                        <label for="phone">Numéro de téléphone :</label>
+                        <input type="tel" name="phone" placeholder="01 23 45 67 89" maxlength="14">
                     </div>
                     
                 </div>
             </div>
-
-            <!-- <div class="submit-wrapper">
-                <input type="submit" name="anonymous" value="Continuer anonymement" class="anonyme-button">
-                <input type="submit" name="submit" value="Continuer" class="submit-button">
-            </div> -->
             
         </form>
 
