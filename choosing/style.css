@@ -1,0 +1,18 @@
+:root {
+    --soft-white: #E5E9EC;
+    --LM-color: #0099D7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html, body {
+    background-color: var(--soft-white);
+    height: 100%;
+    width: 100%;
+}

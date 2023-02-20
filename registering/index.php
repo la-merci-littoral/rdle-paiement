@@ -19,7 +19,10 @@
 </head>
 <body>
 
-    <?php require('../modules/nav.php') ?>
+    <?php 
+        $page = "registering";
+        require('../modules/nav.php') 
+    ?>
     
     <main>
 
