@@ -23,7 +23,7 @@
     <!-- <script defer src="app.js"></script> -->
     <script defer src="checkout.js"></script>
 
-    <link rel="shortcut icon" href="../../main/img/LRDE-logo.png" type="image/x-icon"> <!-- To change href when merging -->
+    <link rel="shortcut icon" href="../main/img/LRDE-logo.png" type="image/x-icon"> <!-- To change href when merging -->
 
     <title>La Ronde de l'Espoir</title>
 </head>
