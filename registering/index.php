@@ -74,10 +74,14 @@
                 </div>
 
                 <div class="separator"></div>
+
                 <div class="column">
 
-                    <input type="submit" name="anonymous" value="Continuer anonymement" class="anonyme-button">
-                    <input type="submit" name="submit" value="Continuer" class="submit-button">
+                    <div class="submit-field">
+                        <input type="submit" name="anonymous" value="Continuer anonymement" class="anonyme-button">
+                        <input type="submit" name="submit" value="Continuer" class="submit-button">
+                    </div>
+                    
                 </div>
             </div>
 
