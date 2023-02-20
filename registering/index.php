@@ -1,3 +1,9 @@
+<?php
+
+    require('./tempo_db.php')
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +40,7 @@
     
     <main>
 
-        <form action="index.php" method="POST"></form>
+        <form action="../index.php" method="POST"></form>
 
     </main>
     
