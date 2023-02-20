@@ -77,7 +77,22 @@
                     </div>
                     
                 </div>
+                
+                <div class="separator"></div>
+                
+                <div class="column">
+                    
+                    <div class="submit-field">
+                        <input type="submit" name="submit" value="Continuer" class="submit-button">
+                    </div>
+
+                </div>
             </div>
+
+            <!-- <div class="submit-wrapper">
+                <input type="submit" name="anonymous" value="Continuer anonymement" class="anonyme-button">
+                <input type="submit" name="submit" value="Continuer" class="submit-button">
+            </div> -->
             
         </form>
 

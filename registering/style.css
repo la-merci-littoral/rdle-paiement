@@ -130,19 +130,6 @@ input:focus {
     transition: 300ms ease-in-out;
 }
 
-.submit-field {
-    display: flex;
-    flex-direction: column;
-}
-
-.submit-wrapper {
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .submit-button {
     font-size: 1.5rem;
     background-color: #0099D7;
