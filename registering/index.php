@@ -2,6 +2,9 @@
     session_start();
 
     require('../config/tempo_db.php');
+    // if (isset($_SESSION['lname'])) {
+    //     echo $_SESSION['lname'];
+    // }
 
     $lname = isset($_SESSION['lname']) ? $_SESSION['lname'] : "";
     $fname = isset($_SESSION['fname']) ? $_SESSION['fname'] : "";
@@ -18,6 +21,17 @@
         'email'=>'',
         'phone'=>''
     );
+
+    if (isset($_POST['goback'])) {
+        $_SESSION['lname'] = isset($_POST['lname']) ? $_POST['lname'] : "";
+        $_SESSION['fname'] = isset($_POST['fname']) ? $_POST['fname'] : "";
+        $_SESSION['postal'] = isset($_POST['postal']) ? $_POST['postal'] : "";
+        $_SESSION['city'] = isset($_POST['city']) ? $_POST['city'] : "";
+        $_SESSION['email'] = isset($_POST['email']) ? $_POST['email'] : "";
+        $_SESSION['phone'] = isset($_POST['phone']) ? $_POST['phone'] : "";
+
+        header("Location: ../choosing/");
+    }
 
     if (isset($_POST['submit'])) {
 
@@ -117,10 +131,7 @@
 </head>
 <body>
 
-    <?php 
-        $page = "registering";
-        require('../modules/nav.php') 
-    ?>
+    <?php require('../modules/nav.php') ?>
     
     <main>
 
@@ -177,7 +188,7 @@
             </div>
             
             <div class="submit-field">
-                <a class="button border-button" href="../choosing/">Précédent</a>
+                <input type="submit" name="goback" value="Précédent" class="button border-button" href="../choosing/">
                 <input type="submit" name="submit" value="Suivant" class="button submit-button">
             </div>
             
