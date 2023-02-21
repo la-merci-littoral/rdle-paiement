@@ -13,10 +13,9 @@
     $email = $_SESSION['email'];
     $phone = $_SESSION['phone'];
 
-    echo $lname, $fname, $email, $postal, $city, $phone;
-
     session_destroy();
-
+    
+    echo $lname, $fname, $email, $postal, $city, $phone;
 ?>
 
 <!DOCTYPE html>
