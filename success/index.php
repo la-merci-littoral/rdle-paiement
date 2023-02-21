@@ -3,17 +3,11 @@
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-    
-    echo session_id();
 
-    if (isset($_SESSION['submit'])) {
-        echo "Session working...";
-    } else {
-        echo "Huh...";
-    }
-
-    if ($_GET['redirect_status'] == "succeeded") {
-        $success = true;
+    if (isset($_GET['redirect_status'])) {
+        if ($_GET['redirect_status'] == "succeeded") {
+            $success = true;
+        }
     }
 
     $lname = $_SESSION['lname'];
@@ -24,8 +18,6 @@
     $phone = $_SESSION['phone'];
 
     session_destroy();
-    
-    echo $lname, $fname, $email, $postal, $city, $phone;
 ?>
 
 <!DOCTYPE html>

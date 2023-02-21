@@ -3,11 +3,6 @@
         session_start();
     }
 
-    echo session_id();
-
-    echo phpversion();
-    echo session_save_path();
-
     require('../config/db_connect.php');
 
     $lname = isset($_SESSION['lname']) ? $_SESSION['lname'] : "";
