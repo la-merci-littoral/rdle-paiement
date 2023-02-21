@@ -2,6 +2,10 @@
 
     session_start();
 
+    if (isset($_SESSION['submit'])) {
+        echo "Session working...";
+    }
+
     if ($_GET['redirect_status'] == "succeeded") {
         $success = true;
     }
