@@ -13,7 +13,7 @@
     $email = $_SESSION['email'];
     $phone = $_SESSION['phone'];
 
-    // session_destroy();
+    session_destroy();
     
     echo $lname, $fname, $email, $postal, $city, $phone;
 ?>
