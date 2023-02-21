@@ -2,6 +2,7 @@
     session_start();
 
     echo phpversion();
+    echo session_save_path();
 
     require('../config/db_connect.php');
 
