@@ -32,11 +32,6 @@
 </head>
 <body>
 
-    <?php
-        $page = "paiement";
-        require('./modules/nav.php');
-    ?>
-
     <form id="payment-form">
 
         <div id="link-authentication-element"></div>

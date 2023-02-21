@@ -93,37 +93,37 @@
 
                     <div class="field">
                         <label for="fname">Nom :</label>
-                        <input type="text" name="lname" placeholder="Entrez votre prénom ici" value="<?php if(isset($lname)) {echo $lname;} ?>">
+                        <input type="text" name="lname" placeholder="Entrez votre prénom ici" value="<?php if(isset($_SESSION['lname'])) {echo $_SESSION['lname'];} ?>">
                         <p class="error <?php if(isset($errors['lname'])) {echo "show";} ?>">Nom invalide.</p>
                     </div>
                     
                     <div class="field">
                         <label for="lname">Prénom :</label>
-                        <input type="text" name="fname" placeholder="Entrez votre prénom ici" value="<?php if(isset($fname)) {echo $fname;} ?>">
+                        <input type="text" name="fname" placeholder="Entrez votre prénom ici" value="<?php if(isset($_SESSION['fname'])) {echo $_SESSION['fname'];} ?>">
                         <p class="error <?php if(isset($errors['fname'])) {echo "show";} ?>">Prénom invalide.</p>
                     </div>
                     
                     <div class="field">
                         <label for="fname">Code Postal :</label>
-                        <input type="number" name="postal" placeholder="30000" min="1" max="99999" value="<?php if(isset($postal)) {echo $postal;} ?>">
+                        <input type="number" name="postal" placeholder="30000" min="1" max="99999" value="<?php if(isset($_SESSION['postal'])) {echo $_SESSION['postal'];} ?>">
                         <p class="error <?php if(isset($errors['postal'])) {echo "show";} ?>">Code Postal invalide.</p>
                     </div>
                     
                     <div class="field">
                         <label for="city">Ville :</label>
-                        <input type="text" name="city" placeholder="Entrez le nom de votre ville ici" value="<?php if(isset($city)) {echo $city;} ?>">
+                        <input type="text" name="city" placeholder="Entrez le nom de votre ville ici" value="<?php if(isset($_SESSION['city'])) {echo $_SESSION['city'];} ?>">
                         <p class="error <?php if(isset($errors['city'])) {echo "show";} ?>">Ville invalide.</p>
                     </div>
                     
                     <div class="field">
                         <label for="email">Email :</label>
-                        <input type="email" name="email" placeholder="Entrez votre email ici" value="<?php if(isset($email)) {echo $email;} ?>">
+                        <input type="email" name="email" placeholder="Entrez votre email ici" value="<?php if(isset($_SESSION['email'])) {echo $_SESSION['email'];} ?>">
                         <p class="error <?php if(isset($errors['email'])) {echo "show";} ?>">Email invalide.</p>
                     </div>
                     
                     <div class="field">
                         <label for="phone">Numéro de téléphone :</label>
-                        <input type="tel" name="phone" placeholder="01 23 45 67 89" maxlength="14" value="<?php if(isset($phone)) {echo $phone;} ?>">
+                        <input type="tel" name="phone" placeholder="01 23 45 67 89" maxlength="14" value="<?php if(isset($_SESSION['phone'])) {echo $_SESSION['phone'];} ?>">
                         <p class="error <?php if(isset($errors['phone'])) {echo "show";} ?>">Numéro invalide.</p>
                     </div>
                     
