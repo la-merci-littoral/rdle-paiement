@@ -1,11 +1,13 @@
 <?php
 
-    if (isset($_POST['submit'])) {
-        echo "Well hello there";
-    } else {
+    session_start();
+
+    if (!(isset($_SESSION['submit']))) {
         header('Location: ./choosing/');
         die();
     }
+
+    session_destroy();
     
 ?>
 

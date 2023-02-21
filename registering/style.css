@@ -59,6 +59,7 @@ main {
 .field {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 input {
@@ -76,6 +77,22 @@ input:focus {
     outline: none;
     border-bottom-color: #67bfe1;
     transition: 300ms ease-in-out;
+}
+
+.error {
+    color: rgb(172, 0, 0);
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 300;
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    text-align: right;
+    display: none;
+}
+
+.show {
+    display: block;
 }
 
 .submit-column {
