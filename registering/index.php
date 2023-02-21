@@ -157,6 +157,12 @@
                         <input type="email" name="email" placeholder="Entrez votre adresse e-mail ici" value="<?php echo $email ?>">
                         <p class="error"><?php echo $errors['email']; ?></p>
                     </div>
+                    
+                    <div class="field">
+                        <label for="phone">Numéro de téléphone :</label>
+                        <input type="tel" name="phone" placeholder="01 23 45 67 89" maxlength="14" value="<?php echo $phone ?>">
+                        <p class="error"><?php echo $errors['phone']; ?></p>
+                    </div>
 
                 </div>
                 
@@ -164,22 +170,31 @@
                 
                 <div class="column">
 
-                    <div class="field">
-                        <label for="fname">Code Postal :</label>
-                        <input type="number" name="postal" placeholder="30000" min="10000" max="99999" value="<?php echo $postal ?>">
-                        <p class="error"><?php echo $errors['postal']; ?></p>
+                    <div class="input-right">
+                        <div class="field">
+                            <label for="fname">Code Postal :</label>
+                            <input type="number" name="postal" placeholder="30000" min="10000" max="99999" value="<?php echo $postal ?>">
+                            <p class="error"><?php echo $errors['postal']; ?></p>
+                        </div>
+                        
+                        <div class="field">
+                            <label for="city">Ville :</label>
+                            <input type="text" name="city" placeholder="Entrez le nom de votre ville ici" value="<?php echo $city ?>">
+                            <p class="error"><?php echo $errors['city']; ?></p>
+                        </div>
                     </div>
-                    
-                    <div class="field">
-                        <label for="city">Ville :</label>
-                        <input type="text" name="city" placeholder="Entrez le nom de votre ville ici" value="<?php echo $city ?>">
-                        <p class="error"><?php echo $errors['city']; ?></p>
-                    </div>
-                    
-                    <div class="field">
-                        <label for="phone">Numéro de téléphone :</label>
-                        <input type="tel" name="phone" placeholder="01 23 45 67 89" maxlength="14" value="<?php echo $phone ?>">
-                        <p class="error"><?php echo $errors['phone']; ?></p>
+
+                    <div class="amount">
+                        <div class="suggested-amount" id="five-euros">
+                            <button class="suggestion">5€</button>
+                        </div>
+                        <div class="suggested-amount" id="ten-euros">
+                            <button class="suggestion">10€</button>
+                        </div>
+                        <div class="suggested-amount" id="twenty-euros">
+                            <button class="suggestion">20€</button>
+                        </div>
+                        <div class="free-choice"><input type="number" name="amount" value=""></div>
                     </div>
 
                 </div>
