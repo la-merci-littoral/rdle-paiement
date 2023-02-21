@@ -2,6 +2,9 @@
 
     if (isset($_POST['submit'])) {
         echo "Well hello there";
+    } else {
+        header('Location: ./choosing/');
+        die();
     }
     
 ?>
