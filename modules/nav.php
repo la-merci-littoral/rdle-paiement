@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 
 <link rel="stylesheet" href="../modules/nav-style.css">
-<link rel="stylesheet" href="./modules/nav-style.css">
+<!-- <link rel="stylesheet" href="./modules/nav-style.css"> -->
 <header>
     <div class="header-wrapper">
         
