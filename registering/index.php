@@ -147,7 +147,13 @@
                         <input type="email" name="email" placeholder="Entrez votre adresse e-mail ici" value="<?php echo $email ?>">
                         <p class="error"><?php echo $errors['email']; ?></p>
                     </div>
-                    
+
+                </div>
+                
+                <div class="separator"></div>
+                
+                <div class="column">
+
                     <div class="field">
                         <label for="fname">Code Postal :</label>
                         <input type="number" name="postal" placeholder="30000" min="10000" max="99999" value="<?php echo $postal ?>">
@@ -165,23 +171,15 @@
                         <input type="tel" name="phone" placeholder="01 23 45 67 89" maxlength="14" value="<?php echo $phone ?>">
                         <p class="error"><?php echo $errors['phone']; ?></p>
                     </div>
-                    
-                </div>
-                
-                <div class="separator"></div>
-                
-                <div class="column submit-column">
-                    
-                    <!-- <button class="border-button">Retour</button> -->
-                    <input type="submit" name="submit" value="Continuer" class="submit-button">
 
                 </div>
+                
             </div>
-
-            <!-- <div class="submit-wrapper">
-                <input type="submit" name="anonymous" value="Continuer anonymement" class="anonyme-button">
-                <input type="submit" name="submit" value="Continuer" class="submit-button">
-            </div> -->
+            
+            <div class="submit-field">
+                <a class="button border-button" href="../choosing/">Précédent</a>
+                <input type="submit" name="submit" value="Suivant" class="button submit-button">
+            </div>
             
         </form>
 
