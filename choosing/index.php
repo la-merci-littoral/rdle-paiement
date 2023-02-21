@@ -26,7 +26,7 @@
         <ul>
             <li id="individual">
                 <p> Je participe <span class="highlight" data-value="maintenant">maintenant</span>!</p>
-                <div><a class="material-symbols-outlined" href="../registering/">arrow_forward_ios </a></div>
+                <div><a class="material-symbols-outlined" href="../registering/">arrow_forward_ios</a></div>
             </li>
             <li id="individual anonymous">
                 <p> Je souhaite participer <span class="highlight" data-value="anonymement">anonymement</span>.</p>
