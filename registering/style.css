@@ -88,11 +88,6 @@ input:focus {
     top: 60px;
     width: 100%;
     text-align: right;
-    display: none;
-}
-
-.show {
-    display: block;
 }
 
 .submit-column {

@@ -1,54 +1,85 @@
 <?php
     session_start();
 
+    require('../config/tempo_db.php');
+
+    $lname = "";
+    $fname = "";
+    $postal = "";
+    $city = "";
+    $email = "";
+    $phone = "";
+
+    $errors = array(
+        'lname'=>'',
+        'fname'=>'',
+        'postal'=>'',
+        'city'=>'',
+        'email'=>'',
+        'phone'=>''
+    );
+
     if (isset($_POST['submit'])) {
-        $lname = "";
 
-        $errors = [];
-
-        if ($_POST['lname'] != "") {
+        if (empty($_POST['lname'])) {
+            $errors['lname'] = "Un nom est requis.";
+        } else {
             $lname = $_POST['lname'];
-        } else {
-            $errors['lname'] = "undefined";
+            if (!preg_match('/^[a-zA-Z\s]+$/', $lname)) {
+                $errors['lname'] = "Nom invalide.";
+            }
         }
 
-        if ($_POST['fname'] != "") {
+        if (empty($_POST['fname'])) {
+            $errors['fname'] = "Un prénom est requis.";
+        } else {
             $fname = $_POST['fname'];
-        } else {
-            $errors['fname'] = "undefined";
+            if (!preg_match('/^[a-zA-Z\s]+$/', $fname)) {
+                $errors['fname'] = "Prénom invalide.";
+            }
         }
 
-        if ($_POST['postal'] != "") {
+        if (empty($_POST['postal'])) {
+            $errors['postal'] = "Un code postal est requis.";
+        } else {
             $postal = $_POST['postal'];
-        } else {
-            $errors['postal'] = "undefined";
         }
 
-        if ($_POST['city'] != "") {
+        if (empty($_POST['city'])) {
+            $errors['city'] = "Une ville est requis.";
+        } else {
             $city = $_POST['city'];
-        } else {
-            $errors['city'] = "undefined";
+            if (!preg_match('/^[a-zA-Z\s]+$/', $city)) {
+                $errors['city'] = "Nom de ville invalide.";
+            }
         }
 
-        if ($_POST['email'] != "") {
+        if (empty($_POST['email'])) {
+            $errors['email'] = "Une e-mail est requis.";
+        } else {
             $email = $_POST['email'];
-        } else {
-            $errors['email'] = "undefined";
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $errors['email'] = "E-mail invalide.";
+            }
         }
 
-        if ($_POST['phone'] != "") {
-            $phone = $_POST['phone'];
+        if (empty($_POST['phone'])) {
+            $errors['phone'] = "Un numéro de téléphone est requis.";
         } else {
-            $errors['phone'] = "undefined";
+            $phone = $_POST['phone'];
+            if ((!filter_var($phone, FILTER_VALIDATE_INT)) || (!preg_match('/[0][0-9] [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}/', $phone))) {
+                $errors['phone'] = "Numéro de téléphone invalide.";
+            }
         }
 
         if (empty($errors)) {
-            $_SESSION['lname'] = $lname;
-            $_SESSION['fname'] = $fname;
-            $_SESSION['postal'] = $postal;
-            $_SESSION['city'] = $city;
-            $_SESSION['email'] = $email;
-            $_SESSION['phone'] = $phone;
+            // check for dangerous MySQL code
+            $_SESSION['lname'] = mysqli_real_escape_string($conn, $lname);
+            $_SESSION['fname'] = mysqli_real_escape_string($conn, $fname);
+            $_SESSION['postal'] = mysqli_real_escape_string($conn, $postal);
+            $_SESSION['city'] = mysqli_real_escape_string($conn, $city);
+            $_SESSION['email'] = mysqli_real_escape_string($conn, $email);
+            $_SESSION['phone'] = mysqli_real_escape_string($conn, $phone);
 
             $_SESSION['submit'] = true;
             header('Location: ../');
@@ -93,38 +124,38 @@
 
                     <div class="field">
                         <label for="lname">Nom :</label>
-                        <input type="text" name="lname" placeholder="Entrez votre nom ici" value="<?php if(isset($_SESSION['lname'])) {echo $_SESSION['lname'];} ?>">
-                        <p class="error <?php if(isset($errors['lname'])) {echo "show";} ?>">Nom invalide.</p>
+                        <input type="text" name="lname" placeholder="Entrez votre nom ici" value="<?php echo $lname ?>">
+                        <p class="error"><?php echo $errors['lname']; ?></p>
                     </div>
                     
                     <div class="field">
                         <label for="fname">Prénom :</label>
-                        <input type="text" name="fname" placeholder="Entrez votre prénom ici" value="<?php if(isset($_SESSION['fname'])) {echo $_SESSION['fname'];} ?>">
-                        <p class="error <?php if(isset($errors['fname'])) {echo "show";} ?>">Prénom invalide.</p>
+                        <input type="text" name="fname" placeholder="Entrez votre prénom ici" value="<?php echo $fname ?>">
+                        <p class="error"><?php echo $errors['fname']; ?></p>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">E-mail :</label>
+                        <input type="email" name="email" placeholder="Entrez votre adresse e-mail ici" value="<?php echo $email ?>">
+                        <p class="error"><?php echo $errors['email']; ?></p>
                     </div>
                     
                     <div class="field">
                         <label for="fname">Code Postal :</label>
-                        <input type="number" name="postal" placeholder="30000" min="1" max="99999" value="<?php if(isset($_SESSION['postal'])) {echo $_SESSION['postal'];} ?>">
-                        <p class="error <?php if(isset($errors['postal'])) {echo "show";} ?>">Code Postal invalide.</p>
+                        <input type="number" name="postal" placeholder="30000" min="10000" max="99999" value="<?php echo $postal ?>">
+                        <p class="error"><?php echo $errors['postal']; ?></p>
                     </div>
                     
                     <div class="field">
                         <label for="city">Ville :</label>
-                        <input type="text" name="city" placeholder="Entrez le nom de votre ville ici" value="<?php if(isset($_SESSION['city'])) {echo $_SESSION['city'];} ?>">
-                        <p class="error <?php if(isset($errors['city'])) {echo "show";} ?>">Ville invalide.</p>
-                    </div>
-                    
-                    <div class="field">
-                        <label for="email">Email :</label>
-                        <input type="email" name="email" placeholder="Entrez votre email ici" value="<?php if(isset($_SESSION['email'])) {echo $_SESSION['email'];} ?>">
-                        <p class="error <?php if(isset($errors['email'])) {echo "show";} ?>">Email invalide.</p>
+                        <input type="text" name="city" placeholder="Entrez le nom de votre ville ici" value="<?php echo $city ?>">
+                        <p class="error"><?php echo $errors['city']; ?></p>
                     </div>
                     
                     <div class="field">
                         <label for="phone">Numéro de téléphone :</label>
-                        <input type="tel" name="phone" placeholder="01 23 45 67 89" maxlength="14" value="<?php if(isset($_SESSION['phone'])) {echo $_SESSION['phone'];} ?>">
-                        <p class="error <?php if(isset($errors['phone'])) {echo "show";} ?>">Numéro invalide.</p>
+                        <input type="tel" name="phone" placeholder="01 23 45 67 89" maxlength="14" value="<?php echo $phone ?>">
+                        <p class="error"><?php echo $errors['phone']; ?></p>
                     </div>
                     
                 </div>
