@@ -6,8 +6,6 @@
         header('Location: ./choosing/');
         die();
     }
-
-    session_destroy(); // to remove
     
 ?>
 
