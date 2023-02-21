@@ -4,6 +4,8 @@
 
     if (isset($_SESSION['submit'])) {
         echo "Session working...";
+    } else {
+        echo "Huh...";
     }
 
     if ($_GET['redirect_status'] == "succeeded") {
