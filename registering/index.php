@@ -188,8 +188,8 @@
             </div>
             
             <div class="submit-field">
-                <input type="submit" name="goback" value="Précédent" class="button border-button" href="../choosing/">
                 <input type="submit" name="submit" value="Suivant" class="button submit-button">
+                <input type="submit" name="goback" value="Précédent" class="button border-button" href="../choosing/">
             </div>
             
         </form>
