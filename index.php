@@ -6,8 +6,6 @@
         header('Location: ./choosing/');
         die();
     }
-
-    session_destroy();
     
 ?>
 
@@ -33,6 +31,11 @@
     <title>La Ronde de l'Espoir</title>
 </head>
 <body>
+
+    <?php
+        $page = "paiement";
+        require('./modules/nav.php');
+    ?>
 
     <form id="payment-form">
 
