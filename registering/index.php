@@ -1,5 +1,9 @@
 <?php
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    echo session_id();
 
     echo phpversion();
     echo session_save_path();
