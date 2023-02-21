@@ -4,6 +4,15 @@
         $success = true;
     }
 
+    $lname = $_SESSION['lname'];
+    $fname = $_SESSION['fname'];
+    $postal = $_SESSION['postal'];
+    $city = $_SESSION['city'];
+    $email = $_SESSION['email'];
+    $phone = $_SESSION['phone'];
+
+    session_destroy();
+
 ?>
 
 <!DOCTYPE html>
