@@ -1,11 +1,6 @@
 <?php
     session_start();
 
-    require('../config/tempo_db.php');
-    // if (isset($_SESSION['lname'])) {
-    //     echo $_SESSION['lname'];
-    // }
-
     $lname = isset($_SESSION['lname']) ? $_SESSION['lname'] : "";
     $fname = isset($_SESSION['fname']) ? $_SESSION['fname'] : "";
     $postal = isset($_SESSION['postal']) ? $_SESSION['postal'] : "";
