@@ -42,7 +42,7 @@ async function handleSubmit(e) {
         elements,
         confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "https://localhost/paiement/success/index.php",
+        return_url: "https://paiement.ronde-de-l-espoir.fr/success/index.php",
         receipt_email: emailAddress,
         },
     });
