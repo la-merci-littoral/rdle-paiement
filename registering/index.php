@@ -1,6 +1,8 @@
 <?php
     session_start();
 
+    echo phpversion();
+
     require('../config/db_connect.php');
 
     $lname = isset($_SESSION['lname']) ? $_SESSION['lname'] : "";
