@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     if ($_GET['redirect_status'] == "succeeded") {
         $success = true;
     }
@@ -10,6 +12,8 @@
     $city = $_SESSION['city'];
     $email = $_SESSION['email'];
     $phone = $_SESSION['phone'];
+
+    echo $lname, $fname, $email, $postal, $city, $phone;
 
     session_destroy();
 
