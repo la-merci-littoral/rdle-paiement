@@ -11,6 +11,7 @@
     $city = isset($_SESSION['city']) ? $_SESSION['city'] : "";
     $email = isset($_SESSION['email']) ? $_SESSION['email'] : "";
     $phone = isset($_SESSION['phone']) ? $_SESSION['phone'] : "";
+    $amount = isset($_SESSION['amount']) ? $_SESSION['amount'] : "";
 
     $errors = array(
         'lname'=>'',
@@ -18,7 +19,8 @@
         'postal'=>'',
         'city'=>'',
         'email'=>'',
-        'phone'=>''
+        'phone'=>'',
+        'amount'=>''
     );
 
     if (isset($_POST['goback'])) {
@@ -28,6 +30,7 @@
         $_SESSION['city'] = isset($_POST['city']) ? $_POST['city'] : "";
         $_SESSION['email'] = isset($_POST['email']) ? $_POST['email'] : "";
         $_SESSION['phone'] = isset($_POST['phone']) ? $_POST['phone'] : "";
+        $_SESSION['amount'] = isset($_POST['amount']) ? $_POST['amount'] : "";
 
         header("Location: ../choosing/");
     }
@@ -93,6 +96,16 @@
             }
         }
 
+        if (empty($_POST['amount'])) {
+            $errors['amount'] = "Une contribution est nécessaire.";
+        } else {
+            $amount = $_POST['amount'];
+            $_SESSION['amount'] = $_POST['amount'];
+            if (!preg_match('/[0-9]{20}/', $amount)) {
+                $errors['amount'] = "Contribution invalide.";
+            }
+        }
+
         if (!array_filter($errors)) {
             // check for dangerous MySQL code
             $_SESSION['lname'] = mysqli_real_escape_string($conn, $lname);
@@ -101,6 +114,7 @@
             $_SESSION['city'] = mysqli_real_escape_string($conn, $city);
             $_SESSION['email'] = mysqli_real_escape_string($conn, $email);
             $_SESSION['phone'] = mysqli_real_escape_string($conn, $phone);
+            $_SESSION['amount'] = mysqli_real_escape_string($conn, $amount);
 
             $_SESSION['submit'] = true;
             header('Location: ../');
@@ -185,16 +199,23 @@
                     </div>
 
                     <div class="amount">
-                        <div class="suggested-amount" id="five-euros">
-                            <button class="suggestion">5€</button>
+
+                        <div class="fixed-propositions">
+                            <div class="suggested-amount">
+                                <button class="suggestion" id="five-euros">5€</button>
+                            </div>
+                            <div class="suggested-amount">
+                                <button class="suggestion" id="ten-euros">10€</button>
+                            </div>
+                            <div class="suggested-amount">
+                                <button class="suggestion" id="twenty-euros">20€</button>
+                            </div>
                         </div>
-                        <div class="suggested-amount" id="ten-euros">
-                            <button class="suggestion">10€</button>
+
+                        <div class="suggested-amount">
+                            <p>Je donne <span class="space"></span> <input type="number" name="amount" value="5" id="free-choice">€</p>
                         </div>
-                        <div class="suggested-amount" id="twenty-euros">
-                            <button class="suggestion">20€</button>
-                        </div>
-                        <div class="free-choice"><input type="number" name="amount" value=""></div>
+
                     </div>
 
                 </div>

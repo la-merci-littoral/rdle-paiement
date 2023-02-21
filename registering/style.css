@@ -108,26 +108,49 @@ input:focus {
 .amount {
     width: 100%;
     height: 50%;
-    display: grid;
-    grid-template-columns: [first-line] 50% [middle-line] 50% [endline];
-    grid-template-rows: [first-line] 50% [middle-line] 50% [endline];
-    grid-column: var(--LM-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.fixed-propositions {
+    padding: 40px 0 20px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .suggested-amount {
-    /* code in here */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    position: relative;
 }
 
-#five-euros {
-    /* stuff here */
+#free-choice {
+    width: 70px;
+    text-align: right;
+    font-size: 1.3rem;
+    border-bottom-color: #777;
+    color: #666;
+
+    display: inline-block;
+    position: relative;
 }
 
-#ten-euros {
-    /* stuff here */
+#free-choice:focus {
+    border-bottom-color: #4dc5f4;
+    color: #555;
 }
 
-#twenty-euros {
-    /* stuff here */
+.suggestion {
+    font-size: inherit;
+    padding: 10px 15px;
+    border-radius: 3px;
+    border: 2px solid rgba(0, 0, 0, 0.07);
+}
+
+.suggestion:hover {
+    background-color: #DDD;
 }
 
 .submit-field {
