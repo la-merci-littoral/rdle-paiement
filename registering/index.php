@@ -92,13 +92,13 @@
                 <div class="column">
 
                     <div class="field">
-                        <label for="fname">Nom :</label>
-                        <input type="text" name="lname" placeholder="Entrez votre prénom ici" value="<?php if(isset($_SESSION['lname'])) {echo $_SESSION['lname'];} ?>">
+                        <label for="lname">Nom :</label>
+                        <input type="text" name="lname" placeholder="Entrez votre nom ici" value="<?php if(isset($_SESSION['lname'])) {echo $_SESSION['lname'];} ?>">
                         <p class="error <?php if(isset($errors['lname'])) {echo "show";} ?>">Nom invalide.</p>
                     </div>
                     
                     <div class="field">
-                        <label for="lname">Prénom :</label>
+                        <label for="fname">Prénom :</label>
                         <input type="text" name="fname" placeholder="Entrez votre prénom ici" value="<?php if(isset($_SESSION['fname'])) {echo $_SESSION['fname'];} ?>">
                         <p class="error <?php if(isset($errors['fname'])) {echo "show";} ?>">Prénom invalide.</p>
                     </div>
