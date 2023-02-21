@@ -213,7 +213,7 @@
                         </div>
 
                         <div class="suggested-amount">
-                            <p>Je donne <span class="space"></span> <input type="number" name="amount" value="5" id="free-choice">€</p>
+                            <p>Je donne <span class="space"></span> <input type="number" name="amount" value="" placeholder="5" id="free-choice">€</p>
                         </div>
 
                     </div>
