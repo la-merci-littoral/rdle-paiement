@@ -3,12 +3,12 @@
 
     require('../config/tempo_db.php');
 
-    $lname = "";
-    $fname = "";
-    $postal = "";
-    $city = "";
-    $email = "";
-    $phone = "";
+    $lname = isset($_SESSION['lname']) ? $_SESSION['lname'] : "";
+    $fname = isset($_SESSION['fname']) ? $_SESSION['fname'] : "";
+    $postal = isset($_SESSION['postal']) ? $_SESSION['postal'] : "";
+    $city = isset($_SESSION['city']) ? $_SESSION['city'] : "";
+    $email = isset($_SESSION['email']) ? $_SESSION['email'] : "";
+    $phone = isset($_SESSION['phone']) ? $_SESSION['phone'] : "";
 
     $errors = array(
         'lname'=>'',
@@ -25,6 +25,7 @@
             $errors['lname'] = "Un nom est requis.";
         } else {
             $lname = $_POST['lname'];
+            $_SESSION['lname'] = $_POST['lname'];
             if (!preg_match('/^[a-zA-Z\s]+$/', $lname)) {
                 $errors['lname'] = "Nom invalide.";
             }
@@ -34,6 +35,7 @@
             $errors['fname'] = "Un prénom est requis.";
         } else {
             $fname = $_POST['fname'];
+            $_SESSION['fname'] = $_POST['fname'];
             if (!preg_match('/^[a-zA-Z\s]+$/', $fname)) {
                 $errors['fname'] = "Prénom invalide.";
             }
@@ -43,12 +45,14 @@
             $errors['postal'] = "Un code postal est requis.";
         } else {
             $postal = $_POST['postal'];
+            $_SESSION['postal'] = $_POST['postal'];
         }
 
         if (empty($_POST['city'])) {
             $errors['city'] = "Une ville est requis.";
         } else {
             $city = $_POST['city'];
+            $_SESSION['city'] = $_POST['city'];
             if (!preg_match('/^[a-zA-Z\s]+$/', $city)) {
                 $errors['city'] = "Nom de ville invalide.";
             }
@@ -58,6 +62,7 @@
             $errors['email'] = "Une e-mail est requis.";
         } else {
             $email = $_POST['email'];
+            $_SESSION['email'] = $_POST['email'];
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $errors['email'] = "E-mail invalide.";
             }
@@ -67,12 +72,15 @@
             $errors['phone'] = "Un numéro de téléphone est requis.";
         } else {
             $phone = $_POST['phone'];
-            if ((!filter_var($phone, FILTER_VALIDATE_INT)) || (!preg_match('/[0][0-9] [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}/', $phone))) {
+            $_SESSION['phone'] = $_POST['phone'];
+            if ((preg_match('/[0-9]{10}/', $phone)) || (preg_match('/[0][0-9] [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}/', $phone))) { // made this regex on my own, take that PhP >:)
+                $errors['phone'] = "";
+            } else {
                 $errors['phone'] = "Numéro de téléphone invalide.";
             }
         }
 
-        if (empty($errors)) {
+        if (!array_filter($errors)) {
             // check for dangerous MySQL code
             $_SESSION['lname'] = mysqli_real_escape_string($conn, $lname);
             $_SESSION['fname'] = mysqli_real_escape_string($conn, $fname);
