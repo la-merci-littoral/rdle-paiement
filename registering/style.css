@@ -31,9 +31,6 @@ main {
     height: 420px;
     padding: 30px;
     font-size: 120%;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-between; */
 }
 
 form {
