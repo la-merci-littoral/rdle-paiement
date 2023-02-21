@@ -38,12 +38,11 @@ async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
 
-    
     const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "./success/",
+        return_url: "https://localhost/paiement/success/index.php",
         receipt_email: emailAddress,
         },
     });
