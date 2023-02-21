@@ -20,10 +20,7 @@
 </head>
 <body>
 
-    <?php
-        $page = "choosing";
-        require('../modules/nav.php');
-    ?>
+    <?php require('../modules/nav.php') ?>
 
     <main>
         <ul>
