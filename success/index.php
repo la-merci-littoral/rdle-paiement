@@ -24,7 +24,7 @@
 
         require('../config/tempo_db.php');
 
-        $sql = "INSERT INTO user_test(fname, lname, postal, city, email, phone, amount) VALUES(
+        $sql = "INSERT INTO user_test(fname, lname, postal, city, email, phone, amount_donated) VALUES(
             '$fname',
             '$lname',
             '$postal',
