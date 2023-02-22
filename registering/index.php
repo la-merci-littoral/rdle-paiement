@@ -214,7 +214,7 @@
                         </div>
 
                         <div class="suggested-amount">
-                            <p>Je donne <span class="space"></span> <input type="number" name="amount" value="<?php echo $amount ?>" placeholder="5" id="free-choice">€</p>
+                            <p>Je donne <span class="space"></span> <input type="number" step="0.01" name="amount" min="1" value="<?php echo $amount ?>" placeholder="5" id="free-choice">€</p>
                             <p class="error" id="amount-input"><?php echo $errors['amount'] ?></p>
                         </div>
 
