@@ -7,7 +7,7 @@
 
     function getOrderAmount() {
         session_start();
-        return $_SESSION['amount'];
+        return $_SESSION['amount'] * 100;
     }
 
     header('Content-Type: application/json');
