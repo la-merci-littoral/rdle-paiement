@@ -98,11 +98,12 @@
 
         if (empty($_POST['amount'])) {
             $errors['amount'] = "Une contribution est nécessaire.";
+            $amount = "";
         } else {
             $amount = $_POST['amount'];
             $_SESSION['amount'] = $_POST['amount'];
-            if (!preg_match('/[0-9]{20}/', $amount)) {
-                $errors['amount'] = "Contribution invalide.";
+            if ($amount == 0) {
+                $errors['amount'] = "La contribution ne peut pas être nulle.";
             }
         }
 
@@ -213,7 +214,8 @@
                         </div>
 
                         <div class="suggested-amount">
-                            <p>Je donne <span class="space"></span> <input type="number" name="amount" value="" placeholder="5" id="free-choice">€</p>
+                            <p>Je donne <span class="space"></span> <input type="number" name="amount" value="<?php echo $amount ?>" placeholder="5" id="free-choice">€</p>
+                            <p class="error" id="amount-input"><?php echo $errors['amount'] ?></p>
                         </div>
 
                     </div>

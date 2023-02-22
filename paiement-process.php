@@ -6,7 +6,8 @@
     \Stripe\Stripe::setApiKey('sk_test_51MKmfEHCHeIMvgvqTXYVUyZtuajFO0A5lBUjiULs41kScCE0yu9KVfMsBoCRYsCXiDWJKJvEAMNTj7LACNMrfyPG00ltgg5Vqo');
 
     function getOrderAmount() {
-        return 1400;
+        session_start();
+        return $_SESSION['amount'];
     }
 
     header('Content-Type: application/json');
