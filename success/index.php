@@ -22,7 +22,7 @@
 
         session_destroy();
 
-        require('../config/tempo_db.php');
+        require('../config/db_connect.php');
 
         $sql = "INSERT INTO user_test(fname, lname, postal, city, email, phone, amount_donated) VALUES(
             '$fname',
