@@ -38,11 +38,14 @@ async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
 
+    $localUrl = "https://localhost/paiement/success/index.php";
+    $realUrl = "https://paiement.ronde-de-l-espoir.fr/paiement/success/index.php";
+
     const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "https://paiement.ronde-de-l-espoir.fr/success/index.php",
+        return_url: $localUrl,
         receipt_email: emailAddress,
         },
     });
