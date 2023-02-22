@@ -36,8 +36,6 @@
 
         if (!mysqli_query($conn, $sql)) {
             echo "Query error: " .mysqli_error($conn);
-        } else {
-            echo "Query worked.";
         }
     }
 
