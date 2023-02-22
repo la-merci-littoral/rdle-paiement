@@ -4,20 +4,43 @@
         session_start();
     }
 
-    if (isset($_GET['redirect_status'])) {
-        if ($_GET['redirect_status'] == "succeeded") {
-            $success = true;
+    if (isset($_SESSION['submit'])) {
+
+        if (isset($_GET['redirect_status'])) {
+            if ($_GET['redirect_status'] == "succeeded") {
+                $success = true;
+            }
+        }
+
+        $lname = $_SESSION['lname'];
+        $fname = $_SESSION['fname'];
+        $postal = $_SESSION['postal'];
+        $city = $_SESSION['city'];
+        $email = $_SESSION['email'];
+        $phone = $_SESSION['phone'];
+        $amount = $_SESSION['amount'];
+
+        session_destroy();
+
+        require('../config/tempo_db.php');
+
+        $sql = "INSERT INTO user_test(fname, lname, postal, city, email, phone, amount) VALUES(
+            '$fname',
+            '$lname',
+            '$postal',
+            '$city',
+            '$email',
+            '$phone',
+            '$amount'
+        )";
+
+        if (!mysqli_query($conn, $sql)) {
+            echo "Query error: " .mysqli_error($conn);
+        } else {
+            echo "Query worked.";
         }
     }
 
-    $lname = $_SESSION['lname'];
-    $fname = $_SESSION['fname'];
-    $postal = $_SESSION['postal'];
-    $city = $_SESSION['city'];
-    $email = $_SESSION['email'];
-    $phone = $_SESSION['phone'];
-
-    session_destroy();
 ?>
 
 <!DOCTYPE html>
