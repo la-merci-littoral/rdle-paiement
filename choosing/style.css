@@ -17,6 +17,10 @@ html, body {
     width: 100%;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 
 
 /** MAIN CSS **/
@@ -50,7 +54,7 @@ main .material-symbols-outlined:hover {
     transition: 150ms ease-out;
 }
 
-ul {
+main ul {
     width: 100%;
     height: 100%;
     display: flex;
@@ -58,7 +62,7 @@ ul {
     justify-content: space-between;
 }
 
-li {
+main ul li {
     width: 100%;
     height: 30%;
     border: 2px rgba(0, 0, 0, 0.07) solid;
@@ -68,7 +72,7 @@ li {
     justify-content: space-between;
 }
 
-li p {
+main ul li p {
     padding: 40px;
     font-size: 1.3rem;
 }
@@ -78,4 +82,78 @@ li p {
     font-size: 1.2rem;
     font-weight: 500;
     font-family: 'Space Mono', monospace;
+}
+
+
+#confirm-box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    background-color: white;
+    padding: 15px;
+}
+
+#confirm-box > ul {
+    padding-left: 1cm;
+}
+
+#confirm-box > p + ul * {
+    line-height: 160%
+}
+
+#confirm-box ul li {
+    list-style-type: disc;
+    border: none;
+}
+
+.submit-field {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.button {
+    font-size: 1.3rem;
+    padding: 12px 24px;
+    margin: 0;
+    transition: 300ms ease-in-out;
+    border-radius: 7px;
+}
+
+.button:hover {
+    cursor: pointer;
+    transition: 300ms ease-in-out;
+}
+
+.submit-button {
+    background-color: #0099D7;
+    border: 0;
+    color: #EEE;
+    font-weight: 600;
+}
+
+.submit-button:hover {
+    background-color: #00abef;
+    color: white;
+}
+
+.submit-button:disabled {
+    background-color: grey;
+    color: white;
+    cursor: not-allowed;
+}
+
+.border-button {
+    padding: 10px 16px;
+    font-size: 1.2rem;
+    border: 3px #0099D7 solid;
+    color: #222;
+}
+
+.border-button:hover {
+    color: black;
+    border-color: #00abef;
 }
