@@ -3,11 +3,6 @@
         session_start();
     }
 
-    if (isset($_POST['goback'])) {
-        $_SESSION['isAnonymous'] = FALSE;
-        header("Location: ./");
-    }
-
     if (isset($_POST['submit'])) {
         $_SESSION['isAnonymous'] = filter_var($_POST['anonymous'], FILTER_VALIDATE_BOOLEAN);
         header("Location: ../");
@@ -65,8 +60,9 @@
             <form action="./index.php" method="POST" not-to-be-blurred>
                 <div id="confirmation-input" not-to-be-blurred>
                     <input type="checkbox" name="anonymous" value="1" onclick="toggleSubmit(this)" not-to-be-blurred>
-                    <label for="anonymous" not-to-be-blurred>Je confirme vouloir rester anonymes</label>
+                    <label for="anonymous" not-to-be-blurred>Je confirme vouloir rester anonyme</label>
                 </div>
+                <br>
                 <div class="submit-field" not-to-be-blurred>
                     <input type="submit" name="submit" value="Suivant" class="button submit-button" disabled not-to-be-blurred>
                     <button type="submit" name="goback" value="Précédent" class="button border-button" not-to-be-blurred>Annuler</button>
