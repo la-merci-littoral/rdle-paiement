@@ -55,6 +55,18 @@ document.querySelectorAll('.highlight').forEach(element => {
     }
 })
 
+function openAnonymous() {
+    const everything = document.getElementsByTagName("*");
+    for (let i = 0; i < everything.length; i++) {
+        if (!(everything[i].hasAttribute('not-to-be-blurred'))) {
+            everything[i].classList.add('blurred');
+        }
+    }
+    document.getElementById("confirm-box").classList.remove("hidden");
+    // document.getElementById("main").classList.add("blurred")
+    // document.getElementsByClassName("header-wrapper").classList.add("blurred")
+}
+
 function toggleSubmit(val){
     var sbmtBtn = document.getElementsByName("submit")[0]
     if (val.checked){

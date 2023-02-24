@@ -15,7 +15,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" not-to-be-blurred>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,12 +34,12 @@
     <script src="choosing.js" defer></script>
     <title>Ronde de l'Espoir</title>
 </head>
-<body>
+<body not-to-be-blurred>
 
     <?php require('../modules/nav.php') ?>
 
-    <main>
-        <ul>
+    <main not-to-be-blurred>
+        <ul id="choices">
             <li id="individual">
                 <p> Je participe <span class="highlight" data-value="maintenant">maintenant</span>!</p>
                 <div><a class="material-symbols-outlined" href="../registering/">arrow_forward_ios</a></div>
@@ -53,23 +53,23 @@
                 <div><a class="material-symbols-outlined" href="#">arrow_forward_ios </a></div>
             </li>
         </ul>
-        <div id="confirm-box" class="hidden">
-            <p>Etes-vous sûr de vouloir continuer anonymement ?</p>
+        <div id="confirm-box" class="hidden" not-to-be-blurred>
+            <p not-to-be-blurred>Etes-vous sûr de vouloir continuer anonymement ?</p>
             <br>
-            <p>En continuant anonymement, vous ne pourrez pas :</p>
-            <ul>
-                <li>Profiter d'une déduction d'impôts</li>
-                <li>Et d'autres désavantages à venir</li>
+            <p not-to-be-blurred>En continuant anonymement, vous ne pourrez pas :</p>
+            <ul not-to-be-blurred>
+                <li not-to-be-blurred>Profiter d'une déduction d'impôts</li>
+                <li not-to-be-blurred>Et d'autres désavantages à venir</li>
             </ul>
             <br>
-            <form action="./index.php" method="POST">
-                <div id="confirmation-input">
-                    <input type="checkbox" name="anonymous" value="1" onclick="toggleSubmit(this)">
-                    <label for="anonymous">Je confirme vouloir rester anonymes</label>
+            <form action="./index.php" method="POST" not-to-be-blurred>
+                <div id="confirmation-input" not-to-be-blurred>
+                    <input type="checkbox" name="anonymous" value="1" onclick="toggleSubmit(this)" not-to-be-blurred>
+                    <label for="anonymous" not-to-be-blurred>Je confirme vouloir rester anonymes</label>
                 </div>
-                <div class="submit-field">
-                    <input type="submit" name="submit" value="Suivant" class="button submit-button" disabled>
-                    <button type="submit" name="goback" value="Précédent" class="button border-button" onclick="closeAnonymous()">Annuler</button>
+                <div class="submit-field" not-to-be-blurred>
+                    <input type="submit" name="submit" value="Suivant" class="button submit-button" disabled not-to-be-blurred>
+                    <button type="submit" name="goback" value="Précédent" class="button border-button" not-to-be-blurred>Annuler</button>
                 </div>
             </form>
         </div>
