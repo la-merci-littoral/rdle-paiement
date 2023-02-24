@@ -1,3 +1,19 @@
+<?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (isset($_POST['goback'])) {
+        $_SESSION['isAnonymous'] = FALSE;
+        header("Location: ./");
+    }
+
+    if (isset($_POST['submit'])) {
+        $_SESSION['isAnonymous'] = filter_var($_POST['anonymous'], FILTER_VALIDATE_BOOLEAN);
+        header("Location: ../");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,13 +46,33 @@
             </li>
             <li id="individual anonymous">
                 <p> Je souhaite participer <span class="highlight" data-value="anonymement">anonymement</span>.</p>
-                <div><a class="material-symbols-outlined" href="../anonymous/">arrow_forward_ios </a></div>
+                <div><a class="material-symbols-outlined" onclick="openAnonymous()">arrow_forward_ios </a></div>
             </li>
             <li id="company">
                 <p> Participer en tant qu'<span class="highlight" data-value="entreprise">entreprise</span>.</p>
                 <div><a class="material-symbols-outlined" href="#">arrow_forward_ios </a></div>
             </li>
         </ul>
+        <div id="confirm-box" class="hidden">
+            <p>Etes-vous sûr de vouloir continuer anonymement ?</p>
+            <br>
+            <p>En continuant anonymement, vous ne pourrez pas :</p>
+            <ul>
+                <li>Profiter d'une déduction d'impôts</li>
+                <li>Et d'autres désavantages à venir</li>
+            </ul>
+            <br>
+            <form action="./index.php" method="POST">
+                <div id="confirmation-input">
+                    <input type="checkbox" name="anonymous" value="1" onclick="toggleSubmit(this)">
+                    <label for="anonymous">Je confirme vouloir rester anonymes</label>
+                </div>
+                <div class="submit-field">
+                    <input type="submit" name="submit" value="Suivant" class="button submit-button" disabled>
+                    <button type="submit" name="goback" value="Précédent" class="button border-button" onclick="closeAnonymous()">Annuler</button>
+                </div>
+            </form>
+        </div>
     </main>
 
 
