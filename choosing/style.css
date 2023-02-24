@@ -21,7 +21,9 @@ html, body {
     visibility: hidden;
 }
 
-
+.blurred {
+    filter: blur(5px);
+}
 
 /** MAIN CSS **/
 
@@ -52,6 +54,7 @@ main .material-symbols-outlined {
 main .material-symbols-outlined:hover {
     transform: translateX(10px);
     transition: 150ms ease-out;
+    cursor: pointer;
 }
 
 main ul {
@@ -93,6 +96,7 @@ main ul li p {
     border-radius: 5px;
     background-color: white;
     padding: 15px;
+    /* z-index: 10; */
 }
 
 #confirm-box > ul {
