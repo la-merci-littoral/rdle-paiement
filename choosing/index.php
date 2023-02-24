@@ -30,7 +30,7 @@
             </li>
             <li id="individual anonymous">
                 <p> Je souhaite participer <span class="highlight" data-value="anonymement">anonymement</span>.</p>
-                <div><a class="material-symbols-outlined" href="#">arrow_forward_ios </a></div>
+                <div><a class="material-symbols-outlined" href="../anonymous/">arrow_forward_ios </a></div>
             </li>
             <li id="company">
                 <p> Participer en tant qu'<span class="highlight" data-value="entreprise">entreprise</span>.</p>
