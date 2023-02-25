@@ -137,8 +137,12 @@ input[type = "checkbox"]:checked {
     accent-color: var(--LM-color);
 }
 
-label[for = "anonymous"] {
-    padding-left: 10px;
+label {
+    cursor: pointer;
+}
+
+#chkbx-text {
+    padding-left: 15px;
 }
 
 .submit-field {

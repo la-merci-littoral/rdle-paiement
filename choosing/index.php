@@ -59,8 +59,11 @@
             <br>
             <form action="./index.php" method="POST" not-to-be-blurred>
                 <div id="confirmation-input" not-to-be-blurred>
-                    <input type="checkbox" name="anonymous" value="1" onclick="toggleSubmit(this)" not-to-be-blurred>
-                    <label for="anonymous" not-to-be-blurred>Je confirme vouloir rester anonyme</label>
+                    <label not-to-be-blurred>
+                        <input type="checkbox" name="anonymous" value="1" onclick="toggleSubmit(this)" not-to-be-blurred>
+                        <span not-to-be-blurred id="chkbx-text">Je confirme vouloir rester anonyme</span>
+                    </label>
+                    <!-- <label for="anonymous" not-to-be-blurred>Je confirme vouloir rester anonyme</label> -->
                 </div>
                 <br>
                 <div class="submit-field" not-to-be-blurred>
