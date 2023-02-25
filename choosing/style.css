@@ -89,28 +89,24 @@ main ul li p {
 
 @keyframes confirm-box-appearance {
     from {
-        transform: scale(0);
-        left: 0%;
-        top: 0%;
+        transform: translate(-50%, -50%) scale(0);
     }
 
     to {
-        transform: scale(1);
-        left: 50%;
-        top: 50%;
+        transform: translate(-50%, -50%) scale(1);
     }
 }
 
 #confirm-box {
     position: absolute;
-    left: 50%;
     top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 5px;
     background-color: white;
     padding: 40px;
     /* z-index: 10; */
-    animation: confirm-box-appearance 3s;
+    animation: confirm-box-appearance 1.75s;
 }
 
 #confirm-box > ul {
