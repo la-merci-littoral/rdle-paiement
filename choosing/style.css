@@ -87,6 +87,19 @@ main ul li p {
     font-family: 'Space Mono', monospace;
 }
 
+@keyframes confirm-box-appearance {
+    from {
+        transform: scale(0);
+        left: 0%;
+        top: 0%;
+    }
+
+    to {
+        transform: scale(1);
+        left: 50%;
+        top: 50%;
+    }
+}
 
 #confirm-box {
     position: absolute;
@@ -97,6 +110,7 @@ main ul li p {
     background-color: white;
     padding: 40px;
     /* z-index: 10; */
+    animation: confirm-box-appearance 3s;
 }
 
 #confirm-box > ul {
