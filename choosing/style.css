@@ -95,7 +95,7 @@ main ul li p {
     transform: translate(-50%, -50%);
     border-radius: 5px;
     background-color: white;
-    padding: 15px;
+    padding: 40px;
     /* z-index: 10; */
 }
 
@@ -108,8 +108,23 @@ main ul li p {
 }
 
 #confirm-box ul li {
-    list-style-type: disc;
     border: none;
+}
+
+#confirm-box * {
+    list-style: disc;
+}
+
+input[type = "checkbox"] {
+    scale: 160%;
+}
+
+input[type = "checkbox"]:checked {
+    accent-color: var(--LM-color);
+}
+
+label[for = "anonymous"] {
+    padding-left: 10px;
 }
 
 .submit-field {
