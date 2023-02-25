@@ -49,7 +49,7 @@
             </li>
         </ul>
         <div id="confirm-box" class="hidden" not-to-be-blurred>
-            <p not-to-be-blurred>Etes-vous sûr de vouloir continuer anonymement ?</p>
+            <p not-to-be-blurred style="font-weight: bold;">Etes-vous sûr de vouloir continuer anonymement ?</p>
             <br>
             <p not-to-be-blurred>En continuant anonymement, vous ne pourrez pas :</p>
             <ul not-to-be-blurred>
