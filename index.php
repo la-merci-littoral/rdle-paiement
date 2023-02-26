@@ -2,13 +2,17 @@
 
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
-    }
+    } 
 
-    if (!(isset($_SESSION['submit']))) {
+    if (!isset($_SESSION['isAnonymous']) or !isset($_SESSION['isCompany'])) {
         header('Location: ./choosing/');
-        die();
+    } elseif ($_SESSION['isAnonymous'] == false and $_SESSION['isCompany'] == false) {
+        header("Location: ../registering?type=particulier");
+    } elseif ($_SESSION['isAnonymous'] == true) {
+        // Nothing to do here forthe moment ! This will change when everything will be reorganised...
+    } elseif ($_SESSION['isAnonymous'] == false and $_SESSION['isCompany'] == true) {
+        header("Location: ../registering?type=entreprise");
     }
-    
 ?>
 
 <!DOCTYPE html>
