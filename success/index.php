@@ -19,7 +19,7 @@
             $city = $_SESSION['city'];
             $email = $_SESSION['email'];
             $phone = $_SESSION['phone'];
-            $isAnonymous = $_SESSION['isAnonymous'];
+            $isAnonymous = false;
         } else {
             $lname = '';
             $fname = '';
@@ -27,7 +27,7 @@
             $city = '';
             $email = '';
             $phone = '';
-            $isAnonymous = false;
+            $isAnonymous = true;
         }
         $amount = $_SESSION['amount'];
 
