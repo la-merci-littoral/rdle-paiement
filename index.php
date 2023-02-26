@@ -6,7 +6,7 @@
 
     if (!isset($_SESSION['isAnonymous']) or !isset($_SESSION['isCompany'])) {
         header('Location: ./choosing/');
-    } elseif ($_SESSION['isAnonymous'] == false and $_SESSION['isCompany'] == false) {
+    } elseif ($_SESSION['isAnonymous'] == false and $_SESSION['isCompany'] == false and !isset($_SESSION['email'])) {
         header("Location: ../registering?type=particulier");
     } elseif ($_SESSION['isAnonymous'] == true) {
         // Nothing to do here forthe moment ! This will change when everything will be reorganised...
