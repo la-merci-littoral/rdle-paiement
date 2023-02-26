@@ -68,7 +68,7 @@ function openAnonymous() {
 }
 
 function toggleSubmit(val){
-    var sbmtBtn = document.getElementsByName("submit")[0]
+    var sbmtBtn = document.getElementsByName("submit-anonymous")[0]
     if (val.checked){
         sbmtBtn.disabled = false
     } else {

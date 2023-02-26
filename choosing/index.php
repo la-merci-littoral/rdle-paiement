@@ -3,8 +3,15 @@
         session_start();
     }
 
-    if (isset($_POST['submit'])) {
-        $_SESSION['isAnonymous'] = filter_var($_POST['anonymous'], FILTER_VALIDATE_BOOLEAN);
+    if (!isset($_SESSION['isAnonymous'])){
+        $_SESSION['isAnonymous'] = false;
+    }
+    if (!isset($_SESSION['isCompany'])){
+        $_SESSION['isCompany'] = false;
+    }
+
+    if (isset($_POST['submit-anonymous'])) {
+        $_SESSION['isAnonymous'] = true;
         header("Location: ../");
     }
 ?>
@@ -67,11 +74,12 @@
                 </div>
                 <br>
                 <div class="submit-field" not-to-be-blurred>
-                    <input type="submit" name="submit" value="Suivant" class="button submit-button" disabled not-to-be-blurred>
+                    <input type="submit" name="submit-anonymous" value="Suivant" class="button submit-button" disabled not-to-be-blurred>
                     <button type="submit" name="goback" value="Précédent" class="button border-button" not-to-be-blurred>Annuler</button>
                 </div>
             </form>
         </div>
+        <?php echo $isAnonymous?>
     </main>
 
 
