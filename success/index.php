@@ -11,20 +11,31 @@
                 $success = true;
             }
         }
-
-        $lname = $_SESSION['lname'];
-        $fname = $_SESSION['fname'];
-        $postal = $_SESSION['postal'];
-        $city = $_SESSION['city'];
-        $email = $_SESSION['email'];
-        $phone = $_SESSION['phone'];
+        
+        if ($_SESSION['isAnonymous'] == false){
+            $lname = $_SESSION['lname'];
+            $fname = $_SESSION['fname'];
+            $postal = $_SESSION['postal'];
+            $city = $_SESSION['city'];
+            $email = $_SESSION['email'];
+            $phone = $_SESSION['phone'];
+            $isAnonymous = $_SESSION['isAnonymous'];
+        } else {
+            $lname = '';
+            $fname = '';
+            $postal = '';
+            $city = '';
+            $email = '';
+            $phone = '';
+            $isAnonymous = false;
+        }
         $amount = $_SESSION['amount'];
 
         session_destroy();
 
         require('../config/db_connect.php');
 
-        $sql = "INSERT INTO donations(fname, lname, postal, city, email, phone, amount_donated) VALUES(
+        $sql = "INSERT INTO donations(fname, lname, postal, city, email, phone, amount_donated, isAnonymous) VALUES(
             '$fname',
             '$lname',
             '$postal',
@@ -32,6 +43,7 @@
             '$email',
             '$phone',
             '$amount'
+            '$isAnonymous'
         )";
 
         if (!mysqli_query($conn, $sql)) {
