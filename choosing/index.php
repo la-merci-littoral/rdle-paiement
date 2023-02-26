@@ -3,16 +3,17 @@
         session_start();
     }
 
-    if (!isset($_SESSION['isAnonymous'])){
+    if (isset($_POST['submit-normal'])) {
         $_SESSION['isAnonymous'] = false;
-    }
-    if (!isset($_SESSION['isCompany'])){
         $_SESSION['isCompany'] = false;
-    }
-
-    if (isset($_POST['submit-anonymous'])) {
+        header("Location: ../registering?type=particulier");
+    } elseif (isset($_POST['submit-anonymous'])) {
         $_SESSION['isAnonymous'] = true;
         header("Location: ../");
+    } elseif (isset($_POST['submit-company'])) {
+        $_SESSION['isCompany'] = true;
+        $_SESSION['isAnonymous'] = false;
+        header("Location: ../registering?type=entreprise");
     }
 ?>
 
@@ -41,20 +42,22 @@
     <?php require('../modules/nav.php') ?>
 
     <main not-to-be-blurred>
-        <ul id="choices">
-            <li id="individual">
-                <p> Je participe <span class="highlight" data-value="maintenant">maintenant</span>!</p>
-                <div><a class="material-symbols-outlined" href="../registering/">arrow_forward_ios</a></div>
-            </li>
-            <li id="individual anonymous">
-                <p> Je souhaite participer <span class="highlight" data-value="anonymement">anonymement</span>.</p>
-                <div><a class="material-symbols-outlined" onclick="openAnonymous()">arrow_forward_ios </a></div>
-            </li>
-            <li id="company">
-                <p> Participer en tant qu'<span class="highlight" data-value="entreprise">entreprise</span>.</p>
-                <div><a class="material-symbols-outlined" href="#">arrow_forward_ios </a></div>
-            </li>
-        </ul>
+        <form action="./" method="POST">
+            <ul id="choices">
+                <li id="individual">
+                    <p> Je participe <span class="highlight" data-value="maintenant">maintenant</span>!</p>
+                    <input type="submit" name="submit-normal" value="arrow_forward_ios" class="material-symbols-outlined">
+                </li>
+                <li id="individual anonymous">
+                    <p> Je souhaite participer <span class="highlight" data-value="anonymement">anonymement</span>.</p>
+                    <div><a class="material-symbols-outlined" onclick="openAnonymous()">arrow_forward_ios </a></div>
+                </li>
+                <li id="company">
+                    <p> Participer en tant qu'<span class="highlight" data-value="entreprise">entreprise</span>.</p>
+                    <input type="submit" name="submit-company" value="arrow_forward_ios" class="material-symbols-outlined">
+                </li>
+            </ul>
+        </form>
         <div id="confirm-box" class="hidden" not-to-be-blurred>
             <p not-to-be-blurred style="font-weight: bold;">Etes-vous sûr de vouloir continuer anonymement ?</p>
             <br>
@@ -79,7 +82,6 @@
                 </div>
             </form>
         </div>
-        <?php echo $isAnonymous?>
     </main>
 
 
