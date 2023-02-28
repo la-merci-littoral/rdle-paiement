@@ -3,18 +3,20 @@
         session_start();
     }
 
+    $prefix = "../../";
+
     if (isset($_POST['submit-normal'])) {
         $_SESSION['isAnonymous'] = false;
         $_SESSION['isCompany'] = false;
-        header("Location: ../registering?type=particulier");
+        header("Location: ../../informations?type=particulier");
     } elseif (isset($_POST['submit-anonymous'])) {
         $_SESSION['isAnonymous'] = true;
         $_SESSION['isCompany'] = false;
-        header("Location: ../");
+        header("Location: ../../");
     } elseif (isset($_POST['submit-company'])) {
         $_SESSION['isCompany'] = true;
         $_SESSION['isAnonymous'] = false;
-        header("Location: ../registering?type=entreprise");
+        header("Location: ../../informations?type=entreprise");
     }
 ?>
 
@@ -24,8 +26,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="../img/LRDE-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="../../img/LRDE-logo.png" type="image/x-icon">
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,7 +42,7 @@
 </head>
 <body not-to-be-blurred>
 
-    <?php require('../modules/nav.php') ?>
+    <?php require('../../modules/nav.php') ?>
 
     <main not-to-be-blurred>
         <form action="./" method="POST">
