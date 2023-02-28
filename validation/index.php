@@ -10,7 +10,7 @@
     //     $_SESSION['amount'] = '5';
     // }
 
-    // Also, if you want to bypass the payment but still arriave in the DB, please add `or true == true`
+    // Also, if you want to bypass the payment but still arrive in the DB, please add `or true == true`
     // to the following (uncommented) line. It will become :
     // if (isset($_SESSION['submit']) or true == true) {
     //     ...
