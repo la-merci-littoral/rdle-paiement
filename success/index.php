@@ -4,35 +4,55 @@
         session_start();
     }
 
-    if (isset($_SESSION['submit'])) {
+    // ⬇️ This is debugging code that can be useful if you need to test this PHP without
+    // going through the amount selection page (which isn't even done yet...)
+    // if (!isset($_SESSION['amount'])){
+    //     $_SESSION['amount'] = '5';
+    // }
 
+    // Also, if you want to bypass the payment but still arriave in the DB, please add `or true == true`
+    // to the following (uncommented) line. It will become :
+    // if (isset($_SESSION['submit']) or true == true) {
+    //     ...
+    // }
+
+    if (isset($_SESSION['submit'])) {
         if (isset($_GET['redirect_status'])) {
             if ($_GET['redirect_status'] == "succeeded") {
                 $success = true;
             }
         }
-
-        $lname = $_SESSION['lname'];
-        $fname = $_SESSION['fname'];
-        $postal = $_SESSION['postal'];
-        $city = $_SESSION['city'];
-        $email = $_SESSION['email'];
-        $phone = $_SESSION['phone'];
-        $amount = $_SESSION['amount'];
+        
+        if ($_SESSION['isAnonymous'] == false){
+            echo "yes";
+            $sql = "INSERT INTO donations(fname, lname, postal, city, email, phone, amount_donated) VALUES('" . $_SESSION['lname'] 
+            . "', '" 
+            . $_SESSION['fname'] 
+            . "', '" 
+            . $_SESSION['postal'] 
+            . "', '" 
+            . $_SESSION['city'] 
+            . "', '" 
+            . $_SESSION['email'] 
+            . "', '" 
+            . $_SESSION['phone'] 
+            . "', '" 
+            . $_SESSION['amount'] 
+            . "')";
+            echo $sql;
+        } else {
+            $sql = "INSERT INTO donations(amount_donated, isAnonymous) VALUES ('"
+            . $_SESSION['amount']
+            . "', '"
+            . true
+            . "')";
+        }
 
         session_destroy();
 
         require('../config/db_connect.php');
 
-        $sql = "INSERT INTO donations(fname, lname, postal, city, email, phone, amount_donated) VALUES(
-            '$fname',
-            '$lname',
-            '$postal',
-            '$city',
-            '$email',
-            '$phone',
-            '$amount'
-        )";
+        echo $sql;
 
         if (!mysqli_query($conn, $sql)) {
             echo "Query error: " .mysqli_error($conn);
