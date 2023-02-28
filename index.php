@@ -22,8 +22,6 @@
 
     // ------------- End of debugging code -------------- //
     
-    // ⬆️ This some code for debugging : uncomment this and it will reset the system.
-    // Then recomment this and refresh the page. Good luck !
 
     if (!isset($_SESSION['isAnonymous']) or !isset($_SESSION['isCompany'])) {
         header('Location: ./choosing/');
