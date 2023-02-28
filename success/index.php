@@ -24,7 +24,6 @@
         }
         
         if ($_SESSION['isAnonymous'] == false){
-            echo "yes";
             $sql = "INSERT INTO donations(fname, lname, postal, city, email, phone, amount_donated) VALUES('" . $_SESSION['lname'] 
             . "', '" 
             . $_SESSION['fname'] 
@@ -39,7 +38,6 @@
             . "', '" 
             . $_SESSION['amount'] 
             . "')";
-            echo $sql;
         } else {
             $sql = "INSERT INTO donations(amount_donated, isAnonymous) VALUES ('"
             . $_SESSION['amount']
@@ -51,8 +49,6 @@
         session_destroy();
 
         require('../config/db_connect.php');
-
-        echo $sql;
 
         if (!mysqli_query($conn, $sql)) {
             echo "Query error: " .mysqli_error($conn);
