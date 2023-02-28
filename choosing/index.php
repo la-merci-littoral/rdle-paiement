@@ -1,5 +1,25 @@
+<?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (isset($_POST['submit-normal'])) {
+        $_SESSION['isAnonymous'] = false;
+        $_SESSION['isCompany'] = false;
+        header("Location: ../registering?type=particulier");
+    } elseif (isset($_POST['submit-anonymous'])) {
+        $_SESSION['isAnonymous'] = true;
+        $_SESSION['isCompany'] = false;
+        header("Location: ../");
+    } elseif (isset($_POST['submit-company'])) {
+        $_SESSION['isCompany'] = true;
+        $_SESSION['isAnonymous'] = false;
+        header("Location: ../registering?type=entreprise");
+    }
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" not-to-be-blurred>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,25 +38,51 @@
     <script src="choosing.js" defer></script>
     <title>Ronde de l'Espoir</title>
 </head>
-<body>
+<body not-to-be-blurred>
 
     <?php require('../modules/nav.php') ?>
 
-    <main>
-        <ul>
-            <li id="individual">
-                <p> Je participe <span class="highlight" data-value="maintenant">maintenant</span>!</p>
-                <div><a class="material-symbols-outlined" href="../registering/">arrow_forward_ios</a></div>
-            </li>
-            <li id="individual anonymous">
-                <p> Je souhaite participer <span class="highlight" data-value="anonymement">anonymement</span>.</p>
-                <div><a class="material-symbols-outlined" href="#">arrow_forward_ios </a></div>
-            </li>
-            <li id="company">
-                <p> Participer en tant qu'<span class="highlight" data-value="entreprise">entreprise</span>.</p>
-                <div><a class="material-symbols-outlined" href="#">arrow_forward_ios </a></div>
-            </li>
-        </ul>
+    <main not-to-be-blurred>
+        <form action="./" method="POST">
+            <ul id="choices">
+                <li id="individual">
+                    <p> Je participe <span class="highlight" data-value="maintenant">maintenant</span>!</p>
+                    <input type="submit" name="submit-normal" value="arrow_forward_ios" class="material-symbols-outlined">
+                </li>
+                <li id="individual anonymous">
+                    <p> Je souhaite participer <span class="highlight" data-value="anonymement">anonymement</span>.</p>
+                    <div><a class="material-symbols-outlined" onclick="openAnonymous()">arrow_forward_ios </a></div>
+                </li>
+                <li id="company">
+                    <p> Participer en tant qu'<span class="highlight" data-value="entreprise">entreprise</span>.</p>
+                    <input type="submit" name="submit-company" value="arrow_forward_ios" class="material-symbols-outlined">
+                </li>
+            </ul>
+        </form>
+        <div id="confirm-box" class="hidden" not-to-be-blurred>
+            <p not-to-be-blurred style="font-weight: bold;">Etes-vous sûr de vouloir continuer anonymement ?</p>
+            <br>
+            <p not-to-be-blurred>En continuant anonymement, vous ne pourrez pas :</p>
+            <ul not-to-be-blurred>
+                <li not-to-be-blurred>Profiter d'une déduction d'impôts</li>
+                <li not-to-be-blurred>Et d'autres désavantages à venir</li>
+            </ul>
+            <br>
+            <form action="./index.php" method="POST" not-to-be-blurred>
+                <div id="confirmation-input" not-to-be-blurred>
+                    <label not-to-be-blurred>
+                        <input type="checkbox" name="anonymous" value="1" onclick="toggleSubmit(this)" not-to-be-blurred>
+                        <span not-to-be-blurred id="chkbx-text">Je confirme vouloir rester anonyme</span>
+                    </label>
+                    <!-- <label for="anonymous" not-to-be-blurred>Je confirme vouloir rester anonyme</label> -->
+                </div>
+                <br>
+                <div class="submit-field" not-to-be-blurred>
+                    <input type="submit" name="submit-anonymous" value="Suivant" class="button submit-button" disabled not-to-be-blurred>
+                    <button type="submit" name="goback" value="Précédent" class="button border-button" not-to-be-blurred>Annuler</button>
+                </div>
+            </form>
+        </div>
     </main>
 
 
