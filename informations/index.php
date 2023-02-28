@@ -3,6 +3,8 @@
         session_start();
     }
 
+    $prefix = "../";
+
     require('../config/db_connect.php');
 
     $lname = isset($_SESSION['lname']) ? $_SESSION['lname'] : "";
@@ -118,7 +120,7 @@
             $_SESSION['amount'] = mysqli_real_escape_string($conn, $amount);
 
             $_SESSION['submit'] = true;
-            header('Location: ../');
+            header('Location: ../paiement');
             die();
         }
     }
@@ -226,7 +228,7 @@
             
             <div class="submit-field">
                 <input type="submit" name="submit" value="Suivant" class="button submit-button">
-                <input type="submit" name="goback" value="Précédent" class="button border-button" href="../choosing/">
+                <input type="submit" name="goback" value="Précédent" class="button border-button" href="../choix/type/">
             </div>
             
         </form>
