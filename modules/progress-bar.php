@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="./progress-bar.css">
 </head>
 <body>
-    <div class="container">
+<div class="container">
         <ul class="progressbar">
-            <li class="done">Step 1</li>
-            <li class="active">Step 2</li>
-            <li>Step 3</li>
+            <li class="done">Choix du Type de don</li>
+            <li class="active" id="infos-step">Informations sur vous</li>
+            <li>Choix du Montant</li>
+            <li>Paiement</li>
+            <li>Terminé !</li>
         </ul>
     </div>
 </body>
