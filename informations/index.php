@@ -34,7 +34,7 @@
         $_SESSION['phone'] = isset($_POST['phone']) ? $_POST['phone'] : "";
         $_SESSION['amount'] = isset($_POST['amount']) ? $_POST['amount'] : "";
 
-        header("Location: ../choosing/");
+        header("Location: ../choix/type/");
     }
 
     if (isset($_POST['submit'])) {
@@ -228,7 +228,7 @@
             
             <div class="submit-field">
                 <input type="submit" name="submit" value="Suivant" class="button submit-button">
-                <input type="submit" name="goback" value="Précédent" class="button border-button" href="../choix/type/">
+                <input type="submit" name="goback" value="Précédent" class="button border-button">
             </div>
             
         </form>
