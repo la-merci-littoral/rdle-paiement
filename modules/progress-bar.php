@@ -24,15 +24,13 @@
         </ul>
     </div>
     <script type="text/javascript">
-        // <?php echo isset($_SESSION['isAnonymous']) ? $_SESSION['isAnonymous'] : false; ?> hello
-        var isAnonymous = false;
         var currentPage = window.location.pathname.split('/').slice(-2, -1)[0]
         const typeStep = document.getElementById('type-step')
         const infoStep = document.getElementById('infos-step')
         const montantStep = document.getElementById('montant-step')
         const paiementStep = document.getElementById('paiement-step')
         const validationStep = document.getElementById('validation-step')
-        if (isAnonymous == true) {
+        if (<?php echo $_SESSION['isAnonymous'] ?> == true) {
             infoStep.classList.add('not-to-be-displayed');
         }
         if (currentPage == 'type'){
