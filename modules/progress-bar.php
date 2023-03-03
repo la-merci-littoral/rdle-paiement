@@ -1,10 +1,10 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
 ?>
 
-<link rel="stylesheet" href="./progress-bar.css">
+<link rel="stylesheet" href="<?php echo $prefix . "modules/progress-bar.css" ?>" >
 <ul class="progressbar">
     <li id="type-step">Choix du Type de don</li>
     <li id="infos-step">Informations sur vous</li>
@@ -19,10 +19,10 @@ if (session_status() == PHP_SESSION_NONE) {
     const montantStep = document.getElementById('montant-step')
     const paiementStep = document.getElementById('paiement-step')
     const validationStep = document.getElementById('validation-step')
-    if (<?php echo $_SESSION['isAnonymous'] ?> == true) {
-        infoStep.classList.add('not-to-be-displayed');
-    }
-    if (currentPage == 'type') {
+    // if (<?php echo $_SESSION['isAnonymous'] ?> == true) {
+    //     infoStep.classList.add('not-to-be-displayed');
+    // }
+    if (currentPage === 'type') {
         typeStep.classList.add('active');
     } else if (currentPage == 'informations') {
         typeStep.classList.add('done');
