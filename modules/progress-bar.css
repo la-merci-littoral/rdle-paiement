@@ -16,6 +16,7 @@
 
 #barblock .progressbar {
     counter-reset: step;
+    z-index: 1;
 }
 
 #barblock .progressbar li {
@@ -52,6 +53,7 @@
     margin: 0 auto 10px auto;
     border-radius: 50%;
     background-color: white;
+    z-index: 2;
 }
 
 #barblock .progressbar li::after {
@@ -62,6 +64,7 @@
     background-color: #ddd;
     top: 23px;
     left: -50%;
+    /* z-index: -1; */
     z-index: 2;
 }
 
