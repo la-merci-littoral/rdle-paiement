@@ -19,7 +19,7 @@ if (session_status() == PHP_SESSION_NONE) {
     const montantStep = document.getElementById('montant-step')
     const paiementStep = document.getElementById('paiement-step')
     const validationStep = document.getElementById('validation-step')
-    if (<?php echo $_SESSION['isAnonymous'] ?> == true) {
+    if (<?php echo $_SESSION['isAnonymous'] ? 'true' : 'false' ?> == true) {
         infoStep.classList.add('not-to-be-displayed');
     }
     if (currentPage === 'type') {
