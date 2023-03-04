@@ -91,7 +91,7 @@
         } else {
             $phone = $_POST['phone'];
             $_SESSION['phone'] = $_POST['phone'];
-            if ((preg_match('/[0-9]{10}/', $phone)) || (preg_match('/[0][0-9] [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}/', $phone))) { // made this regex on my own, take that PhP >:)
+            if (preg_match('/^(0|(\+33[\s]?([0]?|[(0)]{3}?)))[1-9]([-. ]?[0-9]{2}){4}$/', $phone)) {    //@Skyman-2 better regex, all by myself 😎
                 $errors['phone'] = "";
             } else {
                 $errors['phone'] = "Numéro de téléphone invalide.";
@@ -177,7 +177,7 @@
                     
                     <div class="field">
                         <label for="phone">Numéro de téléphone :</label>
-                        <input type="tel" name="phone" placeholder="01 23 45 67 89" maxlength="14" value="<?php echo $phone ?>">
+                        <input type="tel" name="phone" placeholder="01 23 45 67 89" maxlength="20" value="<?php echo $phone ?>">
                         <p class="error"><?php echo $errors['phone']; ?></p>
                     </div>
 
