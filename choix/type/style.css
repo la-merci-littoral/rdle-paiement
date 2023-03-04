@@ -25,16 +25,10 @@ html, body {
     filter: blur(5px);
 }
 
-#barblock {
-    width: 100%;
-    margin: 40px 0 0 0;
-    height: 90px;
-}
-
 /** MAIN CSS **/
 
 main {
-    margin: 60px auto 0 auto;
+    margin: 100px auto 0 auto;
     width: 40vw;
     min-width: 500px;
     /* border: solid 1px rgba(100,100,100,0.2); */
