@@ -12,35 +12,33 @@
 }
 
 
-
-
-#barblock .progressbar {
+.progressbar {
     counter-reset: step;
 }
 
-#barblock .progressbar li {
+.progressbar li {
     list-style-type: none;
     float: left;
     position: relative;
     text-align: center;
 }
 
-#barblock li:first-child:nth-last-child(4),
-#barblock li:first-child:nth-last-child(4) ~ li {
+li:first-child:nth-last-child(4),
+li:first-child:nth-last-child(4) ~ li {
     width: 25%;
 }
 
-#barblock li:first-child:nth-last-child(5),
-#barblock li:first-child:nth-last-child(5) ~ li {
+li:first-child:nth-last-child(5),
+li:first-child:nth-last-child(5) ~ li {
     width: 20%;
 }
 
-#barblock li:first-child:nth-last-child(3),
-#barblock li:first-child:nth-last-child(3) ~ li {
+li:first-child:nth-last-child(3),
+li:first-child:nth-last-child(3) ~ li {
     width: 33.33%;
 }
 
-#barblock .progressbar li::before {
+.progressbar li::before {
     content: counter(step);
     counter-increment: step;
     width: 37px;
@@ -54,7 +52,7 @@
     background-color: white;
 }
 
-#barblock .progressbar li::after {
+.progressbar li::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -62,34 +60,34 @@
     background-color: #ddd;
     top: 23px;
     left: -50%;
-    z-index: 2;
+    z-index: -1;
 }
 
-#barblock .progressbar li:first-child::after {
+.progressbar li:first-child::after {
     content: none;
 }
 
-#barblock .progressbar li.active {
+.progressbar li.active {
     color: var(--LM-color);
     font-weight: bold;
     font-size: 120%;
 }
 
-#barblock .progressbar li.active::before {
+.progressbar li.active::before {
     border-color: var(--LM-color);
     width: 46px;
     height: 46px;
     line-height: 46px;
 }
 
-#barblock .progressbar li.done {
+.progressbar li.done {
     color: rgb(39, 160, 100);
 }
 
-#barblock .progressbar li.done::before {
+.progressbar li.done::before {
     border-color: rgb(39, 160, 100);
 }
 
-#barblock .progressbar li.done + li::after {
+.progressbar li.done + li::after {
     background-color: rgb(39, 160, 100);
 }

@@ -44,10 +44,6 @@
 
     <?php require('../../modules/nav.php') ?>
 
-    <div id="barblock">
-        <?php require('../../modules/progress-bar.php') ?>
-    </div>
-
     <main not-to-be-blurred>
         <form action="./" method="POST">
             <ul id="choices">
