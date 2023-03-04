@@ -40,6 +40,10 @@ main {
     font-size: 120%;
 }
 
+form {
+    height: 100%;
+}
+
 main .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -73,6 +77,11 @@ main ul li {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+main ul li input {
+    border: none;
+    background-color: transparent;
 }
 
 main ul li p {
