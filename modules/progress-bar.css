@@ -17,6 +17,8 @@
     margin: 40px 10vw 0;
     display: block;
     height: 90px;
+    z-index: 2;
+    position: relative;
 }
 
 .progressbar li {
