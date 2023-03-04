@@ -29,6 +29,12 @@
 </head>
 <body>
 
+    <?php
+        $prefix = '../';
+        require('../modules/nav.php');
+        require('../modules/progress-bar.php')
+    ?>
+
     <form id="payment-form">
 
         <div id="link-authentication-element"></div>
