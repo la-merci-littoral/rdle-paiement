@@ -81,7 +81,11 @@
 </head>
 <body>
 
-    <?php require('../modules/nav.php') ?>
+    <?php
+        $prefix = '../';
+        require('../modules/nav.php');
+        require('../modules/progress-bar.php')
+    ?>
 
     <main>
         <h2>Merci pour votre participation!</h2>
