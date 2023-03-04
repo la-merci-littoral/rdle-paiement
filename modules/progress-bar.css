@@ -14,6 +14,9 @@
 
 .progressbar {
     counter-reset: step;
+    margin: 40px 10vw 0;
+    display: block;
+    height: 90px;
 }
 
 .progressbar li {
