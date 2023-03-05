@@ -38,13 +38,28 @@
             // . "', '" 
             // . $_SESSION['amount'] 
             // . "')";
-            $sql = "INSERT INTO donations(fname, lname, postal, city, email, phone, amount_donated) VALUES('', '', '', '', '', '', '')";
+            $lname = $_SESSION['lname'];
+            $fname = $_SESSION['fname'];
+            $postal = $_SESSION['postal'];
+            $city = $_SESSION['city'];
+            $email = $_SESSION['email'];
+            $phone = $_SESSION['phone'];
+            $amount = $_SESSION['amount'];
+
+            $sql = "INSERT INTO donations(lname, fname, postal, city, email, phone, amount_donated) VALUES(
+                '$lname',
+                '$fname',
+                '$postal',
+                '$city',
+                '$email',
+                '$phone',
+                '$amount'
+            )";
+
         } else {
-            $sql = "INSERT INTO donations(amount_donated, isAnonymous) VALUES ('"
-            . $_SESSION['amount']
-            . "', '"
-            . true
-            . "')";
+            $isAnonymous = $_SESSION['isAnonymous'];
+            $amount = $_SESSION['amount'];
+            $sql = "INSERT INTO donations(amount_donated, isAnonymous) VALUES ('$isAnonymous', '$amount')";
         }
 
         session_destroy();
