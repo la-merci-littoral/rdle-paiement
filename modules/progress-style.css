@@ -30,9 +30,11 @@
     height: 45px;
     border-radius: 12px 12px 0 0;
     font-size: 14px;
+    /* padding-bottom: 7px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.14); */
 }
 
-ul {
+#progress-steps {
     display: flex;
     width: 100%;
     height: 100%;
