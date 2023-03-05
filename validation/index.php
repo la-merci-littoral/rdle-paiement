@@ -107,7 +107,7 @@
                 $currentPage = "success";
                 include('../modules/progress.php');
                 
-                // session_destroy();
+                session_destroy();
             ?>
 
             <h2>Merci pour votre participation!</h2>
