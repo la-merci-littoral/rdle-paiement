@@ -118,3 +118,17 @@ ul {
     background-color: var(--LM-color);
     color: white;
 }
+
+.logic-component {
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.60);
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
