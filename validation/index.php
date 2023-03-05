@@ -10,7 +10,7 @@
     //     $_SESSION['amount'] = '5';
     // }
 
-    // Also, if you want to bypass the payment but still arrive in the DB, please add `or true == true`
+    // Also, if you want to bypass the payment but still arrive in the DB, please add `or true`
     // to the following (uncommented) line. It will become :
     // if (isset($_SESSION['submit']) or true == true) {
     //     ...
@@ -24,20 +24,21 @@
         }
         
         if ($_SESSION['isAnonymous'] == false){
-            $sql = "INSERT INTO donations(fname, lname, postal, city, email, phone, amount_donated) VALUES('" . $_SESSION['lname'] 
-            . "', '" 
-            . $_SESSION['fname'] 
-            . "', '" 
-            . $_SESSION['postal'] 
-            . "', '" 
-            . $_SESSION['city'] 
-            . "', '" 
-            . $_SESSION['email'] 
-            . "', '" 
-            . $_SESSION['phone'] 
-            . "', '" 
-            . $_SESSION['amount'] 
-            . "')";
+            // $sql = "INSERT INTO donations(fname, lname, postal, city, email, phone, amount_donated) VALUES('" . $_SESSION['lname'] 
+            // . "', '" 
+            // . $_SESSION['fname'] 
+            // . "', '" 
+            // . $_SESSION['postal'] 
+            // . "', '" 
+            // . $_SESSION['city'] 
+            // . "', '" 
+            // . $_SESSION['email'] 
+            // . "', '" 
+            // . $_SESSION['phone'] 
+            // . "', '" 
+            // . $_SESSION['amount'] 
+            // . "')";
+            $sql = "INSERT INTO donations(fname, lname, postal, city, email, phone, amount_donated) VALUES('', '', '', '', '', '', '')";
         } else {
             $sql = "INSERT INTO donations(amount_donated, isAnonymous) VALUES ('"
             . $_SESSION['amount']
