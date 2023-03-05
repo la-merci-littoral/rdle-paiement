@@ -3,12 +3,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 
-
 <!-- Exemple of progress bar for people not choosing anonymous -->
 <div class="progress-bar">
     <ul id="progress-steps">
 
-        <?php if ($currentPage == 'infos-individual') { ?>
+        <?php
+        
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        
+        if ($_SESSION['isAnonymous'] == false) { ?>
 
             <li class="step"><span class="numeric-indicator">1</span> Informations</li>
             <li class="logic-component"><span class="material-symbols-outlined progress-child">navigate_next</span></li>
