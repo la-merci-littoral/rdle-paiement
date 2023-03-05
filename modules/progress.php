@@ -6,7 +6,7 @@
 <!-- Exemple of progress bar for people not choosing anonymous -->
 <div class="progress-bar">
     <ul id="progress-steps">
-        <li class="step current-text"><span class="current numeric-indicator">1</span> Informations</li>
+        <li class="step"><span class="numeric-indicator">1</span> Informations</li>
         <li class="logic-component"><span class="material-symbols-outlined progress-child">navigate_next</span></li>
 
         <li class="step"><span class="numeric-indicator">2</span>Montant</li>
