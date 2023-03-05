@@ -38,7 +38,7 @@ async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
 
-    $localUrl = "https://localhost/paiement/success/index.php";
+    $localUrl = "https://localhost/paiement/validation/index.php";
     $realUrl = "https://paiement.ronde-de-l-espoir.fr/success/index.php";
 
     const { error } = await stripe.confirmPayment({
