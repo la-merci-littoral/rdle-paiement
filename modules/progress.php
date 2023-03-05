@@ -17,4 +17,13 @@
             <li>Terminé !</li>
         </ul>
     </div> -->
+
+    <div class="progress">
+        <ul>
+            <li class="step">1</li>
+            <li class="step">2</li>
+            <li class="step">3</li>
+            <li class="step">4</li>
+        </ul>
+    </div>
 </div>
