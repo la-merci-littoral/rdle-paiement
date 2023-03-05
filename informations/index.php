@@ -3,7 +3,7 @@
         session_start();
     }
 
-    $currentPage = 'success';
+    $currentPage = 'info';
 
     $prefix = "../";
 
