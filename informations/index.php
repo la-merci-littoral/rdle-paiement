@@ -3,6 +3,8 @@
         session_start();
     }
 
+    $currentPage = 'infos-individual';
+
     $prefix = "../";
 
     require('../config/db_connect.php');
