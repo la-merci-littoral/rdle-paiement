@@ -95,18 +95,25 @@
 </head>
 <body>
 
-    <?php require('../modules/nav.php') ?>
+    <?php
+        $prefix = "../";
+        require('../modules/nav.php')
+    ?>
 
-<main>
-        <?php
-            $currentPage = "success";
-            include('../modules/progress.php');
-            
-            session_destroy();
-        ?>
+    <main>
 
-        <h2>Merci pour votre participation!</h2>
-        <div class="return"><a href="https://ronde-de-l-espoir.fr" class="button">Retour à l'accueil</a></div>
+        <div>
+            <?php
+                $currentPage = "success";
+                include('../modules/progress.php');
+                
+                // session_destroy();
+            ?>
+
+            <h2>Merci pour votre participation!</h2>
+        </div>
+            <div class="return"><a href="https://ronde-de-l-espoir.fr" class="button">Retour à l'accueil</a></div>
+        
     </main>
     
 </body>
