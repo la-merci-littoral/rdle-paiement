@@ -7,13 +7,13 @@
 <div class="progress-bar">
     <ul>
         <li class="step done-text"><span class="done numeric-indicator">1</span> Informations</li>
-        <li class="logic-component"><span class="material-symbols-outlined">navigate_next</span></li>
+        <li class="logic-component"><span class="material-symbols-outlined progress-child">navigate_next</span></li>
 
         <li class="step done-text"><span class="done numeric-indicator">2</span>Montant</li>
-        <li class="logic-component"><span class="material-symbols-outlined">navigate_next</span></li>
+        <li class="logic-component"><span class="material-symbols-outlined progress-child">navigate_next</span></li>
 
         <li class="step current-text"><span class="current numeric-indicator">3</span>Paiement</li>
-        <li class="logic-component"><span class="material-symbols-outlined">navigate_next</span></li>
+        <li class="logic-component"><span class="material-symbols-outlined progress-child">navigate_next</span></li>
 
         <li class="step"><span class="numeric-indicator">4</span>Terminé !</li>
     </ul>
