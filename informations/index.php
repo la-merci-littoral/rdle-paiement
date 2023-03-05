@@ -153,6 +153,8 @@
 
         <form action="./index.php" method="POST">
 
+        <?php include('../modules/progress.php'); ?>
+
             <div class="column-wrapper">
 
                 <div class="column">
