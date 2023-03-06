@@ -58,13 +58,13 @@
 
         <?php } else { ?>
 
-            <li class="step"><span class="numeric-indicator">1</span>Montant</li>
+            <li class="step <?php echo $amountStatus[0] ?>"><span class="<?php echo $amountStatus[1] ?> numeric-indicator">1</span>Montant</li>
             <li class="logic-component"><span class="material-symbols-outlined progress-child">navigate_next</span></li>
             
-            <li class="step"><span class="numeric-indicator">2</span>Paiement</li>
+            <li class="step <?php echo $paymentStatus[0] ?>"><span class="<?php echo $paymentStatus[1] ?> numeric-indicator">2</span>Paiement</li>
             <li class="logic-component"><span class="material-symbols-outlined progress-child">navigate_next</span></li>
             
-            <li class="step"><span class="numeric-indicator">3</span>Terminé !</li>
+            <li class="step <?php echo $successStatus[0] ?>"><span class="<?php echo $successStatus[1] ?> numeric-indicator">3</span>Terminé !</li>
 
         <?php } ?>
     </ul>
