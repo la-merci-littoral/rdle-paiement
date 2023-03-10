@@ -147,8 +147,12 @@
 </head>
 <body>
 
-    <?php require('../modules/nav.php') ?>
-    
+    <?php 
+        require('../modules/nav.php');
+        $prefix = '../';
+        require('../modules/progress-bar.php')
+    ?>
+
     <main>
 
         <form action="./index.php" method="POST">
