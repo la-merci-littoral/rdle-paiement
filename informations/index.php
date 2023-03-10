@@ -3,6 +3,8 @@
         session_start();
     }
 
+    $currentPage = 'info';
+
     $prefix = "../";
 
     require('../config/db_connect.php');
@@ -152,6 +154,8 @@
     <main>
 
         <form action="./index.php" method="POST">
+
+        <?php include('../modules/progress.php'); ?>
 
             <div class="column-wrapper">
 

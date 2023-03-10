@@ -46,6 +46,7 @@ main .material-symbols-outlined {
   'wght' 400,
   'GRAD' 0,
   'opsz' 48;
+  font-size: 3rem !important;
   color: darkgray;
   margin: 40px;
   transition: 150ms ease-out;

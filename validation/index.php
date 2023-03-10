@@ -10,7 +10,7 @@
     //     $_SESSION['amount'] = '5';
     // }
 
-    // Also, if you want to bypass the payment but still arrive in the DB, please add `or true == true`
+    // Also, if you want to bypass the payment but still arrive in the DB, please add `or true`
     // to the following (uncommented) line. It will become :
     // if (isset($_SESSION['submit']) or true == true) {
     //     ...
@@ -24,29 +24,43 @@
         }
         
         if ($_SESSION['isAnonymous'] == false){
-            $sql = "INSERT INTO donations(fname, lname, postal, city, email, phone, amount_donated) VALUES('" . $_SESSION['lname'] 
-            . "', '" 
-            . $_SESSION['fname'] 
-            . "', '" 
-            . $_SESSION['postal'] 
-            . "', '" 
-            . $_SESSION['city'] 
-            . "', '" 
-            . $_SESSION['email'] 
-            . "', '" 
-            . $_SESSION['phone'] 
-            . "', '" 
-            . $_SESSION['amount'] 
-            . "')";
-        } else {
-            $sql = "INSERT INTO donations(amount_donated, isAnonymous) VALUES ('"
-            . $_SESSION['amount']
-            . "', '"
-            . true
-            . "')";
-        }
+            // $sql = "INSERT INTO donations(fname, lname, postal, city, email, phone, amount_donated) VALUES('" . $_SESSION['lname'] 
+            // . "', '" 
+            // . $_SESSION['fname'] 
+            // . "', '" 
+            // . $_SESSION['postal'] 
+            // . "', '" 
+            // . $_SESSION['city'] 
+            // . "', '" 
+            // . $_SESSION['email'] 
+            // . "', '" 
+            // . $_SESSION['phone'] 
+            // . "', '" 
+            // . $_SESSION['amount'] 
+            // . "')";
+            $lname = $_SESSION['lname'];
+            $fname = $_SESSION['fname'];
+            $postal = $_SESSION['postal'];
+            $city = $_SESSION['city'];
+            $email = $_SESSION['email'];
+            $phone = $_SESSION['phone'];
+            $amount = $_SESSION['amount'];
 
-        session_destroy();
+            $sql = "INSERT INTO donations(lname, fname, postal, city, email, phone, amount_donated) VALUES(
+                '$lname',
+                '$fname',
+                '$postal',
+                '$city',
+                '$email',
+                '$phone',
+                '$amount'
+            )";
+
+        } else {
+            $isAnonymous = $_SESSION['isAnonymous'];
+            $amount = $_SESSION['amount'];
+            $sql = "INSERT INTO donations(amount_donated, isAnonymous) VALUES ('$isAnonymous', '$amount')";
+        }
 
         require('../config/db_connect.php');
 
@@ -81,11 +95,25 @@
 </head>
 <body>
 
-    <?php require('../modules/nav.php') ?>
+    <?php
+        $prefix = "../";
+        require('../modules/nav.php')
+    ?>
 
     <main>
-        <h2>Merci pour votre participation!</h2>
-        <div class="return"><a href="https://ronde-de-l-espoir.fr" class="button">Retour à l'accueil</a></div>
+
+        <div>
+            <?php
+                $currentPage = "success";
+                include('../modules/progress.php');
+                
+                session_destroy();
+            ?>
+
+            <h2>Merci pour votre participation!</h2>
+        </div>
+            <div class="return"><a href="https://ronde-de-l-espoir.fr" class="button">Retour à l'accueil</a></div>
+        
     </main>
     
 </body>

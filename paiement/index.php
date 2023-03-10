@@ -31,6 +31,11 @@
 
     <form id="payment-form">
 
+        <?php
+            $currentPage = "payment";
+            include('../modules/progress.php'); 
+        ?>
+
         <div id="link-authentication-element"></div>
         <div id="payment-element"></div>
 
