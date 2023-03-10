@@ -16,9 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
     <script defer src="https://js.stripe.com/v3/"></script>
@@ -30,12 +28,6 @@
     <title>La Ronde de l'Espoir</title>
 </head>
 <body>
-
-    <?php
-        $prefix = '../';
-        require('../modules/nav.php');
-        require('../modules/progress-bar.php')
-    ?>
 
     <form id="payment-form">
 
