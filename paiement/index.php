@@ -29,6 +29,11 @@
 </head>
 <body>
 
+    <?php 
+        $prefix = '../';
+        include('../modules/nav.php');
+    ?>
+
     <form id="payment-form">
 
         <?php
