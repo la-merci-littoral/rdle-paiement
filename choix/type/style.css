@@ -85,6 +85,11 @@ main ul li p {
     font-size: 1.3rem;
 }
 
+main ul li input {
+    border: none;
+    background-color: transparent;
+}
+
 .highlight {
     text-transform: uppercase;
     font-size: 1.2rem;
