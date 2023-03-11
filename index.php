@@ -4,7 +4,7 @@
     }
 
     foreach($_SESSION as $element) {
-        echo $element + '/n';
+        echo $element, '/n';
     }
 
     // ------------ Please do not initialize session variables above this line ------------- //
