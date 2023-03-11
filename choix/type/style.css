@@ -58,6 +58,10 @@ main .material-symbols-outlined:hover {
     cursor: pointer;
 }
 
+main form {
+    height: 100%;
+}
+
 main ul {
     width: 100%;
     height: 100%;
