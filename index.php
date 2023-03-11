@@ -4,7 +4,7 @@
     }
 
     foreach($_SESSION as $element) {
-        echo $element, '/n';
+        echo $element, '  |  ';
     }
 
     // ------------ Please do not initialize session variables above this line ------------- //
@@ -28,7 +28,7 @@
 
     if (!isset($_SESSION['isAnonymous']) or !isset($_SESSION['isCompany'])) {
         header('Location: ./choix/type');
-    } elseif ($_SESSION['isAnonymous'] == false and $_SESSION['isCompany'] == false and !isset($_SESSION['email'])) {
+    } elseif ($_SESSION['isAnonymous'] == false and $_SESSION['isCompany'] == false) {
         header("Location: ./informations?type=particulier");
     } elseif ($_SESSION['isAnonymous'] == true) {
         header("Location: ./paiement");
