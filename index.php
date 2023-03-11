@@ -3,6 +3,10 @@
         session_start();
     }
 
+    foreach($_SESSION as $element) {
+        echo $element + '/n';
+    }
+
     // ------------ Please do not initialize session variables above this line ------------- //
 
     // ⬇️ This some code for debugging : uncomment this and it will reset the system.
