@@ -22,6 +22,8 @@
                 header('Location: ../informations/');
             }
         }
+    } else {
+        header('Location: ../');
     }
     
 ?>
