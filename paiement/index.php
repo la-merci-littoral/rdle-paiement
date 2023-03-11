@@ -6,7 +6,7 @@
 
     if (isset($_SESSION['isAnonymous'])) {
         if ($_SESSION['isAnonymous'] == true) {
-            return 0;
+            echo '';
         } else {
 
             if (isset($_SESSION['lname'])
@@ -17,7 +17,7 @@
                 && isset($_SESSION['postal'])
                 && isset($_SESSION['amount'])
             ) {
-                return 0;
+                echo '';
             } else {
                 header('Location: ../informations/');
             }
