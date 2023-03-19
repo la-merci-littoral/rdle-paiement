@@ -90,6 +90,18 @@ input:focus {
     transition: 300ms ease-in-out;
 }
 
+.error {
+    color: rgb(200, 0, 0);
+    font-size: 0.75rem;
+    font-style: italic;
+    font-weight: 400;
+    position: absolute;
+    top: 95px;
+    right: 15px;
+    width: 60%;
+    text-align: right;
+}
+
 #free-choice {
     width: 70px;
     text-align: right;
@@ -210,7 +222,6 @@ input:focus {
     margin-left: 0.5em;
     overflow: visible;
 }
-
 
 .tax-deduction-infos i {
     color: #444;
