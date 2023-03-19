@@ -16,7 +16,8 @@
     $email = isset($_SESSION['email']) ? $_SESSION['email'] : "";
     $phone = isset($_SESSION['phone']) ? $_SESSION['phone'] : "";
     $address = isset($_SESSION['address']) ? $_SESSION['address'] : "";
-
+    $addressComplement = isset($_SESSION['addressComplement']) ? $_SESSION['addressComplement'] : "";
+    
     $errors = array(
         'lname'=>'',
         'fname'=>'',
@@ -24,7 +25,8 @@
         'city'=>'',
         'email'=>'',
         'phone'=>'',
-        'address'=>''
+        'address'=>'',
+        'addressComplement'=>''
     );
 
     if (isset($_POST['goback'])) {
@@ -35,6 +37,7 @@
         $_SESSION['email'] = isset($_POST['email']) ? $_POST['email'] : "";
         $_SESSION['phone'] = isset($_POST['phone']) ? $_POST['phone'] : "";
         $_SESSION['address'] = isset($_POST['address']) ? $_POST['address'] : "";
+        $_SESSION['addressComplement'] = isset($_POST['addressComplement']) ? $_POST['addressComplement'] : "";
 
         header("Location: ../choix/type/");
     }
@@ -106,8 +109,18 @@
         } else {
             $address = $_POST['address'];
             $_SESSION['address'] = $_POST['address'];
-            if ($address == 0) {
-                $errors['address'] = "La contribution ne peut pas être nulle.";
+            if (!preg_match('/^[A-Z0-9 _]*$/', $address)) {
+                $errors['address'] = "Adresse invalide.";
+            }
+        }
+
+        if (empty($_POST['addressComplement'])) {
+            $addressComplement = "";
+        } else {
+            $addressComplement = $_POST['addressComplement'];
+            $_SESSION['addressComplement'] = $_POST['addressComplement'];
+            if (!preg_match('/^[A-Z0-9 _]*$/', $addressComplement)) {
+                $errors['addressComplement'] = "Complément d'adresse invalide.";
             }
         }
 
@@ -120,6 +133,7 @@
             $_SESSION['email'] = mysqli_real_escape_string($conn, $email);
             $_SESSION['phone'] = mysqli_real_escape_string($conn, $phone);
             $_SESSION['address'] = mysqli_real_escape_string($conn, $address);
+            $_SESSION['addressComplement'] = mysqli_real_escape_string($conn, $addressComplement);
 
             $_SESSION['submit'] = true;
             header('Location: ../paiement');
@@ -205,30 +219,20 @@
 
                     <div class="field">
                         <label for="address">Adresse :</label>
-                        <input type="text" name="address" placeholder="Entrez votre adresse ici" value="<?php echo $city ?>">
+                        <input type="text" name="address" placeholder="Entrez votre adresse ici" value="<?php echo $address ?>">
                         <p class="error"><?php echo $errors['address']; ?></p>
                     </div>
 
-                    <!-- <div class="amount">
-
-                        <div class="fixed-propositions">
-                            <div class="suggested-amount">
-                                <button class="suggestion" id="five-euros">5€</button>
-                            </div>
-                            <div class="suggested-amount">
-                                <button class="suggestion" id="ten-euros">10€</button>
-                            </div>
-                            <div class="suggested-amount">
-                                <button class="suggestion" id="twenty-euros">20€</button>
-                            </div>
-                        </div>
-
-                        <div class="suggested-amount">
-                            <p>Je donne <span class="space"></span> <input type="number" step="0.01" name="amount" min="1" value="<?php echo $amount ?>" placeholder="5" id="free-choice">€</p>
-                            <p class="error" id="amount-input"><?php echo $errors['amount'] ?></p>
-                        </div>
-
-                    </div> -->
+                    <div class="field">
+                        <label for="addressComplement">Complément d'adresse* :</label>
+                        <input type="text" name="addressComplement" placeholder="Exemple : Bâtiment J" value="<?php echo $addressComplement ?>">
+                        <p class="error <?php if($errors['addressComplement'] == "") { echo 'information-field'; } ?>">
+                            <?php echo $errors['addressComplement'];
+                            if($errors['addressComplement'] == '') {
+                                echo "*Ce champ n'est pas obligatoire.";
+                            } ?>
+                        </p>
+                    </div>
 
                 </div>
                 
