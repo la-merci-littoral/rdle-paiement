@@ -136,7 +136,7 @@
             $_SESSION['addressComplement'] = mysqli_real_escape_string($conn, $addressComplement);
 
             $_SESSION['submit'] = true;
-            header('Location: ../paiement');
+            header('Location: ../montant');
             die();
         }
     }
