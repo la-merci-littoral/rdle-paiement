@@ -3,13 +3,38 @@
         session_start();
     }
 
+    require('../config/db_connect.php');    
     $currentPage = 'amount';
-
     $prefix = "../";
+    
+    $amount = isset($_POST['amount']) ? $_POST['amount'] : "";
+
+    $error = '';
 
     if (isset($_POST['goback'])) {
         // do stuff here
         header('Location: ../informations/');
+    } elseif (isset($_POST['submit'])) {
+
+        if (empty($_POST['amount'])) {
+            $error = 'Une contribution est requise.';
+            $amount = '';
+        } else {
+            $amount = $_POST['amount'];
+            $_SESSION['amount'] = $_POST['amount'];
+            if (!preg_match('/^[0-9]*$/', $amount) || ($amount < 0)) {
+                $error = 'Veuillez rentrez une contribution valide.';
+            }
+        }
+
+        if (empty($error)) {
+
+            // check for dangerous MySQL code
+            $_SESSION['amount'] = mysqli_real_escape_string($conn, $amount);
+
+            header('Location: ../paiement');
+        }
+
     }
 ?>
 
@@ -42,7 +67,8 @@
             <div class="column-wrapper">
                 <div class="column">
                     <div class="field">
-                        <p>Je donne : <input type="number" id="free-choice" placeholder="10">€</p>
+                        <p>Je donne : <input type="number" name="amount" id="free-choice" placeholder="10" value="<?php echo $amount ?>">€</p>
+                        <p class="error"><?php echo $error; ?></p>
                         <div class="suggestions">
                             <ul>
                                 <li><button class="suggested-amount">10€</button></li>
