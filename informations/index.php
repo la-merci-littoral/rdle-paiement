@@ -15,7 +15,7 @@
     $city = isset($_SESSION['city']) ? $_SESSION['city'] : "";
     $email = isset($_SESSION['email']) ? $_SESSION['email'] : "";
     $phone = isset($_SESSION['phone']) ? $_SESSION['phone'] : "";
-    $amount = isset($_SESSION['amount']) ? $_SESSION['amount'] : "";
+    // $amount = isset($_SESSION['amount']) ? $_SESSION['amount'] : "";
 
     $errors = array(
         'lname'=>'',
@@ -24,7 +24,7 @@
         'city'=>'',
         'email'=>'',
         'phone'=>'',
-        'amount'=>''
+        // 'amount'=>''
     );
 
     if (isset($_POST['goback'])) {
@@ -34,7 +34,7 @@
         $_SESSION['city'] = isset($_POST['city']) ? $_POST['city'] : "";
         $_SESSION['email'] = isset($_POST['email']) ? $_POST['email'] : "";
         $_SESSION['phone'] = isset($_POST['phone']) ? $_POST['phone'] : "";
-        $_SESSION['amount'] = isset($_POST['amount']) ? $_POST['amount'] : "";
+        // $_SESSION['amount'] = isset($_POST['amount']) ? $_POST['amount'] : "";
 
         header("Location: ../choix/type/");
     }
@@ -100,16 +100,16 @@
             }
         }
 
-        if (empty($_POST['amount'])) {
-            $errors['amount'] = "Une contribution est nécessaire.";
-            $amount = "";
-        } else {
-            $amount = $_POST['amount'];
-            $_SESSION['amount'] = $_POST['amount'];
-            if ($amount == 0) {
-                $errors['amount'] = "La contribution ne peut pas être nulle.";
-            }
-        }
+        // if (empty($_POST['amount'])) {
+        //     $errors['amount'] = "Une contribution est nécessaire.";
+        //     $amount = "";
+        // } else {
+        //     $amount = $_POST['amount'];
+        //     $_SESSION['amount'] = $_POST['amount'];
+        //     if ($amount == 0) {
+        //         $errors['amount'] = "La contribution ne peut pas être nulle.";
+        //     }
+        // }
 
         if (!array_filter($errors)) {
             // check for dangerous MySQL code
@@ -119,7 +119,7 @@
             $_SESSION['city'] = mysqli_real_escape_string($conn, $city);
             $_SESSION['email'] = mysqli_real_escape_string($conn, $email);
             $_SESSION['phone'] = mysqli_real_escape_string($conn, $phone);
-            $_SESSION['amount'] = mysqli_real_escape_string($conn, $amount);
+            // $_SESSION['amount'] = mysqli_real_escape_string($conn, $amount);
 
             $_SESSION['submit'] = true;
             header('Location: ../paiement');
@@ -191,21 +191,19 @@
                 
                 <div class="column">
 
-                    <div class="input-right">
-                        <div class="field">
-                            <label for="fname">Code Postal :</label>
-                            <input type="number" name="postal" placeholder="30000" min="10000" max="99999" value="<?php echo $postal ?>">
-                            <p class="error"><?php echo $errors['postal']; ?></p>
-                        </div>
-                        
-                        <div class="field">
-                            <label for="city">Ville :</label>
-                            <input type="text" name="city" placeholder="Entrez le nom de votre ville ici" value="<?php echo $city ?>">
-                            <p class="error"><?php echo $errors['city']; ?></p>
-                        </div>
+                    <div class="field">
+                        <label for="fname">Code Postal :</label>
+                        <input type="number" name="postal" placeholder="30000" min="10000" max="99999" value="<?php echo $postal ?>">
+                        <p class="error"><?php echo $errors['postal']; ?></p>
+                    </div>
+                    
+                    <div class="field">
+                        <label for="city">Ville :</label>
+                        <input type="text" name="city" placeholder="Entrez le nom de votre ville ici" value="<?php echo $city ?>">
+                        <p class="error"><?php echo $errors['city']; ?></p>
                     </div>
 
-                    <div class="amount">
+                    <!-- <div class="amount">
 
                         <div class="fixed-propositions">
                             <div class="suggested-amount">
@@ -224,7 +222,7 @@
                             <p class="error" id="amount-input"><?php echo $errors['amount'] ?></p>
                         </div>
 
-                    </div>
+                    </div> -->
 
                 </div>
                 
