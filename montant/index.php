@@ -54,8 +54,8 @@
                     <div class="transparency">
                         <h5>Sur mes <span class="amount-display">10</span>€ :</h5>
                         <ul>
-                            <li id="assoc-display"><span class="amount-display" id="assoc-amount">9,80</span>€ partent aux <a href="#">associations</a> que nous supportons.</li>
-                            <li id="stripe-display"><span class="amount-display" id="stripe-amount">0,20</span>€ partent chez <a href="#">Stripe</a>.</li>
+                            <li id="assoc-display"> - <span class="amount-display" id="assoc-amount">9,80</span>€ partent aux <a href="#">associations</a> que nous supportons.</li>
+                            <li id="stripe-display"> - <span class="amount-display" id="stripe-amount">0,20</span>€ partent chez <a href="#">Stripe</a>.</li>
                         </ul>
                     </div>
                     <div class="tax-deduction-display">
@@ -63,7 +63,33 @@
                     </div>
                 </div>
                 <div class="separation"></div>
-                <div class="column"></div>
+                <div class="column">
+                    <div class="tax-deduction-infos">
+                        <h3>Pouvez-vous bénéficier d'une déduction d'impôts?</h3>
+                        <p>
+                            Pour être élligible à la déduction d'impôts, vous devez remplir 3 conditions :
+                            <ul>
+                                <li>
+                                    - Vous avez séléctionner "<i>Participer en tant qu'individu.</i>" sur
+                                    <a href="../choix/type">cette page</a>.
+                                </li>
+                                <li>
+                                    - Vous avez fait un don de 10€ ou plus.
+                                </li>
+                                <li>
+                                    - Vous avez correctement rempli le formulaire de la page précédente.
+                                </li>
+                            </ul>
+                        </p>
+                        <p>
+                            Si vous remplissez ces conditions, alors dans les semaines suivant votre donation vous recevrez
+                            une attestation de donation. <br> Le montant qui pourra être déduit est disponible sur cette page.
+                        </p>
+                        <div class="more-details">
+                            <p><b>Pour plus de détails, rendez-vous sur notre <a href="#">FAQ</a> ou sur le <a href="https://www.impots.gouv.fr/particulier/questions/jai-fait-des-dons-une-association-que-puis-je-deduire">site officiel du gouvernement.</a></b></p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="submit-field">
