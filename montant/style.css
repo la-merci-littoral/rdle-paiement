@@ -179,44 +179,57 @@ input:focus {
 }
 
 
-/* #amount-input {
-    top: 40px;
+/** LEFT COLUMN STYLE **/
+
+.tax-deduction-infos {
+    font-size: 66%;
+    text-align: justify;
 }
 
-.amount {
-    width: 100%;
-    height: 50%;
+.tax-deduction-infos h3 {
+    text-align: center;
+    font-size: 110%;
+}
+
+.tax-deduction-infos p {
+    margin-top: 5px;
+    word-spacing: 100%;
+}
+
+.tax-deduction-infos ul {
     display: flex;
     flex-direction: column;
+    gap: 3px;
+    margin-top: 5px;
+    list-style: disc !important;
+    overflow: visible;
 }
 
-.fixed-propositions {
-    padding: 40px 0 20px;
+.tax-deduction-infos ul li {
+    display: list-item;
+    margin-left: 0.5em;
+    overflow: visible;
+}
+
+
+.tax-deduction-infos i {
+    color: #444;
+}
+
+.tax-deduction-infos b {
+    font-weight: 600;
+}
+
+.more-details {
+    margin-top: 10px;
+    flex-direction: column;
     display: flex;
-    justify-content: space-evenly;
-}
-
-.suggested-amount {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.3rem;
-    position: relative;
+    gap: 1px;
 }
 
 
-.suggestion {
-    font-size: inherit;
-    padding: 10px 15px;
-    border-radius: 3px;
-    border: 2px solid rgba(0, 0, 0, 0.07);
-}
 
-.suggestion:hover {
-    background-color: #DDD;
-} */
-
-
+/** SUBMIT SECTION **/
 
 .submit-field {
     width: 100%;
