@@ -1,0 +1,12 @@
+:root {
+    --soft-white: #E5E9EC;
+    --LM-color: #0099D7;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
