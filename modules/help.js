@@ -1,18 +1,23 @@
 const helpWidget = document.getElementsByClassName('help-widget');
+const helpText = document.getElementsByClassName('help-text')[0];
+helpText.style.display = "none";
+helpText.style.opacity = '0';
 
 helpWidget[0].addEventListener("mouseover", (element) => {
-    const helpText = document.getElementsByClassName('help-text')[0];
-    // console.log(helpText);
-    setTimeout(() => {
+    // console.log("Opacity: ", helpText.style.opacity, " | Display: ", helpText.style.display)
+    if ((helpText.style.opacity == 0) && (helpText.style.display == "none")) {
         helpText.style.opacity = '1';
-    }, 200)
-    helpText.style.display = "flex"
+        setTimeout(() => {
+            helpText.style.display = "flex"
+        }, 200)
+    }
 })
 
 helpWidget[0].addEventListener("mouseleave", (element) => {
-    const helpText = document.getElementsByClassName('help-text')[0];
-    setTimeout(() => {
+    if ((helpText.style.opacity == 1) && (helpText.style.display == "flex")) {
         helpText.style.opacity = '0';
-        helpText.style.display = 'none';
-    }, 300)
+        setTimeout(() => {
+            helpText.style.display = 'none';
+        }, 300)
+    }
 })
