@@ -106,6 +106,10 @@ input:focus {
     text-align: right;
 }
 
+.information-field {
+    color: #587a63 !important;
+}
+
 #amount-input {
     top: 40px;
 }
