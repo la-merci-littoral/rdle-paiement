@@ -109,7 +109,7 @@
         } else {
             $address = $_POST['address'];
             $_SESSION['address'] = $_POST['address'];
-            if (!preg_match('/^[A-Za-zÀ-ÖØ-öø-ÿ _]*$/', $address)) {
+            if (!preg_match('/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 _]*$/', $address)) {
                 $errors['address'] = "Adresse invalide.";
             }
         }
@@ -119,7 +119,7 @@
         } else {
             $addressComplement = $_POST['addressComplement'];
             $_SESSION['addressComplement'] = $_POST['addressComplement'];
-            if (!preg_match('/^[A-Za-zÀ-ÖØ-öø-ÿ _]*$/', $addressComplement)) {
+            if (!preg_match('/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 _]*$/', $addressComplement)) {
                 $errors['addressComplement'] = "Complément d'adresse invalide.";
             }
         }
