@@ -42,24 +42,24 @@
             <div class="column-wrapper">
                 <div class="column">
                     <div class="field">
-                        <p>Je donne : <input type="number" id="free-choice">€</p>
+                        <p>Je donne : <input type="number" id="free-choice" placeholder="10">€</p>
                         <div class="suggestions">
                             <ul>
-                                <li><button class="suggested-amount">5€</button></li>
                                 <li><button class="suggested-amount">10€</button></li>
-                                <li><button class="suggested-amount">20€</button></li>
+                                <li><button class="suggested-amount">15€</button></li>
+                                <li><button class="suggested-amount">30€</button></li>
                             </ul>
                         </div>
                     </div>
                     <div class="transparency">
-                        <h5>Sur mes <span class="amount-display">___</span>€ :</h5>
+                        <h5>Sur mes <span class="amount-display">10</span>€ :</h5>
                         <ul>
-                            <li id="assoc-display"><span class="amount-display" id="assoc-amount">___</span>€ partent aux <a href="#">associations</a> que nous supportons.</li>
-                            <li id="stripe-display"><span class="amount-display" id="stripe-amount">___</span>€ partent chez <a href="#">Stripe</a>.</li>
+                            <li id="assoc-display"><span class="amount-display" id="assoc-amount">9,80</span>€ partent aux <a href="#">associations</a> que nous supportons.</li>
+                            <li id="stripe-display"><span class="amount-display" id="stripe-amount">0,20</span>€ partent chez <a href="#">Stripe</a>.</li>
                         </ul>
                     </div>
                     <div class="tax-deduction-display">
-                        <p>Je peux aussi recevoir <span class="amount-display" id="reduction-amount">___</span>€ de réduction fiscale!</p>
+                        <p>Je peux aussi recevoir <span class="amount-display" id="reduction-amount">6,67</span>€ de réduction fiscale!</p>
                     </div>
                 </div>
                 <div class="separation"></div>
