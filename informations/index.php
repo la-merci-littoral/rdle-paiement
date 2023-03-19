@@ -15,7 +15,7 @@
     $city = isset($_SESSION['city']) ? $_SESSION['city'] : "";
     $email = isset($_SESSION['email']) ? $_SESSION['email'] : "";
     $phone = isset($_SESSION['phone']) ? $_SESSION['phone'] : "";
-    // $amount = isset($_SESSION['amount']) ? $_SESSION['amount'] : "";
+    $address = isset($_SESSION['address']) ? $_SESSION['address'] : "";
 
     $errors = array(
         'lname'=>'',
@@ -24,7 +24,7 @@
         'city'=>'',
         'email'=>'',
         'phone'=>'',
-        // 'amount'=>''
+        'address'=>''
     );
 
     if (isset($_POST['goback'])) {
@@ -34,7 +34,7 @@
         $_SESSION['city'] = isset($_POST['city']) ? $_POST['city'] : "";
         $_SESSION['email'] = isset($_POST['email']) ? $_POST['email'] : "";
         $_SESSION['phone'] = isset($_POST['phone']) ? $_POST['phone'] : "";
-        // $_SESSION['amount'] = isset($_POST['amount']) ? $_POST['amount'] : "";
+        $_SESSION['address'] = isset($_POST['address']) ? $_POST['address'] : "";
 
         header("Location: ../choix/type/");
     }
@@ -69,7 +69,7 @@
         }
 
         if (empty($_POST['city'])) {
-            $errors['city'] = "Une ville est requis.";
+            $errors['city'] = "Une ville est requise.";
         } else {
             $city = $_POST['city'];
             $_SESSION['city'] = $_POST['city'];
@@ -79,7 +79,7 @@
         }
 
         if (empty($_POST['email'])) {
-            $errors['email'] = "Une e-mail est requis.";
+            $errors['email'] = "Une e-mail est requise.";
         } else {
             $email = $_POST['email'];
             $_SESSION['email'] = $_POST['email'];
@@ -100,16 +100,16 @@
             }
         }
 
-        // if (empty($_POST['amount'])) {
-        //     $errors['amount'] = "Une contribution est nécessaire.";
-        //     $amount = "";
-        // } else {
-        //     $amount = $_POST['amount'];
-        //     $_SESSION['amount'] = $_POST['amount'];
-        //     if ($amount == 0) {
-        //         $errors['amount'] = "La contribution ne peut pas être nulle.";
-        //     }
-        // }
+        if (empty($_POST['address'])) {
+            $errors['address'] = "Une adresse est nécessaire.";
+            $address = "";
+        } else {
+            $address = $_POST['address'];
+            $_SESSION['address'] = $_POST['address'];
+            if ($address == 0) {
+                $errors['address'] = "La contribution ne peut pas être nulle.";
+            }
+        }
 
         if (!array_filter($errors)) {
             // check for dangerous MySQL code
@@ -119,7 +119,7 @@
             $_SESSION['city'] = mysqli_real_escape_string($conn, $city);
             $_SESSION['email'] = mysqli_real_escape_string($conn, $email);
             $_SESSION['phone'] = mysqli_real_escape_string($conn, $phone);
-            // $_SESSION['amount'] = mysqli_real_escape_string($conn, $amount);
+            $_SESSION['address'] = mysqli_real_escape_string($conn, $address);
 
             $_SESSION['submit'] = true;
             header('Location: ../paiement');
@@ -201,6 +201,12 @@
                         <label for="city">Ville :</label>
                         <input type="text" name="city" placeholder="Entrez le nom de votre ville ici" value="<?php echo $city ?>">
                         <p class="error"><?php echo $errors['city']; ?></p>
+                    </div>
+
+                    <div class="field">
+                        <label for="address">Adresse :</label>
+                        <input type="text" name="address" placeholder="Entrez votre adresse ici" value="<?php echo $city ?>">
+                        <p class="error"><?php echo $errors['address']; ?></p>
                     </div>
 
                     <!-- <div class="amount">
