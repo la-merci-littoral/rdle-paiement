@@ -1,6 +1,8 @@
 :root {
     --soft-white: #E5E9EC;
     --LM-color: #0099D7;
+    --amount-highlight: #c08497;
+    --amount-lowkey: #F28482;
 }
 
 * {
@@ -66,7 +68,8 @@ form {
 
 .field {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 10px;
     position: relative;
 }
@@ -75,7 +78,6 @@ input {
     background-color: transparent;
     border: none;
     font-size: 1rem;
-    color: grey;
     padding-bottom: 3px;
     border-bottom: rgba(0, 0, 0, 0.27) 2px solid;
     transition: 300ms ease-in-out;
@@ -92,7 +94,7 @@ input:focus {
     text-align: right;
     font-size: 1.3rem;
     border-bottom-color: #777;
-    color: #666;
+    color: var(--amount-highlight);
 
     display: inline-block;
     position: relative;
@@ -100,7 +102,12 @@ input:focus {
 
 #free-choice:focus {
     border-bottom-color: #4dc5f4;
-    color: #555;
+    color: var(--amount-lowkey);
+}
+
+.suggestions {
+    width: 85%;
+    padding: 10px 20px;
 }
 
 .suggestions ul {
@@ -108,19 +115,41 @@ input:focus {
     justify-content: space-between;
 }
 
+.suggested-amount {
+    font-size: 1.3rem;
+    padding: 4px 8px;
+    background-color: transparent;
+    border: var(--LM-color) 2px solid;
+    border-radius: 5px;
+}
+
+.amount-display {
+    color: var(--amount-highlight);
+}
+
 .transparency {
-    font-weight: 500;
+    font-weight: 400;
     font-size: 95%;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    text-align: justify;
 }
 
 .transparency ul {
     display: flex;
     flex-direction: column;
     gap: 7px;
-    font-size: 75%;
+    font-size: 80%;
+}
+
+.transparency ul a {
+    color: var(--LM-color);
+}
+
+.tax-deduction-display {
+    font-size: 90%;
+    font-weight: 500;
 }
 
 
