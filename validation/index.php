@@ -44,15 +44,19 @@
             $city = $_SESSION['city'];
             $email = $_SESSION['email'];
             $phone = $_SESSION['phone'];
+            $mailingAddress = $_SESSION['address'];
+            $addressComplement = $_SESSION['addressComplement'];
             $amount = $_SESSION['amount'];
 
-            $sql = "INSERT INTO donations(lname, fname, postal, city, email, phone, amount_donated) VALUES(
+            $sql = "INSERT INTO donations(lname, fname, postal, city, email, phone, mailingAddress, addressComplement, amount_donated) VALUES(
                 '$lname',
                 '$fname',
                 '$postal',
                 '$city',
                 '$email',
                 '$phone',
+                '$mailingAddress',
+                '$addressComplement',
                 '$amount'
             )";
 
