@@ -57,8 +57,9 @@ body {
     color: white;
     top: 55px;
     transition: ease-in-out 300ms;
-    display: flex;
     justify-content: center;
+    display: none;
+    transition: 200ms ease-in-out;
 }
 
 .arrow {
@@ -70,8 +71,4 @@ body {
     position: absolute;
     transform: rotate(45deg);
     border-radius: 3px 0px 0px 0px;
-}
-
-.hidden {
-    display: none;
 }
