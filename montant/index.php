@@ -31,7 +31,20 @@
     <?php require('../modules/nav.php') ?>
 
     <main>
-        <?php include('../modules/progress.php'); ?>
+        <form action="./index.php">
+            <?php include('../modules/progress.php'); ?>
+
+            <div class="column-wrapper">
+                <div class="column"></div>
+                <div class="separation"></div>
+                <div class="column"></div>
+            </div>
+
+            <div class="submit-field">
+                <input type="submit" name="submit" value="Suivant" class="button submit-button">
+                <input type="submit" name="goback" value="Précédent" class="button border-button">
+            </div>
+        </form>
     </main>
     
 </body>
