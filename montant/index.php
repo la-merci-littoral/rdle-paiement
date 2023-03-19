@@ -7,9 +7,9 @@
 
     $prefix = "../";
 
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['goback'])) {
         // do stuff here
-        echo "Submitted!";
+        header('Location: ../informations/');
     }
 ?>
 
@@ -43,20 +43,23 @@
                 <div class="column">
                     <div class="field">
                         <p>Je donne : <input type="number" id="free-choice">€</p>
-                    </div>
-                    <div class="suggestions">
-                        <ul>
-                            <li><button class="suggested-amount" id="five">5€</button></li>
-                            <li><button class="suggested-amount" id="ten">10€</button></li>
-                            <li><button class="suggested-amount" id="twenty">20€</button></li>
-                        </ul>
+                        <div class="suggestions">
+                            <ul>
+                                <li><button class="suggested-amount">5€</button></li>
+                                <li><button class="suggested-amount">10€</button></li>
+                                <li><button class="suggested-amount">20€</button></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="transparency">
                         <h5>Sur mes <span class="amount-display">___</span>€ :</h5>
                         <ul>
-                            <li id="assoc-display"><span class="assoc-amount">___</span>€ partent aux associations que nous supportons.</li>
-                            <li id="stripe-display"><span class="stripe-amount">___</span>€ partent chez Stripe, la platforme qui vous permet de donner.</li>
+                            <li id="assoc-display"><span class="amount-display" id="assoc-amount">___</span>€ partent aux <a href="#">associations</a> que nous supportons.</li>
+                            <li id="stripe-display"><span class="amount-display" id="stripe-amount">___</span>€ partent chez <a href="#">Stripe</a>.</li>
                         </ul>
+                    </div>
+                    <div class="tax-deduction-display">
+                        <p>Je peux aussi recevoir <span class="amount-display" id="reduction-amount">___</span>€ de réduction fiscale!</p>
                     </div>
                 </div>
                 <div class="separation"></div>
