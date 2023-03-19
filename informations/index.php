@@ -109,7 +109,7 @@
         } else {
             $address = $_POST['address'];
             $_SESSION['address'] = $_POST['address'];
-            if (!preg_match('/^[A-Z0-9 _]*$/', $address)) {
+            if (!preg_match('/^[A-Za-zÀ-ÖØ-öø-ÿ _]*$/', $address)) {
                 $errors['address'] = "Adresse invalide.";
             }
         }
@@ -119,7 +119,7 @@
         } else {
             $addressComplement = $_POST['addressComplement'];
             $_SESSION['addressComplement'] = $_POST['addressComplement'];
-            if (!preg_match('/^[A-Z0-9 _]*$/', $addressComplement)) {
+            if (!preg_match('/^[A-Za-zÀ-ÖØ-öø-ÿ _]*$/', $addressComplement)) {
                 $errors['addressComplement'] = "Complément d'adresse invalide.";
             }
         }
@@ -159,7 +159,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     
-    <title>Ronde de l'Espoir</title>
+    <title>Renseignement des Informations - Ronde de l'Espoir</title>
 </head>
 <body>
 
