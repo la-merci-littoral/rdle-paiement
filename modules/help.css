@@ -7,29 +7,16 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-body {
-    width: 100vw;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.help {
-    width: calc(var(--size)) * 3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
 .help-widget {
+    position: absolute;
+    bottom: 120px;
+    right: 150px;
     z-index: 1;
-    --size: 40px;
+    --size: 48px;
     width: var(--size);
     height: var(--size);
     border-radius: var(--size);
-    border: var(--LM-color) 3px solid;
+    border: var(--LM-color) 4px solid;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,7 +26,7 @@ body {
 .material-symbols-outlined {
     color: var(--LM-color);
     /* margin-bottom: 2px; */
-    font-size: 1.7rem !important;
+    font-size: 2rem !important;
     font-variation-settings:
     'FILL' 0,
     'wght' 600,
@@ -56,7 +43,7 @@ body {
     padding-block: 5px;
     background-color: #333;
     color: white;
-    top: 55px;
+    top: 60px;
     transition: ease-in-out 300ms;
     justify-content: center;
     display: none;

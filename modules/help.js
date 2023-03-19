@@ -5,17 +5,17 @@ helpText.style.opacity = '0';
 
 // Creates a sleep function that works through the use of a Promise : Non-intrusive function
 function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms))
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 // On Hover event shows a text bubble
 helpWidget[0].addEventListener("mouseover", (element) => {
     if ((helpText.style.opacity == 0) && (helpText.style.display == "none")) {
-        helpText.style.display = "flex"
+        helpText.style.display = "flex";
         // Timeout is necessary for animation, don't ask why
         setTimeout(() => {
             helpText.style.opacity = '1';
-        }, 1)
+        }, 0)
     }
 })
 
