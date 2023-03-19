@@ -34,5 +34,7 @@
         header("Location: ./paiement");
     } elseif ($_SESSION['isAnonymous'] == false and $_SESSION['isCompany'] == true) {
         header("Location: ./informations?type=entreprise");
+    } else {
+        header('Location: ./choix/type/');
     }
 ?>  
