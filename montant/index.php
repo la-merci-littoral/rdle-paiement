@@ -3,7 +3,7 @@
         session_start();
     }
 
-    $currentPage = 'info';
+    $currentPage = 'amount';
 
     $prefix = "../";
 ?>
@@ -30,7 +30,9 @@
 
     <?php require('../modules/nav.php') ?>
 
-    
+    <main>
+        <?php include('../modules/progress.php'); ?>
+    </main>
     
 </body>
 </html>
