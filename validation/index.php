@@ -23,21 +23,8 @@
             }
         }
         
-        if ($_SESSION['isAnonymous'] == false){
-            // $sql = "INSERT INTO donations(fname, lname, postal, city, email, phone, amount_donated) VALUES('" . $_SESSION['lname'] 
-            // . "', '" 
-            // . $_SESSION['fname'] 
-            // . "', '" 
-            // . $_SESSION['postal'] 
-            // . "', '" 
-            // . $_SESSION['city'] 
-            // . "', '" 
-            // . $_SESSION['email'] 
-            // . "', '" 
-            // . $_SESSION['phone'] 
-            // . "', '" 
-            // . $_SESSION['amount'] 
-            // . "')";
+        if ($_SESSION['isAnonymous'] == false) {
+            
             $lname = $_SESSION['lname'];
             $fname = $_SESSION['fname'];
             $postal = $_SESSION['postal'];
@@ -61,6 +48,7 @@
             )";
 
         } else {
+            echo "Anonyme";
             $isAnonymous = $_SESSION['isAnonymous'];
             $amount = $_SESSION['amount'];
             $sql = "INSERT INTO donations(amount_donated, isAnonymous) VALUES ('$isAnonymous', '$amount')";
