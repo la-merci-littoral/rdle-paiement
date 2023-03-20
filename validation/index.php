@@ -50,7 +50,7 @@
         } else {
             $isAnonymous = $_SESSION['isAnonymous'];
             $amount = $_SESSION['amount'];
-            $sql = "INSERT INTO donations(amount_donated, isAnonymous) VALUES ('$isAnonymous', '$amount')";
+            $sql = "INSERT INTO donations(amount_donated, isAnonymous) VALUES ('$amount', '$isAnonymous')";
         }
 
         require('../config/db_connect.php');
