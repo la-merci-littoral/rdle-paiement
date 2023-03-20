@@ -22,9 +22,11 @@
                 $success = true;
             }
         }
+
+        echo "Hey??";
         
         if ($_SESSION['isAnonymous'] == false) {
-            
+
             $lname = $_SESSION['lname'];
             $fname = $_SESSION['fname'];
             $postal = $_SESSION['postal'];
