@@ -31,8 +31,10 @@
     } elseif ($_SESSION['isAnonymous'] == false and $_SESSION['isCompany'] == false) {
         header("Location: ./informations?type=particulier");
     } elseif ($_SESSION['isAnonymous'] == true) {
+        $_SESSION['submit'] = true;
         header("Location: ./montant/");
     } elseif ($_SESSION['isAnonymous'] == false and $_SESSION['isCompany'] == true) {
+        $_SESSION['submit'] = true;
         header("Location: ./informations?type=entreprise");
     } else {
         header('Location: ./choix/type/');
