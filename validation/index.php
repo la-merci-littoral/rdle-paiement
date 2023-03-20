@@ -22,8 +22,6 @@
                 $success = true;
             }
         }
-
-        echo "Hey??";
         
         if ($_SESSION['isAnonymous'] == false) {
 
@@ -50,7 +48,6 @@
             )";
 
         } else {
-            echo "Anonyme";
             $isAnonymous = $_SESSION['isAnonymous'];
             $amount = $_SESSION['amount'];
             $sql = "INSERT INTO donations(amount_donated, isAnonymous) VALUES ('$isAnonymous', '$amount')";
