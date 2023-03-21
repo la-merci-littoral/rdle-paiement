@@ -63,7 +63,11 @@
 </head>
 <body>
 
-    <?php require('../../modules/nav.php') ?>
+    <?php
+        require('../../modules/nav.php');
+        $dots = '../../';
+        require('../../modules/help.php');
+    ?>
 
     <main>
         <form method="POST" action="./index.php">
