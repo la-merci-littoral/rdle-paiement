@@ -23,33 +23,28 @@
         // Verify which class to add to each step
         if ($currentPage == "success") {
             $successStatus = ["current-text", "current"];
-
             $paymentStatus = ["done-text", "done"];
             $amountStatus = ["done-text", "done"];
             $infoStatus = ["done-text", "done"];
-
         } elseif ($currentPage == "payment") {
             $paymentStatus = ["current-text", "current"];
-
             $amountStatus = ["done-text", "done"];
             $infoStatus = ["done-text", "done"];
-
         } elseif ($currentPage == "amount") {
             $amountStatus = ["current-text", "current"];
-
-            $infoStatus = ["done-text", "done"];
-
-        } else {
+        } elseif ($currentPage == "info") {
             $infoStatus = ["current-text", "current"];
+            $amountStatus = ["done-text", "done"];
         }
         
         if ($_SESSION['isAnonymous'] == false) { ?>
+            
+            <li class="step <?php echo $amountStatus[0] ?>"><span class="<?php echo $amountStatus[1] ?> numeric-indicator">1</span>Montant</li>
+            <li class="logic-component"><span class="material-symbols-outlined progress-child">navigate_next</span></li>
 
-            <li class="step <?php echo $infoStatus[0] ?>"><span class="<?php echo $infoStatus[1] ?> numeric-indicator">1</span>Informations</li>
+            <li class="step <?php echo $infoStatus[0] ?>"><span class="<?php echo $infoStatus[1] ?> numeric-indicator">2</span>Informations</li>
             <li class="logic-component"><span class="material-symbols-outlined progress-child">navigate_next</span></li>
             
-            <li class="step <?php echo $amountStatus[0] ?>"><span class="<?php echo $amountStatus[1] ?> numeric-indicator">2</span>Montant</li>
-            <li class="logic-component"><span class="material-symbols-outlined progress-child">navigate_next</span></li>
             
             <li class="step <?php echo $paymentStatus[0] ?>"><span class="<?php echo $paymentStatus[1] ?> numeric-indicator">3</span>Paiement</li>
             <li class="logic-component"><span class="material-symbols-outlined progress-child">navigate_next</span></li>
