@@ -39,7 +39,7 @@
         $_SESSION['address'] = isset($_POST['address']) ? $_POST['address'] : "";
         $_SESSION['addressComplement'] = isset($_POST['addressComplement']) ? $_POST['addressComplement'] : "";
 
-        header("Location: ../choix/type/");
+        header("Location: ../choix/montant/");
     }
 
     if (isset($_POST['submit'])) {
@@ -136,7 +136,7 @@
             $_SESSION['addressComplement'] = mysqli_real_escape_string($conn, $addressComplement);
 
             $_SESSION['submit'] = true;
-            header('Location: ../montant');
+            header('Location: ../paiement');
             die();
         }
     }
@@ -204,19 +204,6 @@
                 <div class="separator"></div>
                 
                 <div class="column">
-
-                    <div class="field">
-                        <label for="fname">Code Postal :</label>
-                        <input type="number" name="postal" placeholder="30000" min="10000" max="99999" value="<?php echo $postal ?>">
-                        <p class="error"><?php echo $errors['postal']; ?></p>
-                    </div>
-                    
-                    <div class="field">
-                        <label for="city">Ville :</label>
-                        <input type="text" name="city" placeholder="Entrez le nom de votre ville ici" value="<?php echo $city ?>">
-                        <p class="error"><?php echo $errors['city']; ?></p>
-                    </div>
-
                     <div class="field">
                         <label for="address">Adresse :</label>
                         <input type="text" name="address" placeholder="Entrez votre adresse ici" value="<?php echo $address ?>">
@@ -234,6 +221,17 @@
                         </p>
                     </div>
 
+                    <div class="field">
+                        <label for="fname">Code Postal :</label>
+                        <input type="number" name="postal" placeholder="30000" min="10000" max="99999" value="<?php echo $postal ?>">
+                        <p class="error"><?php echo $errors['postal']; ?></p>
+                    </div>
+                    
+                    <div class="field">
+                        <label for="city">Ville :</label>
+                        <input type="text" name="city" placeholder="Entrez le nom de votre ville ici" value="<?php echo $city ?>">
+                        <p class="error"><?php echo $errors['city']; ?></p>
+                    </div>
                 </div>
                 
             </div>

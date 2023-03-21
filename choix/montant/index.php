@@ -3,9 +3,9 @@
         session_start();
     }
 
-    require('../config/db_connect.php');    
+    require('../../config/db_connect.php');    
     $currentPage = 'amount';
-    $prefix = "../";
+    $prefix = "../../";
     
     $amount = isset($_POST['amount']) ? $_POST['amount'] : "";
 
@@ -13,7 +13,7 @@
 
     if (isset($_POST['goback'])) {
         // do stuff here
-        header('Location: ../informations/');
+        header('Location: ../type');
     } elseif (isset($_POST['submit'])) {
 
         if (empty($_POST['amount'])) {
@@ -32,7 +32,11 @@
             // check for dangerous MySQL code
             $_SESSION['amount'] = mysqli_real_escape_string($conn, $amount);
 
-            header('Location: ../paiement');
+            if ($_SESSION['isAnonymous']) {
+                header('Location: ../../paiement');
+            } else {
+                header('Location: ../../informations/');
+            }
         }
 
     }
@@ -59,11 +63,11 @@
 </head>
 <body>
 
-    <?php require('../modules/nav.php') ?>
+    <?php require('../../modules/nav.php') ?>
 
     <main>
         <form method="POST" action="./index.php">
-            <?php include('../modules/progress.php'); ?>
+            <?php include('../../modules/progress.php'); ?>
 
             <div class="column-wrapper">
                 <div class="column">
