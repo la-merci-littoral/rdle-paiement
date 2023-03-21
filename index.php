@@ -29,13 +29,13 @@
     if (!isset($_SESSION['isAnonymous']) or !isset($_SESSION['isCompany'])) {
         header('Location: ./choix/type/');
     } elseif ($_SESSION['isAnonymous'] == false and $_SESSION['isCompany'] == false) {
-        header("Location: ./informations?type=particulier");
+        header("Location: ./choix/montant");
     } elseif ($_SESSION['isAnonymous'] == true) {
         $_SESSION['submit'] = true;
-        header("Location: ./montant/");
+        header("Location: ./choix/montant/");
     } elseif ($_SESSION['isAnonymous'] == false and $_SESSION['isCompany'] == true) {
         $_SESSION['submit'] = true;
-        header("Location: ./informations?type=entreprise");
+        header("Location: ./choix/montant");
     } else {
         header('Location: ./choix/type/');
     }
