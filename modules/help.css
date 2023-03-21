@@ -12,7 +12,7 @@
     bottom: 120px;
     right: 150px;
     z-index: 1;
-    --size: 48px;
+    --size: 40px;
     width: var(--size);
     height: var(--size);
     border-radius: var(--size);
@@ -20,13 +20,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FFF;
+    background-color: #EEE;
 }
 
-.material-symbols-outlined {
+.help-widget:hover {
+    cursor: pointer;
+}
+
+.help-widget .material-symbols-outlined {
     color: var(--LM-color);
     /* margin-bottom: 2px; */
-    font-size: 2rem !important;
+    font-size: 1.9rem !important;
     font-variation-settings:
     'FILL' 0,
     'wght' 600,
@@ -43,7 +47,7 @@
     padding-block: 5px;
     background-color: #333;
     color: white;
-    top: 60px;
+    top: 53px;
     transition: ease-in-out 300ms;
     justify-content: center;
     display: none;
@@ -51,7 +55,7 @@
     transition: 300ms ease-in-out;
 }
 
-.arrow {
+.pointer {
     --arrow-side: 15px;
     top: calc(-1 * var(--arrow-side)/2);
     width: var(--arrow-side);

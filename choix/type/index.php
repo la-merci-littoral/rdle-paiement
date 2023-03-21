@@ -42,7 +42,11 @@
 </head>
 <body not-to-be-blurred>
 
-    <?php require('../../modules/nav.php') ?>
+    <?php
+        require('../../modules/nav.php');
+        $dots = '../../';
+        require('../../modules/help.php');
+    ?>
 
     <main not-to-be-blurred>
         <form action="./" method="POST">
