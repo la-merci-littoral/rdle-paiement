@@ -39,7 +39,7 @@
         $_SESSION['address'] = isset($_POST['address']) ? $_POST['address'] : "";
         $_SESSION['addressComplement'] = isset($_POST['addressComplement']) ? $_POST['addressComplement'] : "";
 
-        header("Location: ../choix/type/");
+        header("Location: ../choix/montant/");
     }
 
     if (isset($_POST['submit'])) {
