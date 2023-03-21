@@ -32,7 +32,11 @@
             // check for dangerous MySQL code
             $_SESSION['amount'] = mysqli_real_escape_string($conn, $amount);
 
-            header('Location: ../../paiement');
+            if ($_SESSION['isAnonymous']) {
+                header('Location: ../../paiement');
+            } else {
+                header('Location: ../../informations/');
+            }
         }
 
     }
