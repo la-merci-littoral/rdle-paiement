@@ -54,9 +54,8 @@
     <?php 
         $prefix = '../';
         include('../modules/nav.php');
-        require('../../modules/nav.php');
-        $dots = '../../';
-        require('../../modules/help.php');
+        $dots = '../';
+        include('../modules/help.php');
     ?>
 
     <form id="payment-form">
