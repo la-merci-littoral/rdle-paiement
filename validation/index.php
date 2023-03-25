@@ -34,8 +34,9 @@
             $mailingAddress = $_SESSION['address'];
             $addressComplement = $_SESSION['addressComplement'];
             $amount = $_SESSION['amount'];
+            $isCard = true;
 
-            $sql = "INSERT INTO donations(lname, fname, postal, city, email, phone, mailingAddress, addressComplement, amount_donated) VALUES(
+            $sql = "INSERT INTO donations(lname, fname, postal, city, email, phone, mailingAddress, addressComplement, amount_donated, isCard) VALUES(
                 '$lname',
                 '$fname',
                 '$postal',
@@ -44,13 +45,14 @@
                 '$phone',
                 '$mailingAddress',
                 '$addressComplement',
-                '$amount'
+                '$amount',
+                '$isCard'
             )";
 
         } else {
             $isAnonymous = $_SESSION['isAnonymous'];
             $amount = $_SESSION['amount'];
-            $sql = "INSERT INTO donations(amount_donated, isAnonymous) VALUES ('$amount', '$isAnonymous')";
+            $sql = "INSERT INTO donations(amount_donated, isAnonymous, isCard) VALUES ('$amount', '$isAnonymous', '$isCard')";
         }
 
         require('../config/db_connect.php');
