@@ -3,6 +3,10 @@
         session_start();
     }
 
+    if (!isset($_SESSION['isAnonymous'])) {
+        header('Location: ../../');
+    }
+
     require('../../config/db_connect.php');    
     $currentPage = 'amount';
     $prefix = "../../";
