@@ -18,6 +18,11 @@ header {
     float: left;
     top: 25%;
     left: 30px;
+    height: 48px;
+}
+
+.header-wrapper img {
+    display: none;
 }
 
 .arrow * {
@@ -47,4 +52,30 @@ header {
     left: 50%;
     top: 28%;
     transform: translateX(-50%);
+}
+
+@media only screen and (max-width: 690px) {
+    .title {
+        display: none;
+    }
+
+    .header-wrapper {
+        width: 90%;
+        margin-inline: auto;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-wrapper img {
+        display: flex;
+    }
+
+    .header-wrapper * {
+        position: relative;
+        float: none;
+        top: 0;
+        left: 0;
+    }
 }

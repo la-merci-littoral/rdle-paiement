@@ -9,6 +9,9 @@
                 <span class="material-symbols-outlined">arrow_back</span>
             </a>
         </span>
-
+        
+        <span class="nav-image">
+            <img src="<?php echo $prefix ?>img/LRDE-logo.png" alt="">
+        </span>
     </div>
 </header>
