@@ -10,7 +10,7 @@
 
 <body>
 
-    <div class="help-widget">
+    <div class="help-widget" onclick="window.location = '<?php echo $prefix ?>reinit.php'">
         <span class="material-symbols-outlined">question_mark</span>
         <span class="help-text">Cliquez-ici si vous rencontrez un problème<div class="pointer"></div> </span>
     </div>
