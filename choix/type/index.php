@@ -52,7 +52,7 @@
         <form action="./" method="POST">
             <ul id="choices">
                 <li id="individual">
-                    <p> Je participe <span class="highlight" data-value="maintenant">maintenant</span>!</p>
+                    <p> Je participe en tant qu'<span class="highlight" data-value="individu">individu</span>!</p>
                     <input type="submit" name="submit-normal" value="arrow_forward_ios" class="material-symbols-outlined">
                 </li>
                 <li id="individual anonymous">
