@@ -66,3 +66,16 @@ main h2 {
     background-color: #00abef;
     color: white;
 }
+
+@media only screen and (max-width: 650px) {
+    main {
+        width: 85vw;
+        padding: 3vw;
+        box-shadow: none;
+        height: max-content;
+        margin-top: 15px;
+    }
+    .return {
+        margin-top: 50px;
+    }
+}
