@@ -11,7 +11,7 @@
     $currentPage = 'amount';
     $prefix = "../../";
     
-    $amount = isset($_POST['amount']) ? $_POST['amount'] : "";
+    $amount = isset($_SESSION['amount']) ? $_SESSION['amount'] : "";
 
     $error = '';
 
@@ -28,6 +28,9 @@
             $_SESSION['amount'] = $_POST['amount'];
             if (!preg_match('/^[0-9]*$/', $amount) || ($amount < 0)) {
                 $error = 'Veuillez rentrez une contribution valide.';
+                $_SESSION['amount_error'] = true;
+            } else {
+                $_SESSION['amount_error'] = false;
             }
         }
 
