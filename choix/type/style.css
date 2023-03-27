@@ -28,7 +28,7 @@ html, body {
 /** MAIN CSS **/
 
 main {
-    margin: 100px auto 0 auto;
+    margin: 100px auto 50px auto;
     width: 40vw;
     min-width: 500px;
     /* border: solid 1px rgba(100,100,100,0.2); */
