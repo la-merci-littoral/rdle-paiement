@@ -16,6 +16,8 @@
                 && isset($_SESSION['city'])
                 && isset($_SESSION['postal'])
                 && isset($_SESSION['amount'])
+                && $_SESSION['amount_error'] == false
+                && !array_filter($_SESSION['info_error'])
             ) {
                 echo '';
             } else {
