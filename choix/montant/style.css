@@ -34,6 +34,7 @@ main {
     padding: 30px;
     padding-top: 20px;
     font-size: 120%;
+    margin-bottom: 40px;
 }
 
 form {
@@ -50,10 +51,14 @@ form {
     justify-content: space-between;
 }
 
-.separation {
+.separation, .form-separation {
     background-color: rgba(0, 0, 0, 0.07);
     width: 2px;
     height: 100%;
+}
+
+.form-separation {
+    display: none;
 }
 
 .column {
@@ -70,7 +75,7 @@ form {
     text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: space-between;
+    align-items: center;
     gap: 10px;
     position: relative;
 }
@@ -120,6 +125,7 @@ input:focus {
 
 .suggestions {
     padding: 10px 28px;
+    width: 85%;
 }
 
 .suggestions ul {
@@ -284,4 +290,36 @@ input:focus {
 .border-button:hover {
     color: black;
     border-color: #00abef;
+}
+
+@media only screen and (max-width: 650px) {
+    main {
+        width: 85vw;
+        padding: 3vw;
+        box-shadow: none;
+        height: max-content;
+        margin-top: 15px;
+    }
+    form {
+        height: max-content;
+    }
+    .column-wrapper {
+        flex-direction: column;
+        gap: 25px;
+        height: max-content;
+    }
+    .separation, .form-separation {
+        height: 2px;
+        width: 100%;
+    }
+    .form-separation {
+        display: flex;
+        margin-block: 10px;
+    }
+    .column {
+        width: 100%;
+    }
+    .suggestions {
+        max-width: 250px;
+    }
 }
