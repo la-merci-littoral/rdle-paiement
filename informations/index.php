@@ -58,8 +58,6 @@
             if (!preg_match('/^[a-zA-Z\s]+$/', $lname)) {
                 $errors['lname'] = "Nom invalide.";
                 $_SESSION['info_error'] = true;
-            } else {
-                $_SESSION['info_error'] = false;
             }
         }
 
@@ -71,8 +69,6 @@
             if (!preg_match('/^[a-zA-Z\s]+$/', $fname)) {
                 $errors['fname'] = "Prénom invalide.";
                 $_SESSION['info_error'] = true;
-            } else {
-                $_SESSION['info_error'] = false;
             }
         }
 
@@ -91,8 +87,6 @@
             if (!preg_match('/^[a-zA-Z\s]+$/', $city)) {
                 $errors['city'] = "Nom de ville invalide.";
                 $_SESSION['info_error'] = true;
-            } else {
-                $_SESSION['info_error'] = false;
             }
         }
 
@@ -104,8 +98,6 @@
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $errors['email'] = "E-mail invalide.";
                 $_SESSION['info_error'] = true;
-            } else {
-                $_SESSION['info_error'] = false;
             }
         }
 
@@ -117,8 +109,6 @@
             if (!preg_match('/^(0|(\+33[\s]?([0]?|[(0)]{3}?)))[1-9]([-. ]?[0-9]{2}){4}$/', $phone)) {    //@Skyman-2 better regex, all by myself 😎. Explanations here : regexr.com/79hsg
                 $errors['phone'] = "Numéro de téléphone invalide.";
                 $_SESSION['info_error'] = true;
-            } else {
-                $_SESSION['info_error'] = false;
             }
         }
 
@@ -131,8 +121,6 @@
             if (!preg_match('/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 _]*$/', $address)) {
                 $errors['address'] = "Adresse invalide.";
                 $_SESSION['info_error'] = true;
-            } else {
-                $_SESSION['info_error'] = false;
             }
         }
 
@@ -144,11 +132,12 @@
             if (!preg_match('/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 _]*$/', $addressComplement)) {
                 $errors['addressComplement'] = "Complément d'adresse invalide.";
                 $_SESSION['info_error'] = true;
-            } else {
-                $_SESSION['info_error'] = false;
             }
         }
-
+    
+        // saves errors in SESSION for check in payment
+        $_SESSION['info_error'] = $errors;
+        
         if (!array_filter($errors)) {
             // check for dangerous MySQL code
             $_SESSION['lname'] = mysqli_real_escape_string($conn, $lname);
@@ -159,14 +148,14 @@
             $_SESSION['phone'] = mysqli_real_escape_string($conn, $phone);
             $_SESSION['address'] = mysqli_real_escape_string($conn, $address);
             $_SESSION['addressComplement'] = mysqli_real_escape_string($conn, $addressComplement);
-
+            
             $_SESSION['submit'] = true;
             header('Location: ../paiement');
             die();
         }
     }
-
-?>
+    
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
