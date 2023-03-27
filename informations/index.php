@@ -178,13 +178,16 @@
 <body>
 
     <?php require('../modules/nav.php') ?>
+
     
     <main>
-
+        
         <form action="./index.php" method="POST">
-
-        <?php include('../modules/progress.php'); ?>
-
+            
+            <?php include('../modules/progress.php'); ?>
+            
+            <div class="progress-separation"></div>
+            
             <div class="column-wrapper">
 
                 <div class="column">
