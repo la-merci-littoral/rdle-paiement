@@ -3,11 +3,17 @@
         session_start();
     }
 
+    if (!isset($_SESSION['isAnonymous']) || !isset($_SESSION['amount']) || $_SESSION['amount_error']) {
+        header('Location: ../choix/montant/');
+    }
+
     $currentPage = 'info';
 
     $prefix = "../";
 
     require('../config/db_connect.php');
+
+    $_SESSION['info_error'] = false;
 
     $lname = isset($_SESSION['lname']) ? $_SESSION['lname'] : "";
     $fname = isset($_SESSION['fname']) ? $_SESSION['fname'] : "";
@@ -51,6 +57,9 @@
             $_SESSION['lname'] = $_POST['lname'];
             if (!preg_match('/^[a-zA-Z\s]+$/', $lname)) {
                 $errors['lname'] = "Nom invalide.";
+                $_SESSION['info_error'] = true;
+            } else {
+                $_SESSION['info_error'] = false;
             }
         }
 
@@ -61,6 +70,9 @@
             $_SESSION['fname'] = $_POST['fname'];
             if (!preg_match('/^[a-zA-Z\s]+$/', $fname)) {
                 $errors['fname'] = "Prénom invalide.";
+                $_SESSION['info_error'] = true;
+            } else {
+                $_SESSION['info_error'] = false;
             }
         }
 
@@ -78,6 +90,9 @@
             $_SESSION['city'] = $_POST['city'];
             if (!preg_match('/^[a-zA-Z\s]+$/', $city)) {
                 $errors['city'] = "Nom de ville invalide.";
+                $_SESSION['info_error'] = true;
+            } else {
+                $_SESSION['info_error'] = false;
             }
         }
 
@@ -88,6 +103,9 @@
             $_SESSION['email'] = $_POST['email'];
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $errors['email'] = "E-mail invalide.";
+                $_SESSION['info_error'] = true;
+            } else {
+                $_SESSION['info_error'] = false;
             }
         }
 
@@ -96,10 +114,11 @@
         } else {
             $phone = $_POST['phone'];
             $_SESSION['phone'] = $_POST['phone'];
-            if (preg_match('/^(0|(\+33[\s]?([0]?|[(0)]{3}?)))[1-9]([-. ]?[0-9]{2}){4}$/', $phone)) {    //@Skyman-2 better regex, all by myself 😎. Explanations here : regexr.com/79hsg
-                $errors['phone'] = "";
-            } else {
+            if (!preg_match('/^(0|(\+33[\s]?([0]?|[(0)]{3}?)))[1-9]([-. ]?[0-9]{2}){4}$/', $phone)) {    //@Skyman-2 better regex, all by myself 😎. Explanations here : regexr.com/79hsg
                 $errors['phone'] = "Numéro de téléphone invalide.";
+                $_SESSION['info_error'] = true;
+            } else {
+                $_SESSION['info_error'] = false;
             }
         }
 
@@ -111,6 +130,9 @@
             $_SESSION['address'] = $_POST['address'];
             if (!preg_match('/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 _]*$/', $address)) {
                 $errors['address'] = "Adresse invalide.";
+                $_SESSION['info_error'] = true;
+            } else {
+                $_SESSION['info_error'] = false;
             }
         }
 
@@ -121,6 +143,9 @@
             $_SESSION['addressComplement'] = $_POST['addressComplement'];
             if (!preg_match('/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 _]*$/', $addressComplement)) {
                 $errors['addressComplement'] = "Complément d'adresse invalide.";
+                $_SESSION['info_error'] = true;
+            } else {
+                $_SESSION['info_error'] = false;
             }
         }
 
