@@ -70,13 +70,13 @@
     <?php
         require('../../modules/nav.php');
         $dots = '../../';
-        require('../../modules/help.php');
     ?>
 
     <main>
         <form method="POST" action="./index.php">
             <?php include('../../modules/progress.php'); ?>
-
+            
+            <div class="form-separation"></div>
             <div class="column-wrapper">
                 <div class="column">
                     <div class="field">
@@ -137,6 +137,10 @@
             </div>
         </form>
     </main>
+
+    <?php
+        require('../../modules/help.php');
+    ?>
     
 </body>
 </html>
