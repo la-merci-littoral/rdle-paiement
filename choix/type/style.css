@@ -200,3 +200,49 @@ label {
     color: black;
     border-color: #00abef;
 }
+
+
+@media only screen and (max-width: 600px) {
+    main {
+        margin-top: 30px;
+        width: 85vw;
+        min-width: 100px;
+        box-shadow: none;
+        padding: 3vw;
+    }
+    #choices {
+        font-size: 1.1rem;
+    }
+    #choices * {
+        font-size: inherit;
+    }
+    #choices li {
+        height: 28%;
+    }
+    #choices li p {
+        padding-right: 10px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    main {
+        height: 400px;
+    }
+    #choices {
+        font-size: 1rem;
+    }
+    #choices li p {
+        padding-left: 20px;
+    }
+    #choices .material-symbols-outlined {
+        margin-right: 15px;
+        font-size: 2.5rem !important;
+    }
+
+}
+
+@media only screen and (max-width: 320px) {
+    #choices {
+        font-size: 0.8rem;
+    }
+}
