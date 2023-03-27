@@ -258,6 +258,10 @@
         </form>
 
     </main>
+
+    <?php
+        include('../modules/help.php');
+    ?>
     
 </body>
 </html>
