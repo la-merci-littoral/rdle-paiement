@@ -56,8 +56,6 @@
     <?php 
         $prefix = '../';
         include('../modules/nav.php');
-        $dots = '../';
-        include('../modules/help.php');
     ?>
 
     <form id="payment-form">
@@ -79,6 +77,13 @@
 
 
     </form>
+
+    <div class="blank-space" style="height:50px;width:100%;"></div>
+
+    <?php
+        $dots = '../';
+        include('../modules/help.php');
+    ?>
 
     
 </body>
