@@ -105,7 +105,7 @@
 
             <h2>Merci pour votre participation!</h2>
         </div>
-            <div class="return"><a href="https://ronde-de-l-espoir.fr" class="button">Retour à l'accueil</a></div>
+        <div class="return"><a href="https://ronde-de-l-espoir.fr" class="button">Retour à l'accueil</a></div>
         
     </main>
     
