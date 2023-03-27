@@ -9,8 +9,8 @@
 
 .help-widget {
     position: absolute;
-    bottom: 120px;
-    right: 150px;
+    top: 120px;
+    right: 70px;
     z-index: 1;
     --size: 40px;
     width: var(--size);
@@ -65,3 +65,43 @@
     transform: rotate(45deg);
     border-radius: 3px 0px 0px 0px;
 }
+
+@media only screen and (max-width: 690px) {
+    .help-widget {
+        top: 100px;
+        right: 50px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .help-widget {
+        bottom: 10px;
+        left: 10px;
+        top: auto;
+        right: auto;
+        margin-inline: auto;
+    }
+    .help-text {
+        top: auto;
+        bottom: 53px;
+        left: -3px;
+    }
+    .pointer {
+        top: auto;
+        left: 15px;
+        border-radius: 0 0 3px 0;
+        bottom: calc(-1 * var(--arrow-side)/2 + 1px);
+    }
+}
+
+@media only screen and (max-height: 580px) and (max-width: 600px) {
+    .help-widget {
+        display: none; 
+        /* Any man who must say "I have a good smartphone" has a shitty, and small screened mobile.
+        Therefore, you don't get a problem solver :).*/
+    }
+}
+
+@media only screen and (max-width: 000px) {}
+
+@media only screen and (max-width: 000px) {}
