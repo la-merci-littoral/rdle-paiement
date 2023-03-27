@@ -45,7 +45,6 @@
     <?php
         require('../../modules/nav.php');
         $dots = '../../';
-        require('../../modules/help.php');
     ?>
 
     <main not-to-be-blurred>
@@ -90,6 +89,10 @@
             </form>
         </div>
     </main>
+
+    <?php
+        require('../../modules/help.php');
+    ?>
 
 
 </body>

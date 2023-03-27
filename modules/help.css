@@ -66,7 +66,7 @@
     border-radius: 3px 0px 0px 0px;
 }
 
-@media only screen and (max-width: 690px) {
+/* @media only screen and (max-width: 690px) {
     .help-widget {
         top: 100px;
         right: 50px;
@@ -99,9 +99,18 @@
         display: none; 
         /* Any man who must say "I have a good smartphone" has a shitty, and small screened mobile.
         Therefore, you don't get a problem solver :).*/
+    /* }
+} */
+
+@media only screen and (max-width: 700px) {
+    .help-widget {
+        position: static;
+        margin-inline: auto;
+        margin-block: 10px 20px;
+    }
+    .help-text {
+        position: relative;
     }
 }
-
-@media only screen and (max-width: 000px) {}
 
 @media only screen and (max-width: 000px) {}
