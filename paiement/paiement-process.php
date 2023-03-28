@@ -1,9 +1,10 @@
 <?php
 
     require('../vendor/autoload.php');
+    require('../../stripe-key.php');
 
     // This is your test secret API key.
-    \Stripe\Stripe::setApiKey('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');
+    \Stripe\Stripe::setApiKey($privKey);
 
     function getOrderAmount() {
         session_start();
