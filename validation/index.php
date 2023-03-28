@@ -22,6 +22,8 @@
                 $success = true;
             }
         }
+
+        $isCard = '1';
         
         if ($_SESSION['isAnonymous'] == false) {
 
@@ -34,7 +36,6 @@
             $mailingAddress = $_SESSION['address'];
             $addressComplement = $_SESSION['addressComplement'];
             $amount = $_SESSION['amount'];
-            $isCard = true;
 
             $sql = "INSERT INTO donations(lname, fname, postal, city, email, phone, mailingAddress, addressComplement, amount_donated, isCard) VALUES(
                 '$lname',
