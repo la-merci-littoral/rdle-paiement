@@ -12,7 +12,7 @@
 
     <div class="help-widget" onclick="window.location = '<?php echo $prefix ?>reinit.php'">
         <span class="material-symbols-outlined">question_mark</span>
-        <span class="help-text">Vous rencontrez un problème ? Cliquez ici.<br><br>⚠️ Ceci reinitialisera le formulaire<div class="pointer"></div> </span>
+        <span class="help-text">Vous rencontrez un problème ? Cliquez ici.<br><br>⚠️ Ceci réinitialisera le formulaire<div class="pointer"></div> </span>
     </div>
 
 </body>
