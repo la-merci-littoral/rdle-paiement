@@ -3,7 +3,7 @@
     require('../vendor/autoload.php');
 
     // This is your test secret API key.
-    \Stripe\Stripe::setApiKey('sk_test_51MKmfEHCHeIMvgvqTXYVUyZtuajFO0A5lBUjiULs41kScCE0yu9KVfMsBoCRYsCXiDWJKJvEAMNTj7LACNMrfyPG00ltgg5Vqo');
+    \Stripe\Stripe::setApiKey('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');
 
     function getOrderAmount() {
         session_start();
