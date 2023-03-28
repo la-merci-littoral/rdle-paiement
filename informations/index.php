@@ -118,7 +118,7 @@
         } else {
             $address = $_POST['address'];
             $_SESSION['address'] = $_POST['address'];
-            if (!preg_match('/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 _]*$/', $address)) {
+            if (!preg_match('/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 _']*$/', $address)) {
                 $errors['address'] = "Adresse invalide.";
                 $_SESSION['info_error'] = true;
             }
