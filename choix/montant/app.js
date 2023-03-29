@@ -30,6 +30,10 @@ function updateAmountDisplays(input) {
         amountDisplays[3].innerHTML = '#';     
     }
 
+    if (totalAmount == '') {
+        amountDisplays[0].innerHTML = '#';
+    }
+
 }
 
 input.addEventListener('input', updateAmountDisplays.bind(null, input));
