@@ -101,7 +101,7 @@
                         </ul>
                     </div>
                     <div class="tax-deduction-display">
-                        <p>Je peux aussi recevoir <span class="amount-display" id="reduction-amount">#</span>€ de réduction fiscale!</p>
+                        <p>Je peux aussi bénéficier d'une réduction d'impôts de <span class="amount-display" id="reduction-amount">#</span>€</p>
                     </div>
                 </div>
                 <div class="separation"></div>
