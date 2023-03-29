@@ -203,6 +203,9 @@ label {
 
 
 @media only screen and (max-width: 600px) {
+    html, body {
+        height: max-content;
+    }
     main {
         margin-top: 30px;
         width: 85vw;

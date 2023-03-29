@@ -156,8 +156,11 @@ button:disabled {
 }
 
 @media only screen and (max-width: 600px) {
+    html, body {
+        height: max-content;
+    }
     form {
-    width: 80vw;
-    min-width: initial;
+        width: 80vw;
+        min-width: initial;
     }
 }
