@@ -1,9 +1,9 @@
 console.log("Authority is not given to you to deny the return of the King., Steward.")
 const input = document.querySelectorAll('#free-choice')[0];
 
-function inputSuggestedAmount(suggestion) {
+function inputSuggestedAmount(suggestion, input) {
     input.value = suggestion;
-    setTimeout(updateAmountDisplays(suggestion), 30);
+    setTimeout(updateAmountDisplays(input), 30);
 }
 
 function updateAmountDisplays(input) {
@@ -34,6 +34,11 @@ function updateAmountDisplays(input) {
         amountDisplays[0].innerHTML = '#';
     }
 
+}
+
+function correctNumberDisplay(number) {
+    // will transform payment display as follows: 29.4€ => 29,40€
+    return 0;
 }
 
 input.addEventListener('input', updateAmountDisplays.bind(null, input));
