@@ -94,14 +94,14 @@
                         </div>
                     </div>
                     <div class="transparency">
-                        <h5>Sur mes <span class="amount-display">10</span>€ :</h5>
+                        <h5>Sur mes <span class="amount-display">#</span>€ :</h5>
                         <ul>
-                            <li id="assoc-display"> - <span class="amount-display" id="assoc-amount">9,80</span>€ partent aux <a href="#">associations</a> que nous supportons.</li>
-                            <li id="stripe-display"> - <span class="amount-display" id="stripe-amount">0,20</span>€ partent chez <a href="#">Stripe</a>.</li>
+                            <li id="assoc-display"> - <span class="amount-display" id="assoc-amount">#</span>€ partent aux <a href="#">associations</a> que nous supportons.</li>
+                            <li id="stripe-display"> - <span class="amount-display" id="stripe-amount">#</span>€ partent chez <a href="#">Stripe</a>.</li>
                         </ul>
                     </div>
                     <div class="tax-deduction-display">
-                        <p>Je peux aussi recevoir <span class="amount-display" id="reduction-amount">6,67</span>€ de réduction fiscale!</p>
+                        <p>Je peux aussi recevoir <span class="amount-display" id="reduction-amount">#</span>€ de réduction fiscale!</p>
                     </div>
                 </div>
                 <div class="separation"></div>
