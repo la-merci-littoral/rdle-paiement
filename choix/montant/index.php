@@ -83,7 +83,7 @@
             <div class="column-wrapper">
                 <div class="column">
                     <div class="field">
-                        <p>Je donne : <input type="number" name="amount" id="free-choice" placeholder="10" value="<?php echo $amount ?>">€</p>
+                        <p>Je donne : <input type="number" name="amount" id="free-choice" placeholder="" value="<?php echo $amount ?>">€</p>
                         <p class="error"><?php echo $error; ?></p>
                         <div class="suggestions">
                             <ul>
