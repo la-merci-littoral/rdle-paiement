@@ -64,7 +64,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <script src="./app.js"></script>
+    <script src="./app.js" defer></script>
 
     <title>Choix du Montant - Ronde de l'Espoir</title>
 </head>
@@ -87,9 +87,9 @@
                         <p class="error"><?php echo $error; ?></p>
                         <div class="suggestions">
                             <ul>
-                                <li><button class="suggested-amount">10€</button></li>
-                                <li><button class="suggested-amount">15€</button></li>
-                                <li><button class="suggested-amount">30€</button></li>
+                                <li><button type="button" class="suggested-amount" onclick="inputSuggestedAmount(10)">10€</button></li>
+                                <li><button type="button" class="suggested-amount" onclick="inputSuggestedAmount(15)">15€</button></li>
+                                <li><button type="button" class="suggested-amount" onclick="inputSuggestedAmount(30)">30€</button></li>
                             </ul>
                         </div>
                     </div>
