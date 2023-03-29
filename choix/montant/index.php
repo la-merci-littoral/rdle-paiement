@@ -87,9 +87,9 @@
                         <p class="error"><?php echo $error; ?></p>
                         <div class="suggestions">
                             <ul>
-                                <li><button type="button" class="suggested-amount" onclick="inputSuggestedAmount(10)">10€</button></li>
-                                <li><button type="button" class="suggested-amount" onclick="inputSuggestedAmount(15)">15€</button></li>
-                                <li><button type="button" class="suggested-amount" onclick="inputSuggestedAmount(30)">30€</button></li>
+                                <li><button type="button" class="suggested-amount" onclick="inputSuggestedAmount(10, input)">10€</button></li>
+                                <li><button type="button" class="suggested-amount" onclick="inputSuggestedAmount(15, input)">15€</button></li>
+                                <li><button type="button" class="suggested-amount" onclick="inputSuggestedAmount(30, input)">30€</button></li>
                             </ul>
                         </div>
                     </div>
