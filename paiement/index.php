@@ -7,6 +7,20 @@
     if (isset($_SESSION['isAnonymous'])) {
         if ($_SESSION['isAnonymous'] == true) {
             echo '';
+        } elseif ($_SESSION['isCompany']) {
+            if (isset($_SESSION['companyName'])
+                && isset($_SESSION['companySIREN'])
+                && isset($_SESSION['companySIRET'])
+                && isset($_SESSION['companyContactAddress'])
+                && isset($_SESSION['companyAddress'])
+                && isset($_SESSION['companyAddressComplement'])
+                && isset($_SESSION['companyPostal'])
+                && isset($_SESSION['companyCity'])
+                && $_SESSION['amount_error'] == false
+                && !array_filter($_SESSION['info_error'])
+            ) {
+                echo '';
+            }
         } else {
 
             if (isset($_SESSION['lname'])
@@ -20,8 +34,10 @@
                 && !array_filter($_SESSION['info_error'])
             ) {
                 echo '';
+            } elseif (!$_SESSION['isCompany']) {
+                header('Location: ../informations/individu');
             } else {
-                header('Location: ../informations/');
+                header('Location: ../');
             }
         }
     } else {

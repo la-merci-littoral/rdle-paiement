@@ -59,12 +59,87 @@
         } else {
             $companyName = $_POST['companyName'];
             $_SESSION['companyName'] = $_POST['companyName'];
-            if (!preg_match('/^[a-zA-Z\s]+$/', $companyName)) {
+            if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 -_.,']*$/", $companyName)) {
                 $errors['companyName'] = "Nom d'entreprise invalide.";
                 $_SESSION['info_error'] = true;
             }
         }
-    
+        
+        if (empty($_POST['companySIREN'])) {
+            $errors['companySIREN'] = "Un numéro SIREN est nécessaire.";
+        } else {
+            $companySIREN = $_POST['companySIREN'];
+            $_SESSION['companySIREN'] = $_POST['companySIREN'];
+            if (!preg_match('/^[0-9]{3} [0-9]{3} [0-9]{3}/', $companySIREN)) {
+                $errors['companySIREN'] = "Numéro SIREN invalide.";
+                $_SESSION['info_error'] = true;
+            }
+        }
+        
+        if (empty($_POST['companySIRET'])) {
+            $errors['companySIRET'] = "Un nom d'entreprise est requis.";
+        } else {
+            $companySIRET = $_POST['companySIRET'];
+            $_SESSION['companySIRET'] = $_POST['companySIRET'];
+            if (!preg_match('/^[0-9]{3} [0-9]{3} [0-9]{3} [0-9]{5}/', $companySIRET)) {
+                $errors['companySIRET'] = "Nom d'entreprise invalide.";
+                $_SESSION['info_error'] = true;
+            }
+        }
+        
+        if (empty($_POST['companyContactAddress'])) {
+            $errors['companyContactAddress'] = "Une adresse E-mail est requise.";
+        } else {
+            $companyContactAddress = $_POST['companyContactAddress'];
+            $_SESSION['companyContactAddress'] = $_POST['companyContactAddress'];
+            if (!filter_var($companyContactAddress, FILTER_VALIDATE_EMAIL)) {
+                $errors['companyContactAddress'] = "E-mail invalide.";
+                $_SESSION['info_error'] = true;
+            }
+        }
+        
+        if (empty($_POST['companyAddress'])) {
+            $errors['companyAddress'] = "Une adresse est requise.";
+        } else {
+            $companyAddress = $_POST['companyAddress'];
+            $_SESSION['companyAddress'] = $_POST['companyAddress'];
+            if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 _']*$/", $companyAddress)) {
+                $errors['companyAddress'] = "Adresse invalide.";
+                $_SESSION['info_error'] = true;
+            }
+        }
+        
+        if (!empty($_POST['companyAddressComplement'])) {
+            $companyAddressComplement = $_POST['companyAddressComplement'];
+            $_SESSION['companyAddressComplement'] = $_POST['companyAddressComplement'];
+            if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 _']*$/", $companyAddressComplement)) {
+                $errors['companyAddressComplement'] = "Complément d'adresse invalide.";
+                $_SESSION['info_error'] = true;
+            }
+        }
+        
+        if (empty($_POST['companyPostal'])) {
+            $errors['companyPostal'] = "Un nom d'entreprise est requis.";
+        } else {
+            $companyPostal = $_POST['companyPostal'];
+            $_SESSION['companyPostal'] = $_POST['companyPostal'];
+            if (!preg_match('/^[0-9]{5}/', $companyPostal)) {
+                $errors['companyPostal'] = "Nom d'entreprise invalide.";
+                $_SESSION['info_error'] = true;
+            }
+        }
+        
+        if (empty($_POST['companyCity'])) {
+            $errors['companyCity'] = "Une ville est requise.";
+        } else {
+            $companyCity = $_POST['companyCity'];
+            $_SESSION['companyCity'] = $_POST['companyCity'];
+            if (!preg_match("/^[a-zA-Z\s ']+$/", $companyCity)) {
+                $errors['companyCity'] = "Nom de ville invalide.";
+                $_SESSION['info_error'] = true;
+            }
+        }
+        
         // saves errors in SESSION for check in payment
         $_SESSION['info_error'] = $errors;
         
@@ -123,19 +198,19 @@
                     
                     <div class="field">
                         <label for="companySIREN">Numéro SIREN :</label>
-                        <input type="text" name="companySIREN" placeholder="Entrez le numéro SIREN ici" value="<?php echo $companySIREN ?>">
+                        <input type="text" name="companySIREN" placeholder="Ex : 123 456 789" value="<?php echo $companySIREN ?>">
                         <p class="error"><?php echo $errors['companySIREN']; ?></p>
                     </div>
                     
                     <div class="field">
                         <label for="companySIRET">Numéro SIRET :</label>
-                        <input type="text" name="companySIRET" placeholder="Entrez le numéro SIRET ici" value="<?php echo $companySIRET ?>">
+                        <input type="text" name="companySIRET" placeholder="Ex : 123 456 789 54321" value="<?php echo $companySIRET ?>">
                         <p class="error"><?php echo $errors['companySIRET']; ?></p>
                     </div>
 
                     <div class="field">
-                        <label for="companyContactAddress">Adresse de contact :</label>
-                        <input type="text" name="companyContactAddress" placeholder="Entrer une adresse de contact" value="<?php echo $companyContactAddress ?>">
+                        <label for="companyContactAddress">Contact E-mail :</label>
+                        <input type="email" name="companyContactAddress" placeholder="Entrez une adresse de contact" value="<?php echo $companyContactAddress ?>">
                         <p class="error"><?php echo $errors['companyContactAddress']; ?></p>
                     </div>
 
@@ -147,13 +222,13 @@
 
                     <div class="field">
                         <label for="companyAddress">Adresse du siège social :</label>
-                        <input type="text" name="companyAddress" placeholder="Entrez votre adresse ici" value="<?php echo $companyAddress ?>">
+                        <input type="text" name="companyAddress" placeholder="Entrez l'adresse du siège social ici" value="<?php echo $companyAddress ?>">
                         <p class="error"><?php echo $errors['companyAddress']; ?></p>
                     </div>
 
                     <div class="field">
                         <label for="companyAddressComplement">Complément d'adresse* :</label>
-                        <input type="text" name="companyAddressComplement" placeholder="Entrez votre adresse ici" value="<?php echo $companyAddressComplement ?>">
+                        <input type="text" name="companyAddressComplement" placeholder="Entrez un complément d'adresse" value="<?php echo $companyAddressComplement ?>">
                         <p class="error <?php if($errors['companyAddressComplement'] == "") { echo 'information-field'; } ?>">
                             <?php echo $errors['companyAddressComplement'];
                             if($errors['companyAddressComplement'] == '') {
@@ -164,13 +239,13 @@
                     
                     <div class="field">
                         <label for="companyPostal">Code Postal :</label>
-                        <input type="text" name="companyPostal" placeholder="Entrez votre adresse ici" value="<?php echo $companyPostal ?>">
+                        <input type="number" name="companyPostal" placeholder="Ex : 10000" min="10000" max="99999" value="<?php echo $companyPostal ?>">
                         <p class="error"><?php echo $errors['companyPostal']; ?></p>
                     </div>
 
                     <div class="field">
                         <label for="companyCity">Ville :</label>
-                        <input type="text" name="companyCity" placeholder="Entrez votre adresse ici" value="<?php echo $companyCity ?>">
+                        <input type="text" name="companyCity" placeholder="Entrez la ville du siège social" value="<?php echo $companyCity ?>">
                         <p class="error"><?php echo $errors['companyCity']; ?></p>
                     </div>
                 </div>
