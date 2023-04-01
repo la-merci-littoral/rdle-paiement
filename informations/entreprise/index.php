@@ -7,6 +7,10 @@
         header('Location: ../../choix/montant/');
     }
 
+    if (!$_SESSION['isCompany']) {
+        header('Location: ../../');
+    }
+
     $currentPage = 'info';
     $prefix = "../../";
 
@@ -15,27 +19,48 @@
 
     $_SESSION['info_error'] = false;
 
-    $siren = isset($_SESSION['siren']) ? $_SESSION['siren'] : "";
+    $companyName = isset($_SESSION['companyName']) ? $_SESSION['companyName'] : "";
+    $companySIREN = isset($_SESSION['companySIREN']) ? $_SESSION['companySIREN'] : "";
+    $companySIRET = isset($_SESSION['companySIRET']) ? $_SESSION['companySIRET'] : "";
+    $companyContactAddress = isset($_SESSION['companyContactAddress']) ? $_SESSION['companyContactAddress'] : "";
+    $companyAddress = isset($_SESSION['companyAddress']) ? $_SESSION['companyAddress'] : "";
+    $companyAddressComplement = isset($_SESSION['companyAddressComplement']) ? $_SESSION['companyAddressComplement'] : "";
+    $companyPostal = isset($_SESSION['companyPostal']) ? $_SESSION['companyPostal'] : "";
+    $companyCity = isset($_SESSION['companyCity']) ? $_SESSION['companyCity'] : "";
 
     $errors = array(
-        'siren'=>''
+        'companyName'=>'',
+        'companySIREN'=>'',
+        'companySIRET'=>'',
+        'companyContactAddress'=>'',
+        'companyAddress'=>'',
+        'companyAddressComplement'=>'',
+        'companyPostal'=>'',
+        'companyCity'=>''
     );
 
     if (isset($_POST['goback'])) {
-        $_SESSION['siren'] = isset($_POST['siren']) ? $_POST['siren'] : "";
-
+        $_SESSION['companyName'] = isset($_POST['companyName']) ? $_POST['companyName'] : "";
+        $_SESSION['companySIREN'] = isset($_POST['companySIREN']) ? $_POST['companySIREN'] : "";
+        $_SESSION['companySIRET'] = isset($_POST['companySIRET']) ? $_POST['companySIRET'] : "";
+        $_SESSION['companyContactAddress'] = isset($_POST['companyContactAddress']) ? $_POST['companyContactAddress'] : "";
+        $_SESSION['companyAddress'] = isset($_POST['companyAddress']) ? $_POST['companyAddress'] : "";
+        $_SESSION['companyAddressComplement'] = isset($_POST['companyAddressComplement']) ? $_POST['companyAddressComplement'] : "";
+        $_SESSION['companyPostal'] = isset($_POST['companyPostal']) ? $_POST['companyPostal'] : "";
+        $_SESSION['companyCity'] = isset($_POST['companyCity']) ? $_POST['companyCity'] : "";
+        
         header("Location: ../../choix/montant/");
     }
 
     if (isset($_POST['submit'])) {
 
-        if (empty($_POST['siren'])) {
-            $errors['siren'] = "Un numéro de SIREN est requis.";
+        if (empty($_POST['companyName'])) {
+            $errors['companyName'] = "Un nom d'entreprise est requis.";
         } else {
-            $siren = $_POST['siren'];
-            $_SESSION['siren'] = $_POST['siren'];
-            if (!preg_match('/^(0|(\+33[\s]?([0]?|[(0)]{3}?)))[1-9]([-. ]?[0-9]{2}){4}$/', $siren)) {    //@Skyman-2 better regex, all by myself 😎. Explanations here : regexr.com/79hsg
-                $errors['siren'] = "Numéro de SIREN invalide.";
+            $companyName = $_POST['companyName'];
+            $_SESSION['companyName'] = $_POST['companyName'];
+            if (!preg_match('/^[a-zA-Z\s]+$/', $companyName)) {
+                $errors['companyName'] = "Nom d'entreprise invalide.";
                 $_SESSION['info_error'] = true;
             }
         }
@@ -91,27 +116,27 @@
                 <div class="column">
 
                     <div class="field">
-                        <label for="lname">Nom :</label>
-                        <input type="text" name="lname" placeholder="Entrez votre nom ici" value="<?php echo $lname ?>">
-                        <p class="error"><?php echo $errors['lname']; ?></p>
+                        <label for="companyName">Nom de l'entreprise :</label>
+                        <input type="text" name="companyName" placeholder="Entrez le nom de l'entreprise ici" value="<?php echo $companyName ?>">
+                        <p class="error"><?php echo $errors['companyName']; ?></p>
                     </div>
                     
                     <div class="field">
-                        <label for="fname">Prénom :</label>
-                        <input type="text" name="fname" placeholder="Entrez votre prénom ici" value="<?php echo $fname ?>">
-                        <p class="error"><?php echo $errors['fname']; ?></p>
+                        <label for="companySIREN">Numéro SIREN :</label>
+                        <input type="text" name="companySIREN" placeholder="Entrez le numéro SIREN ici" value="<?php echo $companySIREN ?>">
+                        <p class="error"><?php echo $errors['companySIREN']; ?></p>
+                    </div>
+                    
+                    <div class="field">
+                        <label for="companySIRET">Numéro SIRET :</label>
+                        <input type="text" name="companySIRET" placeholder="Entrez le numéro SIRET ici" value="<?php echo $companySIRET ?>">
+                        <p class="error"><?php echo $errors['companySIRET']; ?></p>
                     </div>
 
                     <div class="field">
-                        <label for="email">E-mail :</label>
-                        <input type="email" name="email" placeholder="Entrez votre adresse e-mail ici" value="<?php echo $email ?>">
-                        <p class="error"><?php echo $errors['email']; ?></p>
-                    </div>
-                    
-                    <div class="field">
-                        <label for="phone">Numéro de téléphone :</label>
-                        <input type="tel" name="phone" placeholder="01 23 45 67 89" maxlength="20" value="<?php echo $phone ?>">
-                        <p class="error"><?php echo $errors['phone']; ?></p>
+                        <label for="companyContactAddress">Adresse de contact :</label>
+                        <input type="text" name="companyContactAddress" placeholder="Entrer une adresse de contact" value="<?php echo $companyContactAddress ?>">
+                        <p class="error"><?php echo $errors['companyContactAddress']; ?></p>
                     </div>
 
                 </div>
@@ -119,33 +144,34 @@
                 <div class="separator"></div>
                 
                 <div class="column">
+
                     <div class="field">
-                        <label for="address">Adresse :</label>
-                        <input type="text" name="address" placeholder="Entrez votre adresse ici" value="<?php echo $address ?>">
-                        <p class="error"><?php echo $errors['address']; ?></p>
+                        <label for="companyAddress">Adresse du siège social :</label>
+                        <input type="text" name="companyAddress" placeholder="Entrez votre adresse ici" value="<?php echo $companyAddress ?>">
+                        <p class="error"><?php echo $errors['companyAddress']; ?></p>
                     </div>
 
                     <div class="field">
-                        <label for="addressComplement">Complément d'adresse* :</label>
-                        <input type="text" name="addressComplement" placeholder="Exemple : Bâtiment J" value="<?php echo $addressComplement ?>">
-                        <p class="error <?php if($errors['addressComplement'] == "") { echo 'information-field'; } ?>">
-                            <?php echo $errors['addressComplement'];
-                            if($errors['addressComplement'] == '') {
+                        <label for="companyAddressComplement">Complément d'adresse* :</label>
+                        <input type="text" name="companyAddressComplement" placeholder="Entrez votre adresse ici" value="<?php echo $companyAddressComplement ?>">
+                        <p class="error <?php if($errors['companyAddressComplement'] == "") { echo 'information-field'; } ?>">
+                            <?php echo $errors['companyAddressComplement'];
+                            if($errors['companyAddressComplement'] == '') {
                                 echo "*Ce champ n'est pas obligatoire.";
                             } ?>
                         </p>
                     </div>
-
-                    <div class="field">
-                        <label for="fname">Code Postal :</label>
-                        <input type="number" name="postal" placeholder="30000" min="10000" max="99999" value="<?php echo $postal ?>">
-                        <p class="error"><?php echo $errors['postal']; ?></p>
-                    </div>
                     
                     <div class="field">
-                        <label for="city">Ville :</label>
-                        <input type="text" name="city" placeholder="Entrez le nom de votre ville ici" value="<?php echo $city ?>">
-                        <p class="error"><?php echo $errors['city']; ?></p>
+                        <label for="companyPostal">Code Postal :</label>
+                        <input type="text" name="companyPostal" placeholder="Entrez votre adresse ici" value="<?php echo $companyPostal ?>">
+                        <p class="error"><?php echo $errors['companyPostal']; ?></p>
+                    </div>
+
+                    <div class="field">
+                        <label for="companyCity">Ville :</label>
+                        <input type="text" name="companyCity" placeholder="Entrez votre adresse ici" value="<?php echo $companyCity ?>">
+                        <p class="error"><?php echo $errors['companyCity']; ?></p>
                     </div>
                 </div>
                 
