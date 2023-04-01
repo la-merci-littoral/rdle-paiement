@@ -16,7 +16,6 @@
     $error = '';
 
     if (isset($_POST['goback'])) {
-        // do stuff here
         header('Location: ../type');
     } elseif (isset($_POST['submit'])) {
 
