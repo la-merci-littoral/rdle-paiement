@@ -41,8 +41,10 @@
 
             if ($_SESSION['isAnonymous']) {
                 header('Location: ../../paiement');
+            } elseif ($_SESSION['isCompany']) {
+                header('Location: ../../informations/entreprise/');
             } else {
-                header('Location: ../../informations/');
+                header('Location: ../../informations/individu');
             }
         }
 
