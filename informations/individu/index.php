@@ -4,14 +4,14 @@
     }
 
     if (!isset($_SESSION['isAnonymous']) || !isset($_SESSION['amount']) || $_SESSION['amount_error']) {
-        header('Location: ../choix/montant/');
+        header('Location: ../../choix/montant/');
     }
 
     $currentPage = 'info';
 
-    $prefix = "../";
+    $prefix = "../../";
 
-    require('../config/db_connect.php');
+    require('../../config/db_connect.php');
 
     $_SESSION['info_error'] = false;
 
@@ -45,7 +45,7 @@
         $_SESSION['address'] = isset($_POST['address']) ? $_POST['address'] : "";
         $_SESSION['addressComplement'] = isset($_POST['addressComplement']) ? $_POST['addressComplement'] : "";
 
-        header("Location: ../choix/montant/");
+        header("Location: ../../choix/montant/");
     }
 
     if (isset($_POST['submit'])) {
@@ -150,12 +150,12 @@
             $_SESSION['addressComplement'] = mysqli_real_escape_string($conn, $addressComplement);
             
             $_SESSION['submit'] = true;
-            header('Location: ../paiement');
+            header('Location: ../../paiement');
             die();
         }
     }
     
-    ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -163,8 +163,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="../img/LRDE-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="../../img/LRDE-logo.png" type="image/x-icon">
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -177,14 +177,14 @@
 </head>
 <body>
 
-    <?php require('../modules/nav.php') ?>
+    <?php require('../../modules/nav.php') ?>
 
     
     <main>
         
         <form action="./index.php" method="POST">
             
-            <?php include('../modules/progress.php'); ?>
+            <?php include('../../modules/progress.php'); ?>
             
             <div class="progress-separation"></div>
             
@@ -263,7 +263,8 @@
     </main>
 
     <?php
-        include('../modules/help.php');
+        $dots = "../../";
+        include('../../modules/help.php');
     ?>
     
 </body>
