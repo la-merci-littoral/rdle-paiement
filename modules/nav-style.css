@@ -54,8 +54,8 @@ header {
     transform: translateX(-50%);
 }
 
-.title * {
-    color: inherit;
+.title a {
+    color: white !important;
 }
 
 @media only screen and (max-width: 690px) {
