@@ -11,6 +11,8 @@
         header('Location: ../../');
     }
 
+    require('./company-id-check.php');
+
     $currentPage = 'info';
     $prefix = "../../";
 
@@ -71,10 +73,15 @@
             $companySIREN = $_POST['companySIREN'];
             $_SESSION['companySIREN'] = $_POST['companySIREN'];
             
-            // echo "<script defer>verifySIREN('$inseeAPIKey', $companySIREN)</script>";
-            if (!preg_match('/^[0-9]{3} [0-9]{3} [0-9]{3}/', $companySIREN)) {
-                $errors['companySIREN'] = "Numéro SIREN invalide.";
-                $_SESSION['info_error'] = true;
+            $sirenStatus = verifySIREN($inseeAPIKey, $companySIREN);
+            if ($sirenStatus == 200) {
+                echo '';
+            } elseif ($sirenStatus == 404) {
+                $errors['companySIREN'] = "Ce numéro SIREN n'existe pas.";
+            } elseif ($sirenStatus == 400) {
+                $errors['companySIREN'] = "Ce numéro SIREN n'est pas valide.";
+            } else {
+                $errors['companySIREN'] = "Une erreur inattendue est survenue.";
             }
         }
         
@@ -83,9 +90,16 @@
         } else {
             $companySIRET = $_POST['companySIRET'];
             $_SESSION['companySIRET'] = $_POST['companySIRET'];
-            if (!preg_match('/^[0-9]{3} [0-9]{3} [0-9]{3} [0-9]{5}/', $companySIRET)) {
-                $errors['companySIRET'] = "Nom d'entreprise invalide.";
-                $_SESSION['info_error'] = true;
+
+            $siretStatus = verifySIRET($inseeAPIKey, $companySIRET);
+            if ($siretStatus == 200) {
+                echo '';
+            } elseif ($siretStatus == 404) {
+                $errors['companySIRET'] = "Ce numéro SIRET n'existe pas.";
+            } elseif ($siretStatus == 400) {
+                $errors['companySIRET'] = "Ce numéro SIRET n'est pas valide.";
+            } else {
+                $errors['companySIRET'] = "Une erreur inattendue est survenue.";
             }
         }
         
@@ -147,7 +161,14 @@
         
         if (!array_filter($errors)) {
             // check for dangerous MySQL code
-            $_SESSION['siren'] = mysqli_real_escape_string($conn, $siren);
+            $_SESSION['companyName'] = mysqli_real_escape_string($conn, $companyName);
+            $_SESSION['companySIREN'] = mysqli_real_escape_string($conn, $companySIREN);
+            $_SESSION['companySIRET'] = mysqli_real_escape_string($conn, $companySIRET);
+            $_SESSION['companyContactAddress'] = mysqli_real_escape_string($conn, $companyContactAddress);
+            $_SESSION['companyAddress'] = mysqli_real_escape_string($conn, $companyAddress);
+            $_SESSION['companyAddressComplement'] = mysqli_real_escape_string($conn, $companyAddressComplement);
+            $_SESSION['companyPostal'] = mysqli_real_escape_string($conn, $companyPostal);
+            $_SESSION['companyCity'] = mysqli_real_escape_string($conn, $companyCity);
             
             $_SESSION['submit'] = true;
             header('Location: ../../paiement');
