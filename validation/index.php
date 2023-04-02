@@ -80,7 +80,15 @@
                 if (!mysqli_query($conn, $sql)) {
                     echo "Query error: " .mysqli_error($conn);
                 }
-    }}}
+            } else {
+                header('Location: ../');
+            }
+        } else {
+            header('Location: ../');
+        }
+    } else {
+        header('Location: ../');
+    }
 
 ?>
 
@@ -119,8 +127,10 @@
             <?php
                 $currentPage = "success";
                 include('../modules/progress.php');
-                
-                session_destroy();
+
+                if ($success) {                
+                    session_destroy();
+                }
             ?>
 
             <h2>Merci pour votre participation!</h2>
