@@ -50,6 +50,27 @@
                 '$isCard'
             )";
 
+        } elseif ($_SESSION['isCompany'] == true && $_SESSION['isAnonymous'] == false) {
+            $companyName = $_SESSION['companyName'];
+            $companySIREN = $_SESSION['companySIREN'];
+            $companySIRET = $_SESSION['companySIRET'];
+            $companyContactAddress = $_SESSION['companyContactAddress'];
+            $companyAddress = $_SESSION['companyAddress'];
+            $companyAddressComplement = $_SESSION['companyAddressComplement'];
+            $companyPostal = $_SESSION['companyPostal'];
+            $companyCity = $_SESSION['companyCity'];
+
+            $sql = "INSERT INTO donations(companyName, companySIREN, companySIRET, companyContactAddress, companyAddress, companyAddressComplement, companyPostal, companyCity) VALUES(
+                '$companyName',
+                '$companySIREN',
+                '$companySIRET',
+                '$companyContactAddress',
+                '$companyAddress',
+                '$companyAddressComplement',
+                '$companyPostal',
+                '$companyCity'
+            )";
+
         } else {
             $isAnonymous = $_SESSION['isAnonymous'];
             $amount = $_SESSION['amount'];
