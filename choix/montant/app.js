@@ -14,20 +14,30 @@ function updateAmountDisplays(input) {
     const actualDonation = '';
     const taxEvasion = '';
 
-    if (totalAmount > 0) {
+    if (totalAmount >= 10) {
         const stripeFee = Math.round((0.25 + totalAmount * 0.015) * 100) / 100;
         const actualDonation = Math.round((totalAmount - stripeFee) * 100) / 100;
         const taxEvasion = Math.round(66 * totalAmount) / 100;
         
         amountDisplays[0].innerHTML = totalAmount;
-        amountDisplays[1].innerHTML = actualDonation;
-        amountDisplays[2].innerHTML = stripeFee;
-        amountDisplays[3].innerHTML = taxEvasion;
+        amountDisplays[1].innerHTML = taxEvasion;
+        amountDisplays[2].innerHTML = actualDonation;
+        amountDisplays[3].innerHTML = stripeFee;
     } else {
-        amountDisplays[0].innerHTML = totalAmount;
-        amountDisplays[1].innerHTML = '#';
-        amountDisplays[2].innerHTML = '#';
-        amountDisplays[3].innerHTML = '#';     
+        if (totalAmount > 0) {
+            const stripeFee = Math.round((0.25 + totalAmount * 0.015) * 100) / 100;
+            const actualDonation = Math.round((totalAmount - stripeFee) * 100) / 100;
+
+            amountDisplays[0].innerHTML = totalAmount;
+            amountDisplays[1].innerHTML = '0';
+            amountDisplays[2].innerHTML = actualDonation;
+            amountDisplays[3].innerHTML = stripeFee;
+        } else {
+            amountDisplays[0].innerHTML = totalAmount;
+            amountDisplays[1].innerHTML = '#';
+            amountDisplays[2].innerHTML = '#';
+            amountDisplays[3].innerHTML = '#';
+        }
     }
 
     if (totalAmount == '') {

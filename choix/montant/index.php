@@ -82,9 +82,9 @@
             
             <div class="form-separation"></div>
             <div class="column-wrapper">
-                <div class="column">
+                <div class="column" id="input-column">
                     <div class="field">
-                        <p>Je donne : <input type="number" name="amount" id="free-choice" placeholder="" value="<?php echo $amount ?>">€</p>
+                        <p>Je donne : <input type="number" name="amount" id="free-choice" placeholder="" min="0" max="100000" value="<?php echo $amount ?>">€</p>
                         <p class="error"><?php echo $error; ?></p>
                         <div class="suggestions">
                             <ul>
@@ -95,14 +95,12 @@
                         </div>
                     </div>
                     <div class="transparency">
-                        <h5>Sur mes <span class="amount-display">#</span>€ :</h5>
+                        <h4>Sur mes <span class="amount-display">#</span>€ :</h4>
                         <ul>
+                            <li id="tax-deduction"> - <span class="amount-display">#</span>€ sont déductibles de mes impôts!</li>
                             <li id="assoc-display"> - <span class="amount-display" id="assoc-amount">#</span>€ partent aux <a href="#">associations</a> que nous supportons.</li>
                             <li id="stripe-display"> - <span class="amount-display" id="stripe-amount">#</span>€ partent chez <a href="#">Stripe</a>.</li>
                         </ul>
-                    </div>
-                    <div class="tax-deduction-display">
-                        <p>Je peux aussi bénéficier d'une réduction d'impôts de <span class="amount-display" id="reduction-amount">#</span>€</p>
                     </div>
                 </div>
                 <div class="separation"></div>
