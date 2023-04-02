@@ -70,10 +70,12 @@
         } else {
             $companySIREN = $_POST['companySIREN'];
             $_SESSION['companySIREN'] = $_POST['companySIREN'];
-            if (!preg_match('/^[0-9]{3} [0-9]{3} [0-9]{3}/', $companySIREN)) {
+            
+            echo "<script defer>verifySIREN('$inseeAPIKey', $companySIREN)</script>";
+            // if (!preg_match('/^[0-9]{3} [0-9]{3} [0-9]{3}/', $companySIREN)) {
                 $errors['companySIREN'] = "Numéro SIREN invalide.";
-                $_SESSION['info_error'] = true;
-            }
+            //     $_SESSION['info_error'] = true;
+            // }
         }
         
         if (empty($_POST['companySIRET'])) {
@@ -170,7 +172,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    
+    <script src="./verify-data.js"></script>
+
     <title>Renseignement des Informations - Ronde de l'Espoir</title>
 </head>
 <body>
@@ -265,6 +268,7 @@
         $dots = "../../";
         include('../../modules/help.php');
     ?>
+
     
 </body>
 </html>
