@@ -25,7 +25,7 @@
 
         $isCard = '1';
         
-        if ($_SESSION['isAnonymous'] == false) {
+        if ($_SESSION['isAnonymous'] == false && $_SESSION['isCompany'] == false) {
 
             $lname = $_SESSION['lname'];
             $fname = $_SESSION['fname'];
