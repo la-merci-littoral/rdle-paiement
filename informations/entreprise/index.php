@@ -71,11 +71,11 @@
             $companySIREN = $_POST['companySIREN'];
             $_SESSION['companySIREN'] = $_POST['companySIREN'];
             
-            echo "<script defer>verifySIREN('$inseeAPIKey', $companySIREN)</script>";
-            // if (!preg_match('/^[0-9]{3} [0-9]{3} [0-9]{3}/', $companySIREN)) {
+            // echo "<script defer>verifySIREN('$inseeAPIKey', $companySIREN)</script>";
+            if (!preg_match('/^[0-9]{3} [0-9]{3} [0-9]{3}/', $companySIREN)) {
                 $errors['companySIREN'] = "Numéro SIREN invalide.";
-            //     $_SESSION['info_error'] = true;
-            // }
+                $_SESSION['info_error'] = true;
+            }
         }
         
         if (empty($_POST['companySIRET'])) {
