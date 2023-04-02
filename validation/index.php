@@ -20,69 +20,67 @@
         if (isset($_GET['redirect_status'])) {
             if ($_GET['redirect_status'] == "succeeded") {
                 $success = true;
-            }
-        }
 
-        $isCard = '1';
-        
-        if ($_SESSION['isAnonymous'] == false && $_SESSION['isCompany'] == false) {
+                $isCard = '1';
+                
+                if ($_SESSION['isAnonymous'] == false && $_SESSION['isCompany'] == false) {
 
-            $lname = $_SESSION['lname'];
-            $fname = $_SESSION['fname'];
-            $postal = $_SESSION['postal'];
-            $city = $_SESSION['city'];
-            $email = $_SESSION['email'];
-            $phone = $_SESSION['phone'];
-            $mailingAddress = $_SESSION['address'];
-            $addressComplement = $_SESSION['addressComplement'];
-            $amount = $_SESSION['amount'];
+                    $lname = $_SESSION['lname'];
+                    $fname = $_SESSION['fname'];
+                    $postal = $_SESSION['postal'];
+                    $city = $_SESSION['city'];
+                    $email = $_SESSION['email'];
+                    $phone = $_SESSION['phone'];
+                    $mailingAddress = $_SESSION['address'];
+                    $addressComplement = $_SESSION['addressComplement'];
+                    $amount = $_SESSION['amount'];
 
-            $sql = "INSERT INTO donations(lname, fname, postal, city, email, phone, mailingAddress, addressComplement, amount_donated, isCard) VALUES(
-                '$lname',
-                '$fname',
-                '$postal',
-                '$city',
-                '$email',
-                '$phone',
-                '$mailingAddress',
-                '$addressComplement',
-                '$amount',
-                '$isCard'
-            )";
+                    $sql = "INSERT INTO donations(lname, fname, postal, city, email, phone, mailingAddress, addressComplement, amount_donated, isCard) VALUES(
+                        '$lname',
+                        '$fname',
+                        '$postal',
+                        '$city',
+                        '$email',
+                        '$phone',
+                        '$mailingAddress',
+                        '$addressComplement',
+                        '$amount',
+                        '$isCard'
+                    )";
 
-        } elseif ($_SESSION['isCompany'] == true && $_SESSION['isAnonymous'] == false) {
-            $companyName = $_SESSION['companyName'];
-            $companySIREN = $_SESSION['companySIREN'];
-            $companySIRET = $_SESSION['companySIRET'];
-            $companyContactAddress = $_SESSION['companyContactAddress'];
-            $companyAddress = $_SESSION['companyAddress'];
-            $companyAddressComplement = $_SESSION['companyAddressComplement'];
-            $companyPostal = $_SESSION['companyPostal'];
-            $companyCity = $_SESSION['companyCity'];
+                } elseif ($_SESSION['isCompany'] == true && $_SESSION['isAnonymous'] == false) {
+                    $companyName = $_SESSION['companyName'];
+                    $companySIREN = $_SESSION['companySIREN'];
+                    $companySIRET = $_SESSION['companySIRET'];
+                    $companyContactAddress = $_SESSION['companyContactAddress'];
+                    $companyAddress = $_SESSION['companyAddress'];
+                    $companyAddressComplement = $_SESSION['companyAddressComplement'];
+                    $companyPostal = $_SESSION['companyPostal'];
+                    $companyCity = $_SESSION['companyCity'];
 
-            $sql = "INSERT INTO donations(companyName, companySIREN, companySIRET, companyContactAddress, companyAddress, companyAddressComplement, companyPostal, companyCity) VALUES(
-                '$companyName',
-                '$companySIREN',
-                '$companySIRET',
-                '$companyContactAddress',
-                '$companyAddress',
-                '$companyAddressComplement',
-                '$companyPostal',
-                '$companyCity'
-            )";
+                    $sql = "INSERT INTO donations(companyName, companySIREN, companySIRET, companyContactAddress, companyAddress, companyAddressComplement, companyPostal, companyCity) VALUES(
+                        '$companyName',
+                        '$companySIREN',
+                        '$companySIRET',
+                        '$companyContactAddress',
+                        '$companyAddress',
+                        '$companyAddressComplement',
+                        '$companyPostal',
+                        '$companyCity'
+                    )";
 
-        } else {
-            $isAnonymous = $_SESSION['isAnonymous'];
-            $amount = $_SESSION['amount'];
-            $sql = "INSERT INTO donations(amount_donated, isAnonymous, isCard) VALUES ('$amount', '$isAnonymous', '$isCard')";
-        }
+                } else {
+                    $isAnonymous = $_SESSION['isAnonymous'];
+                    $amount = $_SESSION['amount'];
+                    $sql = "INSERT INTO donations(amount_donated, isAnonymous, isCard) VALUES ('$amount', '$isAnonymous', '$isCard')";
+                }
 
-        require('../config/db_connect.php');
+                require('../config/db_connect.php');
 
-        if (!mysqli_query($conn, $sql)) {
-            echo "Query error: " .mysqli_error($conn);
-        }
-    }
+                if (!mysqli_query($conn, $sql)) {
+                    echo "Query error: " .mysqli_error($conn);
+                }
+    }}}
 
 ?>
 
