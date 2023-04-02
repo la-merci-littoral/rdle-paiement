@@ -57,12 +57,12 @@
     if (isset($_POST['submit'])) {
 
         if (empty($_POST['companyName'])) {
-            $errors['companyName'] = "Un nom d'entreprise est requis.";
+            $errors['companyName'] = "Une dénomination sociale est requise.";
         } else {
             $companyName = $_POST['companyName'];
             $_SESSION['companyName'] = $_POST['companyName'];
             if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 -_.,']*$/", $companyName)) {
-                $errors['companyName'] = "Nom d'entreprise invalide.";
+                $errors['companyName'] = "Dénomination sociale invalide.";
                 $_SESSION['info_error'] = true;
             }
         }
@@ -86,7 +86,7 @@
         }
         
         if (empty($_POST['companySIRET'])) {
-            $errors['companySIRET'] = "Un nom d'entreprise est requis.";
+            $errors['companySIRET'] = "Un numéro SIRET est requis.";
         } else {
             $companySIRET = $_POST['companySIRET'];
             $_SESSION['companySIRET'] = $_POST['companySIRET'];
@@ -135,12 +135,12 @@
         }
         
         if (empty($_POST['companyPostal'])) {
-            $errors['companyPostal'] = "Un nom d'entreprise est requis.";
+            $errors['companyPostal'] = "Un code postal est requis.";
         } else {
             $companyPostal = $_POST['companyPostal'];
             $_SESSION['companyPostal'] = $_POST['companyPostal'];
             if (!preg_match('/^[0-9]{5}/', $companyPostal)) {
-                $errors['companyPostal'] = "Nom d'entreprise invalide.";
+                $errors['companyPostal'] = "Code postal invalide.";
                 $_SESSION['info_error'] = true;
             }
         }
@@ -215,8 +215,8 @@
                 <div class="column">
 
                     <div class="field">
-                        <label for="companyName">Nom de l'entreprise :</label>
-                        <input type="text" name="companyName" placeholder="Entrez le nom de l'entreprise ici" value="<?php echo $companyName ?>">
+                        <label for="companyName">Dénomination sociale :</label>
+                        <input type="text" name="companyName" placeholder="Entrez votre dénomination sociale ici" value="<?php echo $companyName ?>">
                         <p class="error"><?php echo $errors['companyName']; ?></p>
                     </div>
                     
