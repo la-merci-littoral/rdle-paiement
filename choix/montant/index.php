@@ -118,7 +118,7 @@
                                     - Vous avez fait un don de 10€ ou plus.
                                 </li>
                                 <li>
-                                    - Vous avez correctement rempli le formulaire de la page précédente.
+                                    - Vous remplissez correctement le formulaire de la page suivante.
                                 </li>
                             </ul>
                         </p>
