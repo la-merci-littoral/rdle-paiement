@@ -1,8 +1,7 @@
 :root {
     --soft-white: #E5E9EC;
     --LM-color: #0099D7;
-    --amount-highlight: #c08497;
-    /* --amount-highlight: #ce6587; Second possibility */
+    --amount-highlight: #ce6587;
     --amount-lowkey: #F28482;
 }
 
