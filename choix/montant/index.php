@@ -16,6 +16,7 @@
     $error = '';
 
     if (isset($_POST['goback'])) {
+        $_SESSION['amount'] = $_POST['amount'];
         header('Location: ../type');
     } elseif (isset($_POST['submit'])) {
 

@@ -2,6 +2,7 @@
     --soft-white: #E5E9EC;
     --LM-color: #0099D7;
     --amount-highlight: #c08497;
+    /* --amount-highlight: #ce6587; Second possibility */
     --amount-lowkey: #F28482;
 }
 
@@ -114,6 +115,7 @@ input:focus {
     width: 70px;
     text-align: right;
     font-size: 1.3rem;
+    font-weight: 600;
     border-bottom-color: #777;
     color: var(--amount-highlight);
 
@@ -160,7 +162,7 @@ input:focus {
 }
 
 .transparency ul .amount-display {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .transparency {
