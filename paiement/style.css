@@ -165,3 +165,23 @@ button:disabled {
         box-shadow: none;
     }
 }
+
+#powered-by-stripe {
+    color: grey;
+    font-size: 0.85rem;
+    width: 100%;
+    text-align: right;
+    padding-top: 7px;
+}
+
+#powered-by-stripe * {
+    color: inherit;
+}
+
+#powered-by-stripe:hover {
+    text-decoration: underline;
+}
+
+#powered-by-stripe b {
+    font-weight: 700;
+}
