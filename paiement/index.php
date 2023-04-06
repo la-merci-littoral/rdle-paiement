@@ -92,7 +92,7 @@
         <div id="payment-message" class="hidden"></div>
 
 
-        <div id="powered-by-stripe"><a href="https://stripe.com/en-fr" target="_blank"><i>Payment powered by <b>Stripe</b></i></a></div>
+        <div id="powered-by-stripe"><a href="https://stripe.com/en-fr" target="_blank"><i>Powered by <b>Stripe</b></i></a></div>
     </form>
 
     <div class="blank-space" style="height:50px;width:100%;"></div>
