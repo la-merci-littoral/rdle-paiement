@@ -128,7 +128,7 @@
                             une attestation de donation. <br> Le montant qui pourra être déduit est disponible sur cette page.
                         </p>
                         <div class="more-details">
-                            <p><b>Pour plus de détails, rendez-vous sur notre <a href="#">FAQ</a> ou sur le <a href="https://www.impots.gouv.fr/particulier/questions/jai-fait-des-dons-une-association-que-puis-je-deduire">site officiel du gouvernement.</a></b></p>
+                            <p><b>Pour plus de détails, rendez-vous sur notre <a href="https://ronde-de-l-espoir.fr/faq">FAQ</a> ou sur le <a href="https://www.impots.gouv.fr/particulier/questions/jai-fait-des-dons-une-association-que-puis-je-deduire">site officiel du gouvernement.</a></b></p>
                         </div>
                     </div>
                 </div>
