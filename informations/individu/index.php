@@ -84,7 +84,7 @@
         } else {
             $city = $_POST['city'];
             $_SESSION['city'] = $_POST['city'];
-            if (!preg_match('/^[a-zA-Z\s]+$/', $city)) {
+            if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 _']*$/", $city)) {
                 $errors['city'] = "Nom de ville invalide.";
                 $_SESSION['info_error'] = true;
             }
