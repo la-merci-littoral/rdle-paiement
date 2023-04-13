@@ -98,9 +98,9 @@
                     <div class="transparency">
                         <h4>Sur mes <span class="amount-display">#</span>€ :</h4>
                         <ul>
-                            <li id="tax-deduction"> - <span class="amount-display">#</span>€ sont déductibles de mes impôts!</li>
-                            <li id="assoc-display"> - <span class="amount-display" id="assoc-amount">#</span>€ partent aux <a href="#">associations</a> que nous supportons.</li>
-                            <li id="stripe-display"> - <span class="amount-display" id="stripe-amount">#</span>€ partent chez <a href="#">Stripe</a>.</li>
+                            <li id="tax-deduction"> - <span class="amount-display">#</span>€ sont déductibles de vos impôts!</li>
+                            <li id="assoc-display"> - <span class="amount-display" id="assoc-amount">#</span>€ partent pour <a href="https://ronde-de-l-espoir.fr/infos/dmf-34" target="_blank">DMF34</a>, l'association que nous supportons.</li>
+                            <li id="stripe-display"> - <span class="amount-display" id="stripe-amount">#</span>€ de commission <a href="https://stripe.com/fr" target="_blank">Stripe</a>.</li>
                         </ul>
                     </div>
                 </div>
