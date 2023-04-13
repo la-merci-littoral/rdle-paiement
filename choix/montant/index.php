@@ -109,23 +109,22 @@
                     <div class="tax-deduction-infos">
                         <h3>Pouvez-vous bénéficier d'une déduction d'impôts?</h3>
                         <p>
-                            Pour être élligible à la déduction d'impôts, vous devez remplir 3 conditions :
+                            Pour être éligible à la déduction d'impôts, vous devez remplir 3 conditions :
                             <ul>
                                 <li>
-                                    - Vous avez séléctionner "<i>Participer en tant qu'individu.</i>" sur
-                                    <a href="../choix/type">cette page</a>.
+                                    1. Vous avez séléctionné "<i>Participer en tant qu'individu.</i>" sur
+                                    <a href="../choix/type">la page précédente</a>.
                                 </li>
                                 <li>
-                                    - Vous avez fait un don de 10€ ou plus.
+                                    2. Vous donnez 10€ ou plus.
                                 </li>
                                 <li>
-                                    - Vous remplissez correctement le formulaire de la page suivante.
+                                    3. Les informations personnelles fournies à la page suivante sont correctes.
                                 </li>
                             </ul>
                         </p>
                         <p>
-                            Si vous remplissez ces conditions, alors dans les semaines suivant votre donation vous recevrez
-                            une attestation de donation. <br> Le montant qui pourra être déduit est disponible sur cette page.
+                            Si ces conditions sont remplies, vous recevrez l'attestation de donation dans quelles semaines de la part de DMF34 directement.<br> Le montant pouvant être déduit est disponible sur cette page.
                         </p>
                         <div class="more-details">
                             <p><b>Pour plus de détails, rendez-vous sur notre <a href="https://ronde-de-l-espoir.fr/faq">FAQ</a> ou sur le <a href="https://www.impots.gouv.fr/particulier/questions/jai-fait-des-dons-une-association-que-puis-je-deduire">site officiel du gouvernement.</a></b></p>
