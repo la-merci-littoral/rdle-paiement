@@ -119,7 +119,7 @@
         } else {
             $companyAddress = $_POST['companyAddress'];
             $_SESSION['companyAddress'] = $_POST['companyAddress'];
-            if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 _']*$/", $companyAddress)) {
+            if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 _-']*$/", $companyAddress)) {
                 $errors['companyAddress'] = "Adresse invalide.";
                 $_SESSION['info_error'] = true;
             }
@@ -128,7 +128,7 @@
         if (!empty($_POST['companyAddressComplement'])) {
             $companyAddressComplement = $_POST['companyAddressComplement'];
             $_SESSION['companyAddressComplement'] = $_POST['companyAddressComplement'];
-            if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 _']*$/", $companyAddressComplement)) {
+            if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 _-']*$/", $companyAddressComplement)) {
                 $errors['companyAddressComplement'] = "Complément d'adresse invalide.";
                 $_SESSION['info_error'] = true;
             }
@@ -150,7 +150,7 @@
         } else {
             $companyCity = $_POST['companyCity'];
             $_SESSION['companyCity'] = $_POST['companyCity'];
-            if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 _']*$/", $companyCity)) {
+            if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 _-']*$/", $companyCity)) {
                 $errors['companyCity'] = "Nom de ville invalide.";
                 $_SESSION['info_error'] = true;
             }
