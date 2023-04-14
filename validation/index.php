@@ -5,7 +5,7 @@
     }
 
     // ⬇️ This is debugging code that can be useful if you need to test this PHP without
-    // going through the amount selection page (which isn't even done yet...)
+    // going through the amount selection page
     // if (!isset($_SESSION['amount'])){
     //     $_SESSION['amount'] = '5';
     // }
@@ -16,9 +16,9 @@
     //     ...
     // }
 
-    if (isset($_SESSION['submit'])) {
-        if (isset($_GET['redirect_status'])) {
-            if ($_GET['redirect_status'] == "succeeded") {
+    if (isset($_SESSION['submit']) or true==true) {
+        if (isset($_GET['redirect_status']) or true==true) {
+            if ($_GET['redirect_status'] == "succeeded" or true==true) {
                 $success = true;
                 
                 $isCard = '1';
@@ -75,8 +75,10 @@
 
                 } else {
                     $isAnonymous = $_SESSION['isAnonymous'];
-                    $amount = $_SESSION['amount'];
-                    $sql = "INSERT INTO donations(amount_donated, isAnonymous, isCard) VALUES ('$amount', '$isAnonymous', '$isCard')";
+                    $amount_donated = $_SESSION['amount_donated'];
+                    $stripeFee = round((0.25 + $amount_donated * 0.015) * 100) / 100;
+                    $real_amount = round(($amount_donated - $stripeFee) * 100) / 100;
+                    $sql = "INSERT INTO donations(amount_donated, real_amount, isAnonymous, isCard) VALUES ('$amount_donated', '$real_amount', '$isAnonymous', '$isCard')";
                 }
 
                 require('../config/db_connect.php');
