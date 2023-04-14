@@ -11,7 +11,7 @@
     $currentPage = 'amount';
     $prefix = "../../";
     
-    $amount = isset($_SESSION['amount']) ? $_SESSION['amount'] : "";
+    $amount = isset($_SESSION['amount_donated']) ? $_SESSION['amount_donated'] : "";
 
     $error = '';
 
@@ -25,7 +25,7 @@
             $amount = '';
         } else {
             $amount = $_POST['amount'];
-            $_SESSION['amount'] = $_POST['amount'];
+            $_SESSION['amount_donated'] = $_POST['amount'];
             if (!preg_match('/^[0-9]*$/', $amount) || ($amount < 0)) {
                 $error = 'Veuillez rentrez une contribution valide.';
                 $_SESSION['amount_error'] = true;
@@ -37,7 +37,7 @@
         if (empty($error)) {
 
             // check for dangerous MySQL code
-            $_SESSION['amount'] = mysqli_real_escape_string($conn, $amount);
+            $_SESSION['amount_donated'] = mysqli_real_escape_string($conn, $amount);
 
             if ($_SESSION['isAnonymous']) {
                 header('Location: ../../paiement');
