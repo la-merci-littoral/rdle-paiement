@@ -55,7 +55,7 @@
         } else {
             $lname = $_POST['lname'];
             $_SESSION['lname'] = $_POST['lname'];
-            if (!preg_match('/^[a-zA-Z\s]+$/', $lname)) {
+            if (!preg_match('/^[a-zA-Z\-\s]+$/', $lname)) {
                 $errors['lname'] = "Nom invalide.";
                 $_SESSION['info_error'] = true;
             }
@@ -66,7 +66,7 @@
         } else {
             $fname = $_POST['fname'];
             $_SESSION['fname'] = $_POST['fname'];
-            if (!preg_match('/^[a-zA-Z\s]+$/', $fname)) {
+            if (!preg_match('/^[a-zA-Z\-\s]+$/', $fname)) {
                 $errors['fname'] = "Prénom invalide.";
                 $_SESSION['info_error'] = true;
             }
