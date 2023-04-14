@@ -22,6 +22,7 @@
                 $success = true;
                 
                 $isCard = '1';
+                $isDonSimple = '1';
                 
                 if ($_SESSION['isAnonymous'] == false && $_SESSION['isCompany'] == false) {
 
@@ -38,7 +39,7 @@
                     $stripeFee = round((0.25 + $amount_donated * 0.015) * 100) / 100;
                     $real_amount = round(($amount_donated - $stripeFee) * 100) / 100;
 
-                    $sql = "INSERT INTO donations(lname, fname, postal, city, email, phone, mailingAddress, addressComplement, amount_donated, real_amount, isCard) VALUES(
+                    $sql = "INSERT INTO donations(lname, fname, postal, city, email, phone, mailingAddress, addressComplement, amount_donated, real_amount, isCard, isDonSimple) VALUES(
                         '$lname',
                         '$fname',
                         '$postal',
@@ -49,7 +50,8 @@
                         '$addressComplement',
                         '$amount_donated',
                         '$real_amount',
-                        '$isCard'
+                        '$isCard',
+                        '$isDonSimple'
                     )";
 
                 } elseif ($_SESSION['isCompany'] == true && $_SESSION['isAnonymous'] == false) {
