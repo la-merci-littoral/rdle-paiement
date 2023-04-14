@@ -20,7 +20,7 @@
         if (isset($_GET['redirect_status'])) {
             if ($_GET['redirect_status'] == "succeeded") {
                 $success = true;
-
+                
                 $isCard = '1';
                 
                 if ($_SESSION['isAnonymous'] == false && $_SESSION['isCompany'] == false) {
@@ -33,9 +33,12 @@
                     $phone = $_SESSION['phone'];
                     $mailingAddress = $_SESSION['address'];
                     $addressComplement = $_SESSION['addressComplement'];
-                    $amount = $_SESSION['amount'];
+                    $amount_donated = $_SESSION['amount_donated'];
 
-                    $sql = "INSERT INTO donations(lname, fname, postal, city, email, phone, mailingAddress, addressComplement, amount_donated, isCard) VALUES(
+                    $stripeFee = round((0.25 + $amount_donated * 0.015) * 100) / 100;
+                    $real_amount = round(($amount_donated - $stripeFee) * 100) / 100;
+
+                    $sql = "INSERT INTO donations(lname, fname, postal, city, email, phone, mailingAddress, addressComplement, amount_donated, real_amount, isCard) VALUES(
                         '$lname',
                         '$fname',
                         '$postal',
@@ -44,7 +47,8 @@
                         '$phone',
                         '$mailingAddress',
                         '$addressComplement',
-                        '$amount',
+                        '$amount_donated',
+                        '$real_amount',
                         '$isCard'
                     )";
 
