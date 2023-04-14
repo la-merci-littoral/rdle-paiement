@@ -3,7 +3,7 @@
         session_start();
     }
 
-    if (!isset($_SESSION['isAnonymous']) || !isset($_SESSION['amount']) || $_SESSION['amount_error']) {
+    if (!isset($_SESSION['isAnonymous']) || !isset($_SESSION['amount_donated']) || $_SESSION['amount_error']) {
         header('Location: ../../choix/montant/');
     }
 
