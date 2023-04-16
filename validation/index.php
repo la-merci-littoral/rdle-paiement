@@ -16,9 +16,9 @@
     //     ...
     // }
 
-    if (isset($_SESSION['submit']) or true==true) {
-        if (isset($_GET['redirect_status']) or true==true) {
-            if ($_GET['redirect_status'] == "succeeded" or true==true) {
+    if (isset($_SESSION['submit'])) {
+        if (isset($_GET['redirect_status'])) {
+            if ($_GET['redirect_status'] == "succeeded") {
                 $success = true;
                 
                 $isCard = '1';
