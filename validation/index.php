@@ -133,7 +133,13 @@
                 }
             ?>
 
-            <h2>Merci pour votre participation!</h2>
+            <h2>Nous vous remercions pour votre participation !</h2>
+            <div style="visibility: hidden; padding: 10px;"></div>
+            <p>Vous allez recevoir dans peu de temps un email de Stripe vous confirmant le paiement.</p>
+            <br>
+            <p>Veuillez noter que DMF 34 reçoit le montant versé environ 1 semaine après le paiement.</p>
+            <p>Si vous avez des questions, n'hésitez pas à consulter notre <a href="https://ronde-de-l-espoir.fr/faq">FAQ</a>.</p>
+            <div style="visibility: hidden; padding: 10px;"></div>
         </div>
         <div class="return"><a href="https://ronde-de-l-espoir.fr" class="button">Retour à l'accueil</a></div>
         
