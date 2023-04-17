@@ -78,8 +78,8 @@
                 } else {
                     $isAnonymous = $_SESSION['isAnonymous'];
                     $amount_donated = $_SESSION['amount_donated'];
-                    $stripeFee = (0.25 + $amount_donated * 0.015) * 100 / 100;
-                    $real_amount = ($amount_donated - $stripeFee) * 100 / 100;
+                    $stripeFee = floor((0.25 + $amount_donated * 0.015) * 100) / 100;
+                    $real_amount = floor(($amount_donated - $stripeFee) * 100) / 100;
                     $sql = "INSERT INTO donations(amount_donated, real_amount, isAnonymous, isCard) VALUES ('$amount_donated', '$real_amount', '$isAnonymous', '$isCard')";
                 }
 
