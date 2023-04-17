@@ -17,7 +17,7 @@ function updateAmountDisplays(input) {
     if (totalAmount >= 10) {
         const stripeFee = 0.25 + totalAmount * 0.015;
         const actualDonation = Math.floor((totalAmount - stripeFee) * 100) / 100;
-        const taxEvasion = Math.floor(66 * totalAmount) / 100;
+        const taxEvasion = Math.floor(66 * actualDonation) / 100;
         
         amountDisplays[0].innerHTML = totalAmount;
         amountDisplays[1].innerHTML = taxEvasion;
