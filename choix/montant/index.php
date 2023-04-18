@@ -1,60 +1,60 @@
 <?php
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
-    if (!isset($_SESSION['isAnonymous'])) {
-        header('Location: ../../');
-    }
+if (!isset($_SESSION['isAnonymous'])) {
+    header('Location: ../../');
+}
 
-    require('../../config/db_connect.php');    
-    $currentPage = 'amount';
-    $prefix = "../../";
-    
-    $amount = isset($_SESSION['amount_donated']) ? $_SESSION['amount_donated'] : "";
+// require('../../config/db_connect.php');    
+$currentPage = 'amount';
+$prefix = "../../";
 
-    $error = '';
+$amount = isset($_SESSION['amount_donated']) ? $_SESSION['amount_donated'] : "";
 
-    if (isset($_POST['goback'])) {
+$error = '';
+
+if (isset($_POST['goback'])) {
+    $_SESSION['amount_donated'] = $_POST['amount'];
+    header('Location: ../type');
+} elseif (isset($_POST['submit'])) {
+
+    if (empty($_POST['amount'])) {
+        $error = 'Une contribution est requise.';
+        $amount = '';
+    } else {
+        $amount = $_POST['amount'];
         $_SESSION['amount_donated'] = $_POST['amount'];
-        header('Location: ../type');
-    } elseif (isset($_POST['submit'])) {
-
-        if (empty($_POST['amount'])) {
-            $error = 'Une contribution est requise.';
-            $amount = '';
+        if (!preg_match('/^[0-9]*$/', $amount) || ($amount < 0)) {
+            $error = 'Veuillez rentrez une contribution valide.';
+            $_SESSION['amount_error'] = true;
         } else {
-            $amount = $_POST['amount'];
-            $_SESSION['amount_donated'] = $_POST['amount'];
-            if (!preg_match('/^[0-9]*$/', $amount) || ($amount < 0)) {
-                $error = 'Veuillez rentrez une contribution valide.';
-                $_SESSION['amount_error'] = true;
-            } else {
-                $_SESSION['amount_error'] = false;
-            }
+            $_SESSION['amount_error'] = false;
         }
-
-        if (empty($error)) {
-
-            // check for dangerous MySQL code
-            $_SESSION['amount_donated'] = mysqli_real_escape_string($conn, $amount);
-
-            if ($_SESSION['isAnonymous']) {
-                header('Location: ../../paiement');
-            } elseif ($_SESSION['isCompany']) {
-                header('Location: ../../informations/entreprise/');
-            } else {
-                header('Location: ../../informations/individu');
-            }
-        }
-
     }
+
+    if (empty($error)) {
+
+        // check for dangerous MySQL code
+        $_SESSION['amount_donated'] = mysqli_real_escape_string($conn, $amount);
+
+        if ($_SESSION['isAnonymous']) {
+            header('Location: ../../paiement');
+        } elseif ($_SESSION['isCompany']) {
+            header('Location: ../../informations/entreprise/');
+        } else {
+            header('Location: ../../informations/individu');
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -70,17 +70,18 @@
 
     <title>Choix du Montant - Ronde de l'Espoir</title>
 </head>
+
 <body>
 
     <?php
-        require('../../modules/nav.php');
-        $dots = '../../';
+    require('../../modules/nav.php');
+    $dots = '../../';
     ?>
 
     <main>
         <form method="POST" action="./index.php">
             <?php include('../../modules/progress.php'); ?>
-            
+
             <div class="form-separation"></div>
             <div class="column-wrapper">
                 <div class="column" id="input-column">
@@ -108,24 +109,26 @@
                 <div class="column">
                     <div class="tax-deduction-infos">
                         <h3>Pouvez-vous bénéficier d'une déduction d'impôts?</h3>
-                        <p>
-                            Pour être éligible à la déduction d'impôts, vous devez remplir 3 conditions :
+                        <?php if ($_SESSION['isAnonymous'] == false) { ?>
+                            <p>
+                                Pour être éligible à la déduction d'impôts, vous devez remplir 3 conditions :
                             <ul>
                                 <li>
-                                    1. Vous avez séléctionné "<i>Participer en tant qu'individu.</i>" ou "<i>Participer en tant qu'entreprise.</i>" sur
-                                    <a href="../choix/type">la page précédente</a>.
+                                    1. Vous donnez 10€ ou plus.
                                 </li>
                                 <li>
-                                    2. Vous donnez 10€ ou plus.
-                                </li>
-                                <li>
-                                    3. Les informations personnelles fournies à la page suivante sont correctes.
+                                    2. Les informations personnelles fournies à la page suivante sont correctes.
                                 </li>
                             </ul>
-                        </p>
-                        <p>
-                            Si ces conditions sont remplies, vous recevrez l'attestation de donation dans quelles semaines de la part de DMF34 directement.<br> Le montant pouvant être déduit est disponible sur cette page.
-                        </p>
+                            </p>
+                            <p>
+                                Si ces conditions sont remplies, vous recevrez l'attestation de donation dans quelles semaines de la part de DMF34 directement.<br> Le montant pouvant être déduit est disponible sur cette page.
+                            </p>
+                        <?php } else { ?>
+                            <p><span style="font-size: 17px;">🥺</span>Non, vous ne pouvez pas bénéficier d'une déduction d'impôts...</p>
+                            <p>Vous devez séléctionner "<i>Participer en tant qu'individu.</i>" ou "<i>Participer en tant qu'entreprise.</i>" sur <a href="../choix/type">la page précédente</a>.
+                            </p>
+                        <?php } ?>
                         <div class="more-details">
                             <p><b>Pour plus de détails, rendez-vous sur notre <a href="https://ronde-de-l-espoir.fr/faq">FAQ</a> ou sur le <a href="https://www.impots.gouv.fr/particulier/questions/jai-fait-des-dons-une-association-que-puis-je-deduire">site officiel du gouvernement.</a></b></p>
                         </div>
@@ -141,8 +144,9 @@
     </main>
 
     <?php
-        require('../../modules/help.php');
+    require('../../modules/help.php');
     ?>
-    
+
 </body>
+
 </html>
