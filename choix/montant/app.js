@@ -20,7 +20,11 @@ function updateAmountDisplays(input) {
         const taxEvasion = Math.floor(66 * actualDonation) / 100;
         
         amountDisplays[0].innerHTML = totalAmount;
-        amountDisplays[1].innerHTML = taxEvasion;
+        if (isAnonymous == 'false'){
+            amountDisplays[1].innerHTML = taxEvasion;
+        } else {
+            amountDisplays[1].innerHTML = '0';
+        }
         amountDisplays[2].innerHTML = actualDonation;
         amountDisplays[3].innerHTML = stripeFee;
     } else {
