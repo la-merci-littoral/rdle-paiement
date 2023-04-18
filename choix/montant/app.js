@@ -15,9 +15,9 @@ function updateAmountDisplays(input) {
     const taxEvasion = '';
 
     if (totalAmount >= 10) {
-        const stripeFee = Math.round((0.25 + totalAmount * 0.015) * 100) / 100;
-        const actualDonation = Math.round((totalAmount - stripeFee) * 100) / 100;
-        const taxEvasion = Math.round(66 * totalAmount) / 100;
+        const stripeFee = 0.25 + totalAmount * 0.015;
+        const actualDonation = Math.floor((totalAmount - stripeFee) * 100) / 100;
+        const taxEvasion = Math.floor(66 * actualDonation) / 100;
         
         amountDisplays[0].innerHTML = totalAmount;
         amountDisplays[1].innerHTML = taxEvasion;
@@ -25,8 +25,8 @@ function updateAmountDisplays(input) {
         amountDisplays[3].innerHTML = stripeFee;
     } else {
         if (totalAmount > 0) {
-            const stripeFee = Math.round((0.25 + totalAmount * 0.015) * 100) / 100;
-            const actualDonation = Math.round((totalAmount - stripeFee) * 100) / 100;
+            const stripeFee = 0.25 + totalAmount * 0.015;
+            const actualDonation = Math.floor((totalAmount - stripeFee) * 100) / 100;
 
             amountDisplays[0].innerHTML = totalAmount;
             amountDisplays[1].innerHTML = '0';

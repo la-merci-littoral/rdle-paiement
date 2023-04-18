@@ -3,7 +3,7 @@
         session_start();
     }
 
-    if (!isset($_SESSION['isAnonymous']) || !isset($_SESSION['amount']) || $_SESSION['amount_error']) {
+    if (!isset($_SESSION['isAnonymous']) || !isset($_SESSION['amount_donated']) || $_SESSION['amount_error']) {
         header('Location: ../../choix/montant/');
     }
 
@@ -55,7 +55,9 @@
         } else {
             $lname = $_POST['lname'];
             $_SESSION['lname'] = $_POST['lname'];
+
             if (!preg_match('/^[a-zA-Z\-\s]+$/', $lname)) {
+
                 $errors['lname'] = "Nom invalide.";
                 $_SESSION['info_error'] = true;
             }
@@ -66,7 +68,9 @@
         } else {
             $fname = $_POST['fname'];
             $_SESSION['fname'] = $_POST['fname'];
+
             if (!preg_match('/^[a-zA-Z\-\s]+$/', $fname)) {
+
                 $errors['fname'] = "Prénom invalide.";
                 $_SESSION['info_error'] = true;
             }
@@ -84,7 +88,9 @@
         } else {
             $city = $_POST['city'];
             $_SESSION['city'] = $_POST['city'];
+
             if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 œ_\-,']*$/", $city)) {
+
                 $errors['city'] = "Nom de ville invalide.";
                 $_SESSION['info_error'] = true;
             }
@@ -118,7 +124,9 @@
         } else {
             $address = $_POST['address'];
             $_SESSION['address'] = $_POST['address'];
+
             if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 œ_\-,']*$/", $address)) {
+
                 $errors['address'] = "Adresse invalide.";
                 $_SESSION['info_error'] = true;
             }
@@ -129,7 +137,9 @@
         } else {
             $addressComplement = $_POST['addressComplement'];
             $_SESSION['addressComplement'] = $_POST['addressComplement'];
+
             if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ0-9 œ_\-,']*$/", $addressComplement)) {
+
                 $errors['addressComplement'] = "Complément d'adresse invalide.";
                 $_SESSION['info_error'] = true;
             }
