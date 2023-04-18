@@ -66,8 +66,10 @@ if (isset($_POST['goback'])) {
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script>
+        const isAnonymous = '<?php if ($_SESSION['isAnonymous'] == true){echo 'true';} else {echo 'false';} ?>'
+    </script>
     <script src="./app.js" defer></script>
-
     <title>Choix du Montant - Ronde de l'Espoir</title>
 </head>
 
