@@ -151,7 +151,7 @@
             }
         }
         
-        if (empty($_POST['companyCity']p) {
+        if (empty($_POST['companyCity'])) {
             $errors['companyCity'] = "Une ville est requise.";
         } else {
             $companyCity = $_POST['companyCity'];
