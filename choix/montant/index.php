@@ -112,7 +112,7 @@
                             Pour être éligible à la déduction d'impôts, vous devez remplir 3 conditions :
                             <ul>
                                 <li>
-                                    1. Vous avez séléctionné "<i>Participer en tant qu'individu.</i>" sur
+                                    1. Vous avez séléctionné "<i>Participer en tant qu'individu.</i>" ou "<i>Participer en tant qu'entreprise.</i>" sur
                                     <a href="../choix/type">la page précédente</a>.
                                 </li>
                                 <li>
