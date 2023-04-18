@@ -5,7 +5,7 @@
     }
 
     // ⬇️ This is debugging code that can be useful if you need to test this PHP without
-    // going through the amount selection page (which isn't even done yet...)
+    // going through the amount selection page
     // if (!isset($_SESSION['amount'])){
     //     $_SESSION['amount'] = '5';
     // }
@@ -20,8 +20,9 @@
         if (isset($_GET['redirect_status'])) {
             if ($_GET['redirect_status'] == "succeeded") {
                 $success = true;
-
+                
                 $isCard = '1';
+                $isDonSimple = '1';
                 
                 if ($_SESSION['isAnonymous'] == false && $_SESSION['isCompany'] == false) {
 
@@ -33,9 +34,12 @@
                     $phone = $_SESSION['phone'];
                     $mailingAddress = $_SESSION['address'];
                     $addressComplement = $_SESSION['addressComplement'];
-                    $amount = $_SESSION['amount'];
+                    $amount_donated = $_SESSION['amount_donated'];
 
-                    $sql = "INSERT INTO donations(lname, fname, postal, city, email, phone, mailingAddress, addressComplement, amount_donated, isCard) VALUES(
+                    $stripeFee = round((0.25 + $totalAmount * 0.015) * 100) / 100;
+                    $real_amount = $amount_donated - $stripeFee;
+
+                    $sql = "INSERT INTO donations(lname, fname, postal, city, email, phone, mailingAddress, addressComplement, amount_donated, real_amount, isCard, isDonSimple) VALUES(
                         '$lname',
                         '$fname',
                         '$postal',
@@ -44,8 +48,10 @@
                         '$phone',
                         '$mailingAddress',
                         '$addressComplement',
-                        '$amount',
-                        '$isCard'
+                        '$amount_donated',
+                        '$real_amount',
+                        '$isCard',
+                        '$isDonSimple'
                     )";
 
                 } elseif ($_SESSION['isCompany'] == true && $_SESSION['isAnonymous'] == false) {
@@ -71,8 +77,10 @@
 
                 } else {
                     $isAnonymous = $_SESSION['isAnonymous'];
-                    $amount = $_SESSION['amount'];
-                    $sql = "INSERT INTO donations(amount_donated, isAnonymous, isCard) VALUES ('$amount', '$isAnonymous', '$isCard')";
+                    $amount_donated = $_SESSION['amount_donated'];
+                    $stripeFee = 0.25 + $amount_donated * 0.015;
+                    $real_amount = floor(($amount_donated - $stripeFee) * 100) / 100;
+                    $sql = "INSERT INTO donations(amount_donated, real_amount, isAnonymous, isCard) VALUES ('$amount_donated', '$real_amount', '$isAnonymous', '$isCard')";
                 }
 
                 require('../config/db_connect.php');
