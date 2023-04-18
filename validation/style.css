@@ -40,6 +40,10 @@ main h2 {
     font-weight: 400;
 }
 
+main h2, main p {
+    text-align: center;
+}
+
 .progress-bar {
     margin-bottom: 25px;
 }
