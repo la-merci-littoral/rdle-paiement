@@ -29,7 +29,7 @@
                 && isset($_SESSION['phone'])
                 && isset($_SESSION['city'])
                 && isset($_SESSION['postal'])
-                && isset($_SESSION['amount'])
+                && isset($_SESSION['amount_donated'])
                 && $_SESSION['amount_error'] == false
                 && !array_filter($_SESSION['info_error'])
             ) {
