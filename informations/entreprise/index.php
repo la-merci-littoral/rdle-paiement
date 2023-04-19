@@ -17,7 +17,7 @@
     $prefix = "../../";
 
 
-    require('../../config/db_connect.php');
+    require('../../config/insee_api.php');
 
     $_SESSION['info_error'] = false;
 
