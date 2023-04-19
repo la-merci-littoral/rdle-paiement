@@ -8,8 +8,8 @@
 
     function getOrderAmount() {
         session_start();
-        if(isset($_SESSION['amount'])) {
-            return $_SESSION['amount'] * 100;
+        if(isset($_SESSION['amount_donated'])) {
+            return $_SESSION['amount_donated'] * 100;
         } else {
             return 1400; // Temporary code to solve problem of no amount defined when Stripe looks for it.
         }
