@@ -37,7 +37,7 @@ if (isset($_POST['goback'])) {
     if (empty($error)) {
 
         // check for dangerous MySQL code
-        $_SESSION['amount_donated'] = mysqli_real_escape_string($conn, $amount);
+        // $_SESSION['amount_donated'] = mysqli_real_escape_string($conn, $amount);
 
         if ($_SESSION['isAnonymous']) {
             header('Location: ../../paiement');
@@ -67,7 +67,21 @@ if (isset($_POST['goback'])) {
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script>
-        const isAnonymous = '<?php if ($_SESSION['isAnonymous'] == true){echo 'true';} else {echo 'false';} ?>'
+        const isAnonymous = '<?php 
+            if ($_SESSION['isAnonymous'] == true){
+                echo 'true';
+            } else {
+                echo 'false';
+            }
+        ?>'
+        const taxEvasion = '<?php
+            if ($_SESSION['isCompany'] == true){
+                $taxEvasion = 60;
+            } elseif ($_SESSION['isCompany'] == false){
+                $taxEvasion = 66;
+            }
+            echo $taxEvasion;
+        ?>'
     </script>
     <script src="./app.js" defer></script>
     <title>Choix du Montant - Ronde de l'Espoir</title>
@@ -119,12 +133,21 @@ if (isset($_POST['goback'])) {
                                     1. Vous donnez 10€ ou plus.
                                 </li>
                                 <li>
-                                    2. Les informations personnelles fournies à la page suivante sont correctes.
+                                    2. Les informations <?php if ($_SESSION['isCompany'] == true){
+                                        echo 'sur l\'entreprise';
+                                    } else {
+                                        echo 'personnelles';
+                                    }
+                                    ?> fournies à la page suivante sont correctes.
                                 </li>
                             </ul>
                             </p>
                             <p>
-                                Si ces conditions sont remplies, vous recevrez l'attestation de donation dans quelles semaines de la part de DMF34 directement.<br> Le montant pouvant être déduit est disponible sur cette page.
+                                Si ces conditions sont remplies, 
+                                <ul>
+                                    <li>- Vous bénéficiez d'une déduction d'impôts de <b><?php echo $taxEvasion ?>% du montant de votre don</b></li>
+                                    <li>- vous recevrez l'attestation de donation dans quelles semaines de la part de DMF34 directement.<br> Le montant pouvant être déduit est disponible sur cette page.</li>
+                                </ul>
                             </p>
                         <?php } else { ?>
                             <p><span style="font-size: 17px;">🥺</span>Non, vous ne pouvez pas bénéficier d'une déduction d'impôts...</p>
@@ -132,7 +155,12 @@ if (isset($_POST['goback'])) {
                             </p>
                         <?php } ?>
                         <div class="more-details">
-                            <p><b>Pour plus de détails, rendez-vous sur notre <a href="https://ronde-de-l-espoir.fr/faq">FAQ</a> ou sur le <a href="https://www.impots.gouv.fr/particulier/questions/jai-fait-des-dons-une-association-que-puis-je-deduire">site officiel du gouvernement.</a></b></p>
+                            <p><b>Pour plus de détails, rendez-vous sur notre <a href="https://ronde-de-l-espoir.fr/faq">FAQ</a> ou sur le <a href="<?php 
+                                if ($_SESSION['isCompany'] == false){
+                                    echo 'https://www.impots.gouv.fr/particulier/questions/jai-fait-des-dons-une-association-que-puis-je-deduire';
+                                } else {
+                                    echo 'no link for the moment';
+                                } ?>">site officiel du gouvernement.</a></b></p>
                         </div>
                     </div>
                 </div>
