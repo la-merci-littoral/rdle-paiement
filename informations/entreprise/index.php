@@ -16,7 +16,7 @@
     $currentPage = 'info';
     $prefix = "../../";
 
-
+    require('../../../db_config.php');
     require('../../config/insee_api.php');
     $_SESSION['info_error'] = false;
 
