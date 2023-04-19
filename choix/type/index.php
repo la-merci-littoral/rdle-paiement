@@ -70,7 +70,6 @@
             <p not-to-be-blurred>En continuant anonymement, vous ne pourrez pas :</p>
             <ul not-to-be-blurred>
                 <li not-to-be-blurred>Profiter d'une déduction d'impôts</li>
-                <li not-to-be-blurred>Et d'autres désavantages à venir</li>
             </ul>
             <br>
             <form action="./index.php" method="POST" not-to-be-blurred>
