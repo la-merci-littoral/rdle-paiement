@@ -7,7 +7,7 @@
         header('Location: ../../');
     }
 
-    require('../../config/db_connect.php');    
+    require('../../../db_config.php');    
     $currentPage = 'amount';
     $prefix = "../../";
     
