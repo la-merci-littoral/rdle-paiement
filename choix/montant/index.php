@@ -159,7 +159,7 @@ if (isset($_POST['goback'])) {
                                 if ($_SESSION['isCompany'] == false){
                                     echo 'https://www.impots.gouv.fr/particulier/questions/jai-fait-des-dons-une-association-que-puis-je-deduire';
                                 } else {
-                                    echo 'no link for the moment';
+                                    echo 'https://www.economie.gouv.fr/entreprises/mecenat-dons-entreprise#:~:text=M%C3%A9c%C3%A9nat%20d%27entreprise%20%3A%20avantages%20fiscaux';
                                 } ?>">site officiel du gouvernement.</a></b></p>
                         </div>
                     </div>
