@@ -26,7 +26,7 @@ function updateAmountDisplays(input) {
             amountDisplays[1].innerHTML = '0';
         }
         amountDisplays[2].innerHTML = actualDonation;
-        amountDisplays[3].innerHTML = stripeFee;
+        amountDisplays[3].innerHTML = Math.floor(stripeFee * 100) / 100;
     } else {
         if (totalAmount > 0) {
             const stripeFee = 0.25 + totalAmount * 0.015;
@@ -35,7 +35,7 @@ function updateAmountDisplays(input) {
             amountDisplays[0].innerHTML = totalAmount;
             amountDisplays[1].innerHTML = '0';
             amountDisplays[2].innerHTML = actualDonation;
-            amountDisplays[3].innerHTML = stripeFee;
+            amountDisplays[3].innerHTML = Math.floor(stripeFee * 100) / 100;
         } else {
             amountDisplays[0].innerHTML = totalAmount;
             amountDisplays[1].innerHTML = '#';
