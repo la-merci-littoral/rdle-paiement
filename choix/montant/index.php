@@ -74,13 +74,13 @@ if (isset($_POST['goback'])) {
                 echo 'false';
             }
         ?>'
-        const taxEvasion = '<?php
+        const taxEvasionPercentage = '<?php
             if ($_SESSION['isCompany'] == true){
-                $taxEvasion = 60;
+                $taxEvasionPercentage = 60;
             } elseif ($_SESSION['isCompany'] == false){
-                $taxEvasion = 66;
+                $taxEvasionPercentage = 66;
             }
-            echo $taxEvasion;
+            echo $taxEvasionPercentage;
         ?>'
     </script>
     <script src="./app.js" defer></script>
@@ -145,7 +145,7 @@ if (isset($_POST['goback'])) {
                             <p>
                                 Si ces conditions sont remplies, 
                                 <ul>
-                                    <li>- Vous bénéficiez d'une déduction d'impôts de <b><?php echo $taxEvasion ?>% du montant de votre don</b></li>
+                                    <li>- Vous bénéficiez d'une déduction d'impôts de <b><?php echo $taxEvasionPercentage ?>% du montant de votre don</b></li>
                                     <li>- vous recevrez l'attestation de donation dans quelles semaines de la part de DMF34 directement.<br> Le montant pouvant être déduit est disponible sur cette page.</li>
                                 </ul>
                             </p>
