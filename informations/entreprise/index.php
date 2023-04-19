@@ -16,9 +16,8 @@
     $currentPage = 'info';
     $prefix = "../../";
 
-
-    require('../../config/db_connect.php');
-
+    require('../../../db_config.php');
+    require('../../config/insee_api.php');
     $_SESSION['info_error'] = false;
 
     $companyName = isset($_SESSION['companyName']) ? $_SESSION['companyName'] : "";

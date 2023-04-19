@@ -83,7 +83,7 @@
                     $sql = "INSERT INTO donations(amount_donated, real_amount, isAnonymous, isCard) VALUES ('$amount_donated', '$real_amount', '$isAnonymous', '$isCard')";
                 }
 
-                require('../config/db_connect.php');
+                require('../../db_config.php');
 
                 if (!mysqli_query($conn, $sql)) {
                     echo "Query error: " .mysqli_error($conn);

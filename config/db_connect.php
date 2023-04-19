@@ -2,7 +2,7 @@
 
     $servername = "ronde-de-l-espoir.fr";
     $username = "ctzs1179";
-    $password = "o2switch2022";
+    $password = "Delta43theta!";
     $dbname = "ctzs1179_donations";
     $inseeAPIKey = "b0872199-23cd-3fcb-8cbe-96abb5a6c802";
 

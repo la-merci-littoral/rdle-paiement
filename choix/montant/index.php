@@ -7,7 +7,7 @@ if (!isset($_SESSION['isAnonymous'])) {
     header('Location: ../../');
 }
 
-// require('../../config/db_connect.php');    
+require('../../../db_config.php');    
 $currentPage = 'amount';
 $prefix = "../../";
 
@@ -178,5 +178,4 @@ if (isset($_POST['goback'])) {
     ?>
 
 </body>
-
 </html>
