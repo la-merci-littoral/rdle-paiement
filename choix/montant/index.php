@@ -145,13 +145,14 @@ if (isset($_POST['goback'])) {
                             <p>
                                 Si ces conditions sont remplies, 
                                 <ul>
-                                    <li>- Vous bénéficiez d'une déduction d'impôts de <b><?php echo $taxEvasionPercentage ?>% du montant de votre don</b></li>
-                                    <li>- vous recevrez l'attestation de donation dans quelles semaines de la part de DMF34 directement.<br> Le montant pouvant être déduit est disponible sur cette page.</li>
+                                    <li>- Vous bénéficiez d'une déduction d'impôts à hauteur de <b><?php echo $taxEvasionPercentage ?>% du montant versé</b>.</li>
+                                    <li>- Vous recevrez l'attestation de donation dans quelles semaines de la part de DMF34 directement.</li>
                                 </ul>
                             </p>
                         <?php } else { ?>
-                            <p><span style="font-size: 17px;">🥺</span>Non, vous ne pouvez pas bénéficier d'une déduction d'impôts...</p>
-                            <p>Vous devez séléctionner "<i>Participer en tant qu'individu.</i>" ou "<i>Participer en tant qu'entreprise.</i>" sur <a href="../type">la page précédente</a>.
+                            <div style="height: 4px;"></div>
+                            <p>Vous ne pourrez pas bénéficier d'une déduction d'impôts.</p>
+                            <p>Si vous souhaitez en bénéficier d'une, choissisez "<i>Participer en tant qu'individu.</i>" ou "<i>Participer en tant qu'entreprise.</i>" sur <a href="../type">la page précédente</a>.
                             </p>
                         <?php } ?>
                         <div class="more-details">
