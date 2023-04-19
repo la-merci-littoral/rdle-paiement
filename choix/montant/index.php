@@ -151,7 +151,7 @@ if (isset($_POST['goback'])) {
                             </p>
                         <?php } else { ?>
                             <p><span style="font-size: 17px;">🥺</span>Non, vous ne pouvez pas bénéficier d'une déduction d'impôts...</p>
-                            <p>Vous devez séléctionner "<i>Participer en tant qu'individu.</i>" ou "<i>Participer en tant qu'entreprise.</i>" sur <a href="../choix/type">la page précédente</a>.
+                            <p>Vous devez séléctionner "<i>Participer en tant qu'individu.</i>" ou "<i>Participer en tant qu'entreprise.</i>" sur <a href="../type">la page précédente</a>.
                             </p>
                         <?php } ?>
                         <div class="more-details">
