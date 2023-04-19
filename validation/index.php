@@ -63,8 +63,12 @@
                     $companyAddressComplement = $_SESSION['companyAddressComplement'];
                     $companyPostal = $_SESSION['companyPostal'];
                     $companyCity = $_SESSION['companyCity'];
+                    $amount_donated = $_SESSION['amount_donated'];
+                    
+                    $stripeFee = round((0.25 + $totalAmount * 0.015) * 100) / 100;
+                    $real_amount = $amount_donated - $stripeFee;
 
-                    $sql = "INSERT INTO donations(companyName, companySIREN, companySIRET, companyContactAddress, companyAddress, companyAddressComplement, companyPostal, companyCity) VALUES(
+                    $sql = "INSERT INTO donations(companyName, companySIREN, companySIRET, companyContactAddress, companyAddress, companyAddressComplement, companyPostal, companyCity, amount_donated, real_amount, isCard, isDonSimple) VALUES(
                         '$companyName',
                         '$companySIREN',
                         '$companySIRET',
@@ -72,7 +76,11 @@
                         '$companyAddress',
                         '$companyAddressComplement',
                         '$companyPostal',
-                        '$companyCity'
+                        '$companyCity',
+                        '$amount_donated',
+                        '$real_amount',
+                        '$isCard',
+                        '$isDonSimple'
                     )";
 
                 } else {
