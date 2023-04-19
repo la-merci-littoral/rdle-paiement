@@ -8,7 +8,7 @@
     if (isset($_POST['submit-normal'])) {
         $_SESSION['isAnonymous'] = false;
         $_SESSION['isCompany'] = false;
-        header("Location: ../../error/");
+        header("Location: ../montant");
     } elseif (isset($_POST['submit-anonymous'])) {
         $_SESSION['isAnonymous'] = true;
         $_SESSION['isCompany'] = false;
