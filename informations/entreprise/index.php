@@ -18,7 +18,6 @@
 
 
     require('../../config/insee_api.php');
-
     $_SESSION['info_error'] = false;
 
     $companyName = isset($_SESSION['companyName']) ? $_SESSION['companyName'] : "";
