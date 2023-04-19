@@ -11,7 +11,7 @@
         if(isset($_SESSION['amount_donated'])) {
             return $_SESSION['amount_donated'] * 100;
         } else {
-            return 1400; // Temporary code to solve problem of no amount defined when Stripe looks for it.
+            header('Location: ../choix/montant/');
         }
     }
 
