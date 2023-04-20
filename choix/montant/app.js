@@ -17,12 +17,16 @@ function updateAmountDisplays(input) {
     if (totalAmount >= 10) {
         const stripeFee = 0.25 + totalAmount * 0.015;
         const actualDonation = Math.floor((totalAmount - stripeFee) * 100) / 100;
-        const taxEvasion = Math.floor(66 * actualDonation) / 100;
+        const taxEvasion = Math.floor(taxEvasionPercentage * actualDonation) / 100;
         
         amountDisplays[0].innerHTML = totalAmount;
-        amountDisplays[1].innerHTML = taxEvasion;
+        if (isAnonymous == 'false'){
+            amountDisplays[1].innerHTML = taxEvasion;
+        } else {
+            amountDisplays[1].innerHTML = '0';
+        }
         amountDisplays[2].innerHTML = actualDonation;
-        amountDisplays[3].innerHTML = stripeFee;
+        amountDisplays[3].innerHTML = Math.floor(stripeFee * 100) / 100;
     } else {
         if (totalAmount > 0) {
             const stripeFee = 0.25 + totalAmount * 0.015;
@@ -31,7 +35,7 @@ function updateAmountDisplays(input) {
             amountDisplays[0].innerHTML = totalAmount;
             amountDisplays[1].innerHTML = '0';
             amountDisplays[2].innerHTML = actualDonation;
-            amountDisplays[3].innerHTML = stripeFee;
+            amountDisplays[3].innerHTML = Math.floor(stripeFee * 100) / 100;
         } else {
             amountDisplays[0].innerHTML = totalAmount;
             amountDisplays[1].innerHTML = '#';
