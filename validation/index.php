@@ -36,8 +36,8 @@
                     $addressComplement = $_SESSION['addressComplement'];
                     $amount_donated = $_SESSION['amount_donated'];
 
-                    $stripeFee = round((0.25 + $totalAmount * 0.015) * 100) / 100;
-                    $real_amount = $amount_donated - $stripeFee;
+                    $stripeFee = 0.25 + $amount_donated * 0.015;
+                    $real_amount = floor(($amount_donated - $stripeFee) * 100) / 100;
 
                     $sql = "INSERT INTO donations(lname, fname, postal, city, email, phone, mailingAddress, addressComplement, amount_donated, real_amount, isCard, isDonSimple) VALUES(
                         '$lname',
@@ -65,8 +65,8 @@
                     $companyCity = $_SESSION['companyCity'];
                     $amount_donated = $_SESSION['amount_donated'];
                     
-                    $stripeFee = round((0.25 + $totalAmount * 0.015) * 100) / 100;
-                    $real_amount = $amount_donated - $stripeFee;
+                    $stripeFee = 0.25 + $amount_donated * 0.015;
+                    $real_amount = floor(($amount_donated - $stripeFee) * 100) / 100;
 
                     $sql = "INSERT INTO donations(companyName, companySIREN, companySIRET, companyContactAddress, companyAddress, companyAddressComplement, companyPostal, companyCity, amount_donated, real_amount, isCard, isDonSimple) VALUES(
                         '$companyName',
