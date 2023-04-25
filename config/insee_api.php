@@ -1,3 +1,3 @@
 <?php
-$inseeAPIKey = "82f648ea-28fe-3e41-8c56-2a7d519cd113";
+$inseeAPIKey = "ab3f4fab-4914-3b2d-9c89-7721b4a915ed";
 ?>
