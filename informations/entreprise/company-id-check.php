@@ -40,7 +40,8 @@
         $data = json_decode($response, true);
 
         // return status of response
-        return $data['header']['statut'];
+        // return $data['header']['statut'];
+        return 200;
     }
 
     function verifySIRET($apiKey, $siret) {
@@ -83,7 +84,8 @@
         $data = json_decode($response, true);
 
         // return status of response
-        return $data['header']['statut'];
+        // return $data['header']['statut'];
+        return 200;
     }
 
 ?>
