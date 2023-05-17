@@ -11,7 +11,6 @@ document
     .addEventListener("submit", handleSubmit);
 
 
-var emailAddress = '';
 // Fetches a payment intent and captures the client secret
 async function initialize() {
     
