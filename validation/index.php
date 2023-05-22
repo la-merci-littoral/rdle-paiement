@@ -91,7 +91,7 @@
                     $sql = "INSERT INTO donations(amount_donated, real_amount, isAnonymous, isCard) VALUES ('$amount_donated', '$real_amount', '$isAnonymous', '$isCard')";
                 }
 
-                require('../../db_config.php');
+                require('../config/tempo_db.php');
 
                 if (!mysqli_query($conn, $sql)) {
                     echo "Query error: " .mysqli_error($conn);
@@ -144,8 +144,9 @@
                 $currentPage = "success";
                 include('../modules/progress.php');
 
-                if ($success) {                
-                    session_destroy();
+                if (isset($success)) {                
+                    // session_destroy();
+                    echo('Should destroy.');
                 }
             ?>
 
