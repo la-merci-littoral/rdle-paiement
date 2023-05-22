@@ -2,7 +2,7 @@
 
     $servername = "ronde-de-l-espoir.fr";
     $username = "ctzs1179";
-    $password = "***REMOVED***";
+    $password = "Omega56alpha&";
     $dbname = "ctzs1179_donations";
     $inseeAPIKey = "***REMOVED***";
 
