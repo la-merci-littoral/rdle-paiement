@@ -11,7 +11,6 @@ document
     .addEventListener("submit", handleSubmit);
 
 
-var emailAddress = '';
 // Fetches a payment intent and captures the client secret
 async function initialize() {
     
@@ -45,8 +44,7 @@ async function handleSubmit(e) {
         elements,
         confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: $realUrl,
-        receipt_email: emailAddress,
+        return_url: $realUrl
         },
     });
 
