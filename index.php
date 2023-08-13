@@ -1,11 +1,11 @@
 <?php
-    // if (session_status() == PHP_SESSION_NONE) {
-    //     session_start();
-    // }
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
 
-    // foreach($_SESSION as $element) {
-    //     echo $element, '  |  ';
-    // }
+    foreach($_SESSION as $element) {
+        echo $element, '  |  ';
+    }
 
     // ------------ Please do not initialize session variables above this line ------------- //
 
@@ -26,33 +26,17 @@
     // ------------- End of debugging code -------------- //
     
 
-    // if (!isset($_SESSION['isAnonymous']) or !isset($_SESSION['isCompany'])) {
-    //     header('Location: ./choix/type/');
-    // } elseif ($_SESSION['isAnonymous'] == false and $_SESSION['isCompany'] == false) {
-    //     header("Location: ./choix/montant");
-    // } elseif ($_SESSION['isAnonymous'] == true) {
-    //     $_SESSION['submit'] = true;
-    //     header("Location: ./choix/montant/");
-    // } elseif ($_SESSION['isAnonymous'] == false and $_SESSION['isCompany'] == true) {
-    //     $_SESSION['submit'] = true;
-    //     header("Location: ./choix/montant");
-    // } else {
-    //     header('Location: ./choix/type/');
-    // }
-?> 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="end-style.css">
-    <title>Paiement - Ronde de l'Espoir</title>
-</head>
-<body>
-    <main>
-        <p>Les dons se sont arrêtés à 20:00 !</p>
-    </main>
-</body>
-</html>
+    if (!isset($_SESSION['isAnonymous']) or !isset($_SESSION['isCompany'])) {
+        header('Location: ./choix/type/');
+    } elseif ($_SESSION['isAnonymous'] == false and $_SESSION['isCompany'] == false) {
+        header("Location: ./choix/montant");
+    } elseif ($_SESSION['isAnonymous'] == true) {
+        $_SESSION['submit'] = true;
+        header("Location: ./choix/montant/");
+    } elseif ($_SESSION['isAnonymous'] == false and $_SESSION['isCompany'] == true) {
+        $_SESSION['submit'] = true;
+        header("Location: ./choix/montant");
+    } else {
+        header('Location: ./choix/type/');
+    }
+?>  
