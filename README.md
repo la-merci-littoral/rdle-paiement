@@ -1,2 +1,6 @@
-# paiement
-Le repo qui contient les fichiers de l'interface de don
+# Paiement
+
+Welcome to paiement ! 
+This is the repo where the donation website is coded.
+
+

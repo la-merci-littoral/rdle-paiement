@@ -3,8 +3,9 @@
         session_start();
     }
 
-    $prefix = "../../";
+    $prefix = "../../"; // useful for local imports
 
+    // These will only be *set* when the user submits the below form
     if (isset($_POST['submit-normal'])) {
         $_SESSION['isAnonymous'] = false;
         $_SESSION['isCompany'] = false;
@@ -18,10 +19,11 @@
         $_SESSION['isAnonymous'] = false;
         header("Location: ../montant");
     }
+    // isAnonymous and isCompany are the 2 boolean values defining the user type
 ?>
 
 <!DOCTYPE html>
-<html lang="en" not-to-be-blurred>
+<html lang="en" not-to-be-blurred> <!-- you'll understand afterwards -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,19 +46,19 @@
 
     <?php
         require('../../modules/nav.php');
-        $dots = '../../';
+        $dots = '../../'; // same as $prefix, but if it works, don't touch it
     ?>
 
     <main not-to-be-blurred>
-        <form action="./" method="POST">
+        <form action="./" method="POST"> <!-- sends a POST to the server on the current URL so this triggers the redirects (see above) -->
             <ul id="choices">
                 <li id="individual">
-                    <p> Je participe en tant qu'<span class="highlight" data-value="individu">individu</span>!</p>
+                    <p> Je participe en tant qu'<span class="highlight" data-value="individu">individu</span>!</p> <!-- to understand the spans, see ./choosing.js -->
                     <input type="submit" name="submit-normal" value="arrow_forward_ios" class="material-symbols-outlined">
                 </li>
                 <li id="individual anonymous">
                     <p> Je souhaite participer <span class="highlight" data-value="anonymement">anonymement</span>.</p>
-                    <div><a class="material-symbols-outlined" onclick="openAnonymous()">arrow_forward_ios </a></div>
+                    <div><a class="material-symbols-outlined" onclick="openAnonymous()">arrow_forward_ios </a></div> <!-- opens the below #confirm-box -->
                 </li>
                 <li id="company">
                     <p> Participer en tant qu'<span class="highlight" data-value="entreprise">entreprise</span>.</p>
@@ -70,12 +72,13 @@
             <p not-to-be-blurred>En continuant anonymement, vous ne pourrez pas :</p>
             <ul not-to-be-blurred>
                 <li not-to-be-blurred>Profiter d'une déduction d'impôts</li>
+                <!-- <li not-to-be blurred>Etre remercié(e) personnellement si vous faites un don très généreux</li> --> <!-- add this if you want...-->
             </ul>
             <br>
             <form action="./index.php" method="POST" not-to-be-blurred>
                 <div id="confirmation-input" not-to-be-blurred>
                     <label not-to-be-blurred>
-                        <input type="checkbox" name="anonymous" value="1" onclick="toggleSubmit(this)" not-to-be-blurred>
+                        <input type="checkbox" name="anonymous" value="1" onclick="toggleSubmit(this)" not-to-be-blurred> <!-- enables the submit button -->
                         <span not-to-be-blurred id="chkbx-text">Je confirme vouloir rester anonyme</span>
                     </label>
                     <!-- <label for="anonymous" not-to-be-blurred>Je confirme vouloir rester anonyme</label> -->
@@ -90,7 +93,7 @@
     </main>
 
     <?php
-        require('../../modules/help.php');
+        require('../../modules/help.php'); // TO FIX : CLASHES WITH THE BLUR (iirc)
     ?>
 
 

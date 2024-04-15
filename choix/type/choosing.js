@@ -33,6 +33,10 @@ const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 // ]
 // Remains of a design attempt badly imagined...
 
+/* 
+ * YANNIS EXPLAIN THIS PLEASE
+ */
+
 document.querySelectorAll('.highlight').forEach(element => {
     element.onmouseover = event => {
         let iterations = 0;
@@ -55,7 +59,7 @@ document.querySelectorAll('.highlight').forEach(element => {
     }
 })
 
-function openAnonymous() {
+function openAnonymous() { // pretty self-explanatory
     const everything = document.getElementsByTagName("*");
     for (let i = 0; i < everything.length; i++) {
         if (!(everything[i].hasAttribute('not-to-be-blurred'))) {
@@ -67,7 +71,7 @@ function openAnonymous() {
     // document.getElementsByClassName("header-wrapper").classList.add("blurred")
 }
 
-function toggleSubmit(val){
+function toggleSubmit(val){ // noob JS, easy
     var sbmtBtn = document.getElementsByName("submit-anonymous")[0]
     if (val.checked){
         sbmtBtn.disabled = false
