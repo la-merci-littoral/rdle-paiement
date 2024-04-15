@@ -4,24 +4,24 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 if (!isset($_SESSION['isAnonymous'])) {
-    header('Location: ../../');
+    header('Location: ../../'); // malicious users can't jump the /choix/type step
 }
 
-require('../../../db_config.php');    
-$currentPage = 'amount';
-$prefix = "../../";
+require('../../../db_config.php'); // connects to DB, useless now, see below
+$currentPage = 'amount'; // useless
+$prefix = "../../"; // like before
 
-$amount = isset($_SESSION['amount_donated']) ? $_SESSION['amount_donated'] : "";
+$amount = isset($_SESSION['amount_donated']) ? $_SESSION['amount_donated'] : ""; // sets the amount if it's already been selected (case where user goes back)
 
-$error = '';
+$error = ''; // init $error
 
-if (isset($_POST['goback'])) {
-    $_SESSION['amount_donated'] = $_POST['amount'];
+if (isset($_POST['goback'])) { // backwards
+    $_SESSION['amount_donated'] = $_POST['amount']; // amount_donated is the SESSION key, whereas amount is the POST key, DO NOT MIX THEM UP (it caused us 2 days of downtime in 2023)
     header('Location: ../type');
-} elseif (isset($_POST['submit'])) {
+} elseif (isset($_POST['submit'])) { // forwards
 
     if (empty($_POST['amount'])) {
-        $error = 'Une contribution est requise.';
+        $error = 'Une contribution est requise.'; // lol
         $amount = '';
     } else {
         $amount = $_POST['amount'];
@@ -34,11 +34,13 @@ if (isset($_POST['goback'])) {
         }
     }
 
-    if (empty($error)) {
+    if (empty($error)) { // if no error
 
         // check for dangerous MySQL code
         // $_SESSION['amount_donated'] = mysqli_real_escape_string($conn, $amount);
+        // this is why we connected to the DB, but it's not needed any more as more verification comes later on
 
+        // self-explanatory, really
         if ($_SESSION['isAnonymous']) {
             header('Location: ../../paiement');
         } elseif ($_SESSION['isCompany']) {
@@ -68,13 +70,13 @@ if (isset($_POST['goback'])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script>
         const isAnonymous = '<?php 
-            if ($_SESSION['isAnonymous'] == true){
+            if ($_SESSION['isAnonymous'] == true){ // passes the anonymous-y to the frontend
                 echo 'true';
             } else {
                 echo 'false';
             }
         ?>'
-        const taxEvasionPercentage = '<?php
+        const taxEvasionPercentage = '<?php // we thought this should be server-side
             if ($_SESSION['isCompany'] == true){
                 $taxEvasionPercentage = 60;
             } elseif ($_SESSION['isCompany'] == false){
@@ -91,7 +93,7 @@ if (isset($_POST['goback'])) {
 
     <?php
     require('../../modules/nav.php');
-    $dots = '../../';
+    $dots = '../../'; // again, like before, useless
     ?>
 
     <main>
@@ -101,7 +103,7 @@ if (isset($_POST['goback'])) {
             <div class="form-separation"></div>
             <div class="column-wrapper">
                 <div class="column" id="input-column">
-                    <div class="field">
+                    <div class="field">                                                                         <!-- I WISH -->
                         <p>Je donne : <input type="number" name="amount" id="free-choice" placeholder="" min="0" max="100000" value="<?php echo $amount ?>">€</p>
                         <p class="error"><?php echo $error; ?></p>
                         <div class="suggestions">
@@ -109,13 +111,14 @@ if (isset($_POST['goback'])) {
                                 <li><button type="button" class="suggested-amount" onclick="inputSuggestedAmount(10, input)">10€</button></li>
                                 <li><button type="button" class="suggested-amount" onclick="inputSuggestedAmount(15, input)">15€</button></li>
                                 <li><button type="button" class="suggested-amount" onclick="inputSuggestedAmount(30, input)">30€</button></li>
+                                <!-- for a psychological effect, consider adding a bigger option -->
                             </ul>
                         </div>
                     </div>
                     <div class="transparency">
                         <h4>Sur mes <span class="amount-display">#</span>€ :</h4>
                         <ul>
-                            <li id="tax-deduction"> - <span class="amount-display">#</span>€ sont déductibles de vos impôts!</li>
+                            <li id="tax-deduction"> - <span class="amount-display">#</span>€ sont déductibles de vos impôts!</li>                                                         <!-- TO EDIT -->
                             <li id="assoc-display"> - <span class="amount-display" id="assoc-amount">#</span>€ partent pour <a href="https://ronde-de-l-espoir.fr/infos/dmf-34" target="_blank">DMF34</a>, l'association que nous supportons.</li>
                             <li id="stripe-display"> - <span class="amount-display" id="stripe-amount">#</span>€ de commission <a href="https://stripe.com/fr" target="_blank">Stripe</a>.</li>
                         </ul>
@@ -124,6 +127,8 @@ if (isset($_POST['goback'])) {
                 <div class="separation"></div>
                 <div class="column">
                     <div class="tax-deduction-infos">
+                        <!-- oh, this is boring to explain -->
+                        <!-- just legal text, read it, you'll understand -->
                         <h3>Pouvez-vous bénéficier d'une déduction d'impôts?</h3>
                         <?php if ($_SESSION['isAnonymous'] == false) { ?>
                             <p>
