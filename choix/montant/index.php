@@ -8,7 +8,7 @@ if (!isset($_SESSION['isAnonymous'])) {
 }
 
 require('../../../db_config.php'); // connects to DB, useless now, see below
-$currentPage = 'amount';
+$currentPage = 'amount'; // for the progress bar
 $prefix = "../../"; // like before
 
 $amount = isset($_SESSION['amount_donated']) ? $_SESSION['amount_donated'] : ""; // sets the amount if it's already been selected (case where user goes back)

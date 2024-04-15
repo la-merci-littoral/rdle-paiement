@@ -4,7 +4,6 @@
     $username = "ctzs1179";
     $password = "***REMOVED***";
     $dbname = "ctzs1179_donations";
-    $inseeAPIKey = "***REMOVED***";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 

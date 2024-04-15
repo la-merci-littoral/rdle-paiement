@@ -1,5 +1,7 @@
 <?php
 
+    // $apiKey is defined in ../../config/insee_api.php
+
     function verifySIREN($apiKey, $siren) {
         // turn SIREN into a usable string for the API
         $siren = str_replace(" ", "", $siren);

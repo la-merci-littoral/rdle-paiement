@@ -3,6 +3,11 @@
         session_start();
     }
 
+    /* 
+    * PLEASE REFER TO ../INDIVIDU/INDEX.PHP FOR COMMENTS
+    * except for company specific stuff...
+    */
+
     if (!isset($_SESSION['isAnonymous']) || !isset($_SESSION['amount_donated']) || $_SESSION['amount_error']) {
         header('Location: ../../choix/montant/');
     }
@@ -11,13 +16,13 @@
         header('Location: ../../');
     }
 
-    require('./company-id-check.php');
+    require('./company-id-check.php'); // important
 
     $currentPage = 'info';
     $prefix = "../../";
 
     require('../../../db_config.php');
-    require('../../config/insee_api.php');
+    require('../../config/insee_api.php'); // gives the $inseeApiKey variable
     $_SESSION['info_error'] = false;
 
     $companyName = isset($_SESSION['companyName']) ? $_SESSION['companyName'] : "";
@@ -71,10 +76,13 @@
         } else {
             $companySIREN = $_POST['companySIREN'];
             $_SESSION['companySIREN'] = $_POST['companySIREN'];
+
+            // we turned it off because it was bugging
+            // but please debug it
             
             // $sirenStatus = verifySIREN($inseeAPIKey, $companySIREN);
             $sirenStatus = 200;
-            if ($sirenStatus == 200) {
+            if ($sirenStatus == 200) { // see ./company-id-check.php
                 echo '';
             } elseif ($sirenStatus == 404) {
                 $errors['companySIREN'] = "Ce numéro SIREN n'existe pas.";
@@ -90,6 +98,8 @@
         } else {
             $companySIRET = $_POST['companySIRET'];
             $_SESSION['companySIRET'] = $_POST['companySIRET'];
+
+            // again, debug it
 
             // $siretStatus = verifySIRET($inseeAPIKey, $companySIRET);
             $siretStatus = 200;

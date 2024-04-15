@@ -3,8 +3,8 @@
         session_start();
     }
 
-    if (!isset($_SESSION['isAnonymous']) || !isset($_SESSION['amount_donated']) || $_SESSION['amount_error']) {
-        header('Location: ../../choix/montant/');
+    if (!isset($_SESSION['isAnonymous']) || !isset($_SESSION['amount_donated']) || $_SESSION['amount_error']) { // || means OR
+        header('Location: ../../choix/montant/'); // you cannot skip montant
     }
 
     $currentPage = 'info';
@@ -15,6 +15,7 @@
 
     $_SESSION['info_error'] = false;
 
+    // gets all the values or inits them
     $lname = isset($_SESSION['lname']) ? $_SESSION['lname'] : "";
     $fname = isset($_SESSION['fname']) ? $_SESSION['fname'] : "";
     $postal = isset($_SESSION['postal']) ? $_SESSION['postal'] : "";
@@ -24,6 +25,7 @@
     $address = isset($_SESSION['address']) ? $_SESSION['address'] : "";
     $addressComplement = isset($_SESSION['addressComplement']) ? $_SESSION['addressComplement'] : "";
     
+    // empty error
     $errors = array(
         'lname'=>'',
         'fname'=>'',
@@ -35,7 +37,7 @@
         'addressComplement'=>''
     );
 
-    if (isset($_POST['goback'])) {
+    if (isset($_POST['goback'])) { // backwards
         $_SESSION['lname'] = isset($_POST['lname']) ? $_POST['lname'] : "";
         $_SESSION['fname'] = isset($_POST['fname']) ? $_POST['fname'] : "";
         $_SESSION['postal'] = isset($_POST['postal']) ? $_POST['postal'] : "";
@@ -48,7 +50,9 @@
         header("Location: ../../choix/montant/");
     }
 
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['submit'])) { // forwards
+
+        // PLEASE REPLACE a-zA-Z regexes with \p{S} (or something along those lines) : it allows any Unicode character
 
         if (empty($_POST['lname'])) {
             $errors['lname'] = "Un nom est requis.";
@@ -56,7 +60,7 @@
             $lname = $_POST['lname'];
             $_SESSION['lname'] = $_POST['lname'];
 
-            if (!preg_match('/^[a-zA-Z\-\s]+$/', $lname)) {
+            if (!preg_match('/^[a-zA-Z\-\s]+$/', $lname)) { 
 
                 $errors['lname'] = "Nom invalide.";
                 $_SESSION['info_error'] = true;
@@ -101,7 +105,7 @@
         } else {
             $email = $_POST['email'];
             $_SESSION['email'] = $_POST['email'];
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { // no regex needed, PHP does it natively
                 $errors['email'] = "E-mail invalide.";
                 $_SESSION['info_error'] = true;
             }
@@ -111,8 +115,9 @@
             $errors['phone'] = "Un numéro de téléphone est requis.";
         } else {
             $phone = $_POST['phone'];
-            $_SESSION['phone'] = $_POST['phone'];
-            if (!preg_match('/^(0|(\+33[\s]?([0]?|[(0)]{3}?)))[1-9]([-. ]?[0-9]{2}){4}$/', $phone)) {    //@Skyman-2 better regex, all by myself 😎. Explanations here : regexr.com/79hsg
+            $_SESSION['phone'] = $_POST['phone'];               //@Skyman-2 better regex, all by myself 😎.
+            if (!preg_match('/^(0|(\+33[\s]?([0]?|[(0)]{3}?)))[1-9]([-. ]?[0-9]{2}){4}$/', $phone)) { // Explanations here : regexr.com/79hsg
+                
                 $errors['phone'] = "Numéro de téléphone invalide.";
                 $_SESSION['info_error'] = true;
             }
@@ -151,7 +156,7 @@
         if (!array_filter($errors)) {
             // check for dangerous MySQL code
             $_SESSION['lname'] = mysqli_real_escape_string($conn, $lname);
-            $_SESSION['fname'] = mysqli_real_escape_string($conn, $fname);
+            $_SESSION['fname'] = mysqli_real_escape_string($conn, $fname);    // mysqli_real_escape_string needs a connection to the DB weirdly enough
             $_SESSION['postal'] = mysqli_real_escape_string($conn, $postal);
             $_SESSION['city'] = mysqli_real_escape_string($conn, $city);
             $_SESSION['email'] = mysqli_real_escape_string($conn, $email);
@@ -160,7 +165,7 @@
             $_SESSION['addressComplement'] = mysqli_real_escape_string($conn, $addressComplement);
             
             $_SESSION['submit'] = true;
-            header('Location: ../../paiement');
+            header('Location: ../../paiement'); // we're getting to the fun stuff
             die();
         }
     }
