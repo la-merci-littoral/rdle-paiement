@@ -1,6 +1,7 @@
 <?php 
+    // Check if $dots variable is not set
     if (!isset($dots)) {
-        $dots = '../';
+        $dots = '../'; // Set $dots to '../' if it's not set
     }
 ?>
 

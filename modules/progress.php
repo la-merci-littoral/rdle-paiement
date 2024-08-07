@@ -2,13 +2,12 @@
 <!-- <script src="../modules/progress.js" defer></script> -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-
-<!-- Exemple of progress bar for people not choosing anonymous -->
 <div class="progress-bar">
     <ul id="progress-steps">
 
         <?php
         
+        // Check if session is not already started
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
@@ -20,7 +19,7 @@
         $infoStatus = ["", ""];
 
 
-        // Verify which class to add to each step
+        // Verify which class to add to each step based on the current page
         if ($currentPage == "success") {
             $successStatus = ["current-text", "current"];
             $paymentStatus = ["done-text", "done"];
@@ -37,6 +36,7 @@
             $amountStatus = ["done-text", "done"];
         }
         
+        // Check if user is not anonymous
         if ($_SESSION['isAnonymous'] == false) { ?>
             
             <li class="step <?php echo $amountStatus[0] ?>"><span class="<?php echo $amountStatus[1] ?> numeric-indicator">1</span><span class="section-info">Montant</span></li>

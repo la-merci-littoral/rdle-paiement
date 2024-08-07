@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Space+Mono&display=swap');
 
 :root {
-    --soft-white: #E5E9EC;
-    --LM-color: #0099D7;
+    --soft-white: #E5E9EC; /* Define a custom CSS variable for soft white color */
+    --LM-color: #0099D7; /* Define a custom CSS variable for LM color */
 }
 
 * {
@@ -16,7 +16,7 @@
 .progress-bar {
     margin-inline: auto;
     /* width: 35vw; */
-    width: 550px;
+    width: 550px; /* Set the width of the progress bar */
     height: 45px;
     border-radius: 12px 12px 0 0;
     font-size: 14px;
@@ -94,9 +94,9 @@
 
 @media only screen and (max-width: 650px) {
     .progress-bar {
-        width: 100%;
+        width: 100%; /* Set the width of the progress bar to 100% on smaller screens */
     }
     .section-info {
-        display: none;
+        display: none; /* Hide the section info on smaller screens */
     }
 }
