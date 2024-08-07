@@ -2,40 +2,37 @@ const stripe = Stripe("pk_live_51MKmfEHCHeIMvgvqEm06zmt6Yk5xziwdTlpgv1FbY3nPI5MM
 
 let elements;
 
-
-initialize();
-checkStatus();
+initialize(); // Call the initialize function to set up the payment form
+checkStatus(); // Call the checkStatus function to check the payment intent status
 
 document
     .querySelector("#payment-form")
-    .addEventListener("submit", handleSubmit);
-
+    .addEventListener("submit", handleSubmit); // Add an event listener to the payment form submit button, calling the handleSubmit function
 
 // Fetches a payment intent and captures the client secret
 async function initialize() {
-    
     const { clientSecret } = await fetch("paiement-process.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         // body: JSON.stringify({ items }),
-    }).then((r) => r.json());
-    
-    elements = stripe.elements({ clientSecret });
-  
+    }).then((r) => r.json()); // Fetch the client secret from the server
+
+    elements = stripe.elements({ clientSecret }); // Create Stripe elements using the client secret
+
     const linkAuthenticationElement = elements.create("linkAuthentication");
-    linkAuthenticationElement.mount("#link-authentication-element");
-  
+    linkAuthenticationElement.mount("#link-authentication-element"); // Mount the linkAuthentication element to the specified DOM element
+
     const paymentElementOptions = {
         layout: "tabs",
     };
-  
+
     const paymentElement = elements.create("payment", paymentElementOptions);
-    paymentElement.mount("#payment-element");
+    paymentElement.mount("#payment-element"); // Mount the payment element to the specified DOM element
 }
 
 async function handleSubmit(e) {
     e.preventDefault();
-    setLoading(true);
+    setLoading(true); // Set loading state to true
 
     $localUrl = "https://localhost/paiement/validation/index.php";
     $realUrl = "https://paiement.ronde-de-l-espoir.fr/validation/index.php";
@@ -43,49 +40,47 @@ async function handleSubmit(e) {
     const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-        // Make sure to change this to your payment completion page
-        return_url: $realUrl
+            // Make sure to change this to your payment completion page
+            return_url: $realUrl
         },
-    });
+    }); // Confirm the payment with Stripe
 
     if (error.type === "card_error" || error.type === "validation_error") {
-        showMessage(error.message);
+        showMessage(error.message); // Show error message if there is a card or validation error
     } else {
-        showMessage("An unexpected error occurred.");
+        showMessage("An unexpected error occurred."); // Show a generic error message
     }
 
-    setLoading(false);
+    setLoading(false); // Set loading state to false
 }
 
 // Fetches the payment intent status after payment submission
 async function checkStatus() {
     const clientSecret = new URLSearchParams(window.location.search).get(
-    "payment_intent_client_secret"
-    );
+        "payment_intent_client_secret"
+    ); // Get the client secret from the URL query parameter
 
     if (!clientSecret) {
         return;
     }
 
-    const { paymentIntent } = await stripe.retrievePaymentIntent(clientSecret);
+    const { paymentIntent } = await stripe.retrievePaymentIntent(clientSecret); // Retrieve the payment intent from Stripe
 
     switch (paymentIntent.status) {
         case "succeeded":
-            showMessage("Payment succeeded!");
+            showMessage("Payment succeeded!"); // Show success message if payment is succeeded
             break;
         case "processing":
-            showMessage("Your payment is processing.");
+            showMessage("Your payment is processing."); // Show processing message if payment is still processing
             break;
         case "requires_payment_method":
-            showMessage("Your payment was not successful, please try again.");
+            showMessage("Your payment was not successful, please try again."); // Show error message if payment requires a new payment method
             break;
         default:
-            showMessage("Something went wrong.");
+            showMessage("Something went wrong."); // Show generic error message
             break;
     }
 }
-
-
 
 function showMessage(messageText) {
     const messageContainer = document.querySelector("#payment-message");
