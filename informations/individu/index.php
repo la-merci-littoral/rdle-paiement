@@ -11,7 +11,7 @@
 
     $prefix = "../../";
 
-    require('../../config/db_connect.php');
+    require('../../../db_config.php');
 
     $_SESSION['info_error'] = false;
 
