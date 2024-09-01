@@ -4,7 +4,7 @@
     }
 
     foreach($_SESSION as $element) {
-        echo $element, '  |  ';
+        echo $element, '  |  '; // for debugging purposes, isn't shown to the user anyway as the router redirects immediately
     }
 
     // ------------ Please do not initialize session variables above this line ------------- //
@@ -24,8 +24,9 @@
     // die("Choosing variables successfully reset ! Please comment the code and refresh the page. 😊");
 
     // ------------- End of debugging code -------------- //
-    
 
+    
+    /* ROUTER */
     if (!isset($_SESSION['isAnonymous']) or !isset($_SESSION['isCompany'])) {
         header('Location: ./choix/type/');
     } elseif ($_SESSION['isAnonymous'] == false and $_SESSION['isCompany'] == false) {

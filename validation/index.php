@@ -12,9 +12,11 @@
 
     // Also, if you want to bypass the payment but still arrive in the DB, please add `or true`
     // to the following (uncommented) line. It will become :
-    // if (isset($_SESSION['submit']) or true == true) {
+    // if (isset($_SESSION['submit']) or true) {
     //     ...
     // }
+
+    // FINAL DATABASE INSERTS
 
     if (isset($_SESSION['submit'])) {
         if (isset($_GET['redirect_status'])) {

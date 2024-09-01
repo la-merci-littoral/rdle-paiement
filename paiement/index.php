@@ -4,6 +4,7 @@
         session_start();
     }
 
+    // VARIOUS CHECKS TO SEE IF THE USER IS ALLOWED TO PROCEED TO PAYMENT
     if (isset($_SESSION['isAnonymous'])) {
         if ($_SESSION['isAnonymous'] == true) {
             echo '';

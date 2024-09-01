@@ -1,9 +1,14 @@
 # Paiement
 
-Welcome to paiement ! 
-This is the repo where the donation website is coded.
+This repository corresponds to the donation website.
 
-The DB schema is the following :
+> [!TIP]
+> When we first started coding this site, we didn't know yet if there were going to be payments other than donations.
+> It would probably be a good idea now to rename this entire repo (and its subdomain) to `donation`
+
+## Technical
+
+The donations DB schema is the following :
 
 ```sql
 CREATE TABLE `donations` (
@@ -46,3 +51,42 @@ ALTER TABLE `donations`
 
 COMMIT;
 ```
+
+Please note the last properties in the database aren't used here (as the payments are always by card), but rather [in the staff's app](https://github.com/ronde-de-l-espoir/app-www/tree/main/money-form).
+
+## Stripe
+
+Since the very beginning, we decided we'd go with [Stripe](https://stripe.com) because the PHP and JS implementation is really quite simple (and we didn't have that much time to spare...).
+
+When you setup Stripe, you need to enter the legal details of your company.
+As we do not have legal details as the "Ronde de l'Espoir", you must enter the information the association you are helping sends you.
+
+You will have to ask for the following (in French for direct copy-n-paste in your email...) :
+* Le type de société (Association/Société/Micro-entreprise/Auto-entrepreneur)
+* Association de fait/déclarée ?
+* La dénomination sociale
+* SIREN
+* Adresse
+* Téléphone
+* Site web (ou réseaux sociaux)
+* Description de l’activité (en 1 ou 2 phrases)
+* A propos du représentant légal :
+  - Nom et prénom
+  - Adresse mail
+  - Intitulé du poste (gérant…)
+  - Date de naissance
+  - Adresse
+  - Téléphone personnel
+* Numéro IBAN du compte bancaire de l’association recevant les fonds
+
+Stripe proposes a test mode, with test API keys.
+On the opening of the donations, make sure to replace the test API keys by the real ones (yes, we practically made that mistake)...
+
+## Possible (and necessary) improvements
+
+Before proceeding to payment, or next to the Stripe Elements box, it would be nice to have a recap of the donation.
+The donators would probably feel much more at ease before paying.
+
+Also, you should add help buttons everywhere, because it turned out the website was 2 entire days, and nobody was reporting any issue...
+
+Lastly, to avoid problems with the test and real API keys as discussed above, it would be nice to use the test keys on the `dev.paiement` site and the real ones on `paiement`, although deploying that doesn't seem easy...
